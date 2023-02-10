@@ -20,18 +20,25 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
 </head>
-<body>
-    <nav>
-        <select name="general" id="nav_general">
-            <option value="home">Home</option>
-            <option value="projets">Projets</option>
-            <option value="formation">Formation</option>
-            <option value="hobbies">Hobbies</option>
-            <option value="contact">Contact</option>
-        </select>
+<body class="bg_purpleDark">
+    <nav id="nav_general" class="bg_purpleDark">
+        <!-- <select name="general" id="nav_general">
+            <option id="opt_home" value="home">Home</option>
+            <option id="opt_projets" value="projets">Projets</option>
+            <option id="opt_formation" value="formation">Formation</option>
+            <option id="opt_hobbies" value="hobbies">Hobbies</option>
+            <option id="opt_contact" value="contact">Contact</option>
+        </select> -->
+        <ul>
+            <li id="nav-home" class="bg_purple">Home</li>
+            <li id="nav-projets" class="bg_gray">Projets</li>
+            <li id="nav-formation" class="bg_purple">Formations</li>
+            <li id="nav-hobbies" class="bg_gray">Hobbies</li>
+            <li id="nav-contact" class="bg_purple">Contact</li>
+        </ul>
     </nav>
 
-    <main>
+    <main class="bg_purple">
 
         <section id="home" class="inline_flex">
             <img class="heptagone" src="asset/IMG_1349.JPG" alt="photo de Clément">
@@ -72,8 +79,8 @@
             </div>
         </section>
 
-        <section id="projets" class="radiusL">
-            <h2 class="section_titre">Projets</h2>
+        <section id="projets" class="bg_gray">
+            <h2 id="titre-projets" class="section_titre bg_gray">Projets</h2>
             <div class="flex_projet">
                 <div class="inline_flex p_projet shadow_purple card">
                     <div class="m_10 content_card">
@@ -219,7 +226,7 @@
         </section>
 
         <section id="formation">
-            <h2 class="section_titre">Formations</h2>
+            <h2 id="titre-formation" class="section_titre bg_purple">Formations</h2>
             <div class="inline_flex p_projet shadow_gray">
                 <div class="m_10">
                     <h3>CCI Formation 2022 <br>Développeur Web Fullstack</h3>
@@ -316,8 +323,8 @@
 
         </section>
         
-        <section id="hobbies" class="radiusL">
-            <h2 class="section_titre">Hobbies</h2>
+        <section id="hobbies" class="bg_gray">
+            <h2 id="titre-hobbies" class="section_titre bg_gray">Hobbies</h2>
             <!-- Cuisine -->
             <div class="inline_flex p_projet shadow_purple">
                 
@@ -358,7 +365,7 @@
                 </div>
                 
             </div>
-
+        
             <!-- Photographie -->
             <div class="inline_flex p_projet shadow_purple">
                 
@@ -414,10 +421,10 @@
                     </div>
                 </div>
             </div>
-
+        
             <!-- Metier du bois -->
             <div class="inline_flex p_projet shadow_purple">
-    
+        
                 <div class="m_10">
                     <h3>Metier du bois</h3>
                     <img class="img_hobbies" src="asset/hobbies/bois/572.JPG" alt="plats de cuisine">
@@ -454,10 +461,10 @@
                     </div>
                 </div>
             </div>
-
+        
             <!-- Musique -->
             <div class="inline_flex p_projet shadow_purple">
-    
+        
                 <div class="m_10">
                     <h3>Musique</h3>
                     <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Deezer</title><path d="M18.81 4.16v3.03H24V4.16h-5.19zM6.27 8.38v3.027h5.189V8.38h-5.19zm12.54 0v3.027H24V8.38h-5.19zM6.27 12.594v3.027h5.189v-3.027h-5.19zm6.271 0v3.027h5.19v-3.027h-5.19zm6.27 0v3.027H24v-3.027h-5.19zM0 16.81v3.029h5.19v-3.03H0zm6.27 0v3.029h5.189v-3.03h-5.19zm6.271 0v3.029h5.19v-3.03h-5.19zm6.27 0v3.029H24v-3.03h-5.19Z"/></svg>
@@ -465,9 +472,15 @@
                 </div>
                 <div class="m_10 swip">
                     <p>En avant première un apercu de mes titres favoris.</p>
-                    <iframe title="deezer-widget" src="https://widget.deezer.com/widget/auto/playlist/11118641424" width="100%" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media; clipboard-write"></iframe>
+                    <!-- <iframe title="deezer-widget" src="https://widget.deezer.com/widget/auto/playlist/11118641424" width="100%" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media; clipboard-write"></iframe> -->
                 </div>
             </div>
+        </section>
+
+        <section id="contact">
+            <h2 id="titre-contact" class="section_titre bg_purple">Contact</h2>
+            CONTACT
+            <div style="height: 800px;"></div>
         </section>
     </main>
 </body>
