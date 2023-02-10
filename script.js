@@ -60,7 +60,10 @@ nav_formations = document.getElementById('nav-formation');
 nav_hobbies = document.getElementById('nav-hobbies');
 nav_contact = document.getElementById('nav-contact');
 contact_aparition = false;
-
+hobbies_aparition = false;
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+  mobile = true
+}else{ mobile = false}
 // Scroll
   // var checkScrollSpeed = (function(settings){
   //   settings = settings || {};
@@ -88,9 +91,10 @@ contact_aparition = false;
   // })();
 window.onscroll = function(e) {
   windowY = window.scrollY;
+
   if(titre_projets.style.display != "none"){
     position_projets = titre_projets.offsetTop - windowY - 16.5 ;
-    if (position_projets <= 0) {
+    if (position_projets <= (mobile ? 30 : 10)) {
       sectionHeight = home.offsetHeight + 100;
       titre_projets.style.display = "none";
       nav_projets.style.opacity = 1;
@@ -98,13 +102,17 @@ window.onscroll = function(e) {
       nav_home.style.paddingBottom = "0";
       home.style.display = "none";
       window.scrollBy(0, - sectionHeight);
-      setTimeout(function(){ window.scroll( { top : 50 , behavior : "smooth"}) }, 2);
+      // setTimeout(function(){ window.scroll( { top : 50 , behavior : "smooth"}) }, 2);
+      if (mobile) {
+        setTimeout(function(){ window.scroll( { top : 50 , behavior : "smooth"}) }, 2);
+      }
+
     }
   }
 
   if(titre_formations.style.display != "none" ){
     position_formations = titre_formations.offsetTop - windowY - 16.5 ;
-    if (position_formations <= 0) {
+    if (position_formations <= (mobile ? 30 : 10)) {
       sectionHeight = projets.offsetHeight + 100;
       titre_formations.style.display = "none";
       nav_formations.style.opacity = 1;
@@ -112,14 +120,17 @@ window.onscroll = function(e) {
       nav_projets.style.paddingBottom = "0";
       projets.style.display = "none";
       window.scrollBy(0, - sectionHeight);
-      setTimeout(function(){ window.scroll( { top : 50 , behavior : "smooth"}) }, 2);
+      setTimeout(function(){ hobbies_aparition = true }, 50);
+      if (mobile) {
+        setTimeout(function(){ window.scroll( { top : 50 , behavior : "smooth"}) }, 2);
+      }
     }
   }
   
   if(titre_hobbies.style.display != "none"){
     position_hobbies = titre_hobbies.offsetTop - windowY - 16.5 ;
-    if(position_hobbies < -500){return;}
-    if (position_hobbies <= 0) {
+    if (position_hobbies <= (mobile ? 30 : 10)) {
+      if(hobbies_aparition != true){ return;}
       sectionHeight = formation.offsetHeight + 100;
       titre_hobbies.style.display = "none";
       nav_hobbies.style.opacity = 1;
@@ -128,15 +139,17 @@ window.onscroll = function(e) {
       formation.style.display = "none";
       window.scrollBy(0, - sectionHeight);
       setTimeout(function(){ contact_aparition = true }, 50);
-      setTimeout(function(){ window.scroll( { top : 50 , behavior : "smooth"}) }, 2);
+      if (mobile) {
+        setTimeout(function(){ window.scroll( { top : 50 , behavior : "smooth"}) }, 2);
+      }
       
     }
   }
   
   if(titre_contact.style.display != "none"){
     position_contact = titre_contact.offsetTop - windowY - 16.5 ;
-    if (position_contact <= 0) {
-      if(contact_aparition != true){return;}
+    if (position_contact <= (mobile ? 30 : 10)) {
+      if(contact_aparition != true){ return;}
       sectionHeight = hobbies.offsetHeight + 100;
       titre_contact.style.display = "none";
       nav_contact.style.opacity = 1;
@@ -144,7 +157,9 @@ window.onscroll = function(e) {
       nav_hobbies.style.paddingBottom = "0";
       hobbies.style.display = "none";
       window.scrollBy(0, - sectionHeight);
-      setTimeout(function(){ window.scroll( { top : 50 , behavior : "smooth"}) }, 2);
+      if (mobile) {
+        setTimeout(function(){ window.scroll( { top : 50 , behavior : "smooth"}) }, 2);
+      }
     }
   }
 }
