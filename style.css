@@ -1,12 +1,14 @@
 body{
     padding: 0;
     margin: 0;
+    scroll-behavior: smooth;
 }
 main{
     padding-top: 50px;
 }
 section{
     padding-bottom: 100px !important;
+    padding-top: 70px !important;
     /* opacity: 0;
     transform: scale(0);
     transition: .6s ease opacity,.6s ease transform; */
@@ -60,7 +62,7 @@ ul{
     display: inline;
     font-size: 30px;
     font-weight: 100;
-    top: -51px;
+    top: -100px;
     border: 1px black;
     border-radius: 5px 5px 0 0;
     padding: 5px;
@@ -207,7 +209,7 @@ section{
     }
     .section_titre{
         font-size: 15px;
-        top: -37px;
+        top: -86px;
     }
     .m_10{
         margin: 0 10px 0 10px;

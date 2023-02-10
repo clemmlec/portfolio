@@ -59,10 +59,35 @@ nav_projets = document.getElementById('nav-projets');
 nav_formations = document.getElementById('nav-formation');
 nav_hobbies = document.getElementById('nav-hobbies');
 nav_contact = document.getElementById('nav-contact');
+contact_aparition = false;
+
 // Scroll
+  // var checkScrollSpeed = (function(settings){
+  //   settings = settings || {};
+
+  //   var lastPos, newPos, timer, delta, 
+  //       delay = settings.delay || 50; // in "ms" (higher means lower fidelity )
+
+  //   function clear() {
+  //     lastPos = null;
+  //     delta = 0;
+  //   }
+
+  //   clear();
+    
+  //   return function(){
+  //     newPos = window.scrollY;
+  //     if ( lastPos != null ){ // && newPos < maxScroll 
+  //       delta = newPos -  lastPos;
+  //     }
+  //     lastPos = newPos;
+  //     clearTimeout(timer);
+  //     timer = setTimeout(clear, delay);
+  //     return delta;
+  //   };
+  // })();
 window.onscroll = function(e) {
   windowY = window.scrollY;
-
   if(titre_projets.style.display != "none"){
     position_projets = titre_projets.offsetTop - windowY - 16.5 ;
     if (position_projets <= 0) {
@@ -73,6 +98,7 @@ window.onscroll = function(e) {
       nav_home.style.paddingBottom = "0";
       home.style.display = "none";
       window.scrollBy(0, - sectionHeight);
+      setTimeout(function(){ window.scroll( { top : 50 , behavior : "smooth"}) }, 2);
     }
   }
 
@@ -86,6 +112,7 @@ window.onscroll = function(e) {
       nav_projets.style.paddingBottom = "0";
       projets.style.display = "none";
       window.scrollBy(0, - sectionHeight);
+      setTimeout(function(){ window.scroll( { top : 50 , behavior : "smooth"}) }, 2);
     }
   }
   
@@ -100,16 +127,16 @@ window.onscroll = function(e) {
       nav_formations.style.paddingBottom = "0";
       formation.style.display = "none";
       window.scrollBy(0, - sectionHeight);
+      setTimeout(function(){ contact_aparition = true }, 50);
+      setTimeout(function(){ window.scroll( { top : 50 , behavior : "smooth"}) }, 2);
+      
     }
   }
   
   if(titre_contact.style.display != "none"){
     position_contact = titre_contact.offsetTop - windowY - 16.5 ;
-    console.log(position_contact)
-    if(position_contact < -20){console.log('bad shit again '); return;}
     if (position_contact <= 0) {
-    console.log('sd', position_contact)
-
+      if(contact_aparition != true){return;}
       sectionHeight = hobbies.offsetHeight + 100;
       titre_contact.style.display = "none";
       nav_contact.style.opacity = 1;
@@ -117,6 +144,7 @@ window.onscroll = function(e) {
       nav_hobbies.style.paddingBottom = "0";
       hobbies.style.display = "none";
       window.scrollBy(0, - sectionHeight);
+      setTimeout(function(){ window.scroll( { top : 50 , behavior : "smooth"}) }, 2);
     }
   }
 }
