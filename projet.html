@@ -185,5 +185,203 @@
 
 
 
+<script>
+
+if (position_projets <= (mobile ? 30 : 10)) {
+    sectionHeight = home.offsetHeight + 100;
+    // titre_projets.style.display = "none";
+    // nav_projets.style.opacity = 1;
+    nav_projets.style.paddingBottom = "1px";
+    nav_home.style.paddingBottom = "0";
+    home.style.display = "none";
+    window.scrollBy(0, - sectionHeight);
+    document.getElementById('titre-projets').style.top = ((document.getElementById('nav-projets').top - 20) + "px");
+    // setTimeout(function(){ window.scroll( { top : 50 , behavior : "smooth"}) }, 2);
+    if (mobile) {
+      setTimeout(function(){ window.scroll( { top : 50 , behavior : "smooth"}) }, 2);
+    }
+
+  }
 
 
+
+
+homeDisplay = true;
+projetsDisplay = true;
+formationDisplay = true;
+hobbiesDisplay = true;
+titre_projets = document.getElementById('titre-projets');
+titre_formations = document.getElementById('titre-formation');
+titre_hobbies = document.getElementById('titre-hobbies');
+titre_contact = document.getElementById('titre-contact');
+
+nav_home = document.getElementById('nav-home');
+nav_projets = document.getElementById('nav-projets');
+nav_formations = document.getElementById('nav-formation');
+nav_hobbies = document.getElementById('nav-hobbies');
+nav_contact = document.getElementById('nav-contact');
+contact_aparition = false;
+hobbies_aparition = false;
+
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+  mobile = true
+}else{ mobile = false}
+
+function scrollToSection(titreSectionCourante,oldSection,currentSection,oldNav,currentNav){
+  sectionHeight = oldSection.offsetHeight ;
+  window.scroll( { top : sectionHeight , behavior : "smooth"})
+  setTimeout(function(){ window.scroll( { top : 500 , behavior : "smooth"}) }, 0);
+
+  titreSectionCourante.style.display = "none";
+
+
+  
+  currentNav.style.opacity = 1;
+  currentNav.style.paddingBottom = "1px";
+  main.classList.toggle("bg_gray");
+  main.classList.toggle("bg_purple");
+  currentSection.style.zIndex = 1;
+
+  oldNav.style.paddingBottom = "0";
+
+
+  setTimeout(function(){
+
+    }, 40);
+
+  // if (mobile) {
+  //   setTimeout(function(){ window.scroll( { top : 50 , behavior : "smooth"}) }, 0);
+  // }
+}
+
+
+// Scroll
+  // var checkScrollSpeed = (function(settings){
+  //   settings = settings || {};
+
+  //   var lastPos, newPos, timer, delta, 
+  //       delay = settings.delay || 50; // in "ms" (higher means lower fidelity )
+
+  //   function clear() {
+  //     lastPos = null;
+  //     delta = 0;
+  //   }
+
+  //   clear();
+    
+  //   return function(){
+  //     newPos = window.scrollY;
+  //     if ( lastPos != null ){ // && newPos < maxScroll 
+  //       delta = newPos -  lastPos;
+  //     }
+  //     lastPos = newPos;
+  //     clearTimeout(timer);
+  //     timer = setTimeout(clear, delay);
+  //     return delta;
+  //   };
+  // })();
+window.onscroll = function(e) {
+  windowY = window.scrollY;
+
+  if(homeDisplay){
+    position_projets = titre_projets.offsetParent.offsetTop - windowY;
+
+    if (position_projets <= (mobile ? 50 : 50)) {
+      homeDisplay = false;
+      scrollToSection(titre_projets,home,projets,nav_home,nav_projets);
+    }
+  }
+
+  if(projetsDisplay){
+
+    position_formations = titre_formations.offsetParent.offsetTop - windowY;
+    if (position_formations <= (mobile ? 50 : 50)) {
+      projetsDisplay = false;
+      scrollToSection(titre_formations,projets,formation,nav_projets,nav_formations);
+      setTimeout(function(){ hobbies_aparition = true }, 50);
+      
+    }
+  }
+  
+  if(hobbies_aparition && formationDisplay){
+    position_hobbies = titre_hobbies.offsetParent.offsetTop - windowY;
+
+    if (position_hobbies <= (mobile ? 50 : 50)) {
+      formationDisplay = false;
+      scrollToSection(titre_hobbies,formation,hobbies,nav_formations,nav_hobbies);
+      setTimeout(function(){ contact_aparition = true }, 50);      
+    }
+  }
+  
+  if(contact_aparition  && hobbiesDisplay){
+    position_contact = titre_contact.offsetParent.offsetTop - windowY;
+    if (position_contact <= (mobile ? 50 : 50)) {
+      hobbiesDisplay = false;
+      scrollToSection(titre_contact,hobbies,contact,nav_hobbies,nav_contact);
+    }
+  }
+
+  
+
+}
+
+function base(){
+  home.style.display = "block";
+  projets.style.display = "block";
+  formation.style.display = "block";
+  hobbies.style.display = "block";
+  titre_projets.style.display = "inline";
+  titre_formations.style.display = "inline";
+  titre_hobbies.style.display = "inline";
+  titre_contact.style.display = "inline";
+
+  window.scrollTo( { top : 50 , behavior : "smooth"}) 
+
+  setTimeout(function(){
+    homeDisplay = true;
+    projetsDisplay = true;
+    formationDisplay = true;
+    hobbiesDisplay = true;
+    contact_aparition = false;
+    hobbies_aparition = false;
+    }, 200);
+
+
+
+}
+// console.log(document.getElementById('nav-projets').offsetLeft)
+// console.log('titre offet', document.getElementById('titre-projets').offsetLeft)
+
+// console.log('titre offet', document.getElementById('titre-projets').style.left)
+
+// passer en switch case btn on clickou juste foreack selectoption changesection
+// opt_home.addEventListener("click", changeSection);
+// opt_projets.addEventListener("click", changeSection);
+// opt_formation.addEventListener("click", changeSection);
+// opt_hobbies.addEventListener("click", changeSection);
+// opt_contact.addEventListener("click", changeSection);
+
+// function changeSection(event) {
+//   console.log(event.target.value);
+//   idSection = document.getElementById(event.target.value);
+  
+
+//   var ctr = 1;
+//   idSection.className = idSection.className !== 'show' ? 'show' : 'hide';
+//   if (idSection.className === 'show') {
+//     idSection.style.display = 'block';
+//     window.setTimeout(function(){
+//       idSection.style.opacity = 1;
+//       idSection.style.transform = 'scale(1)';
+//     },0);
+//   }
+//   if (idSection.className === 'hide') {
+//     idSection.style.opacity = 0;
+//     idSection.style.transform = 'scale(0)';
+//     window.setTimeout(function(){
+//       idSection.style.display = 'none';
+//     },700); // timed to match animation-duration
+//   }
+  
+  
+// }

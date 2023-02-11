@@ -49,6 +49,13 @@ window.onresize = function(){
 }
 
 
+// Scroll
+
+homeDisplay = true;
+projetsDisplay = true;
+formationDisplay = true;
+hobbiesDisplay = true;
+
 titre_projets = document.getElementById('titre-projets');
 titre_formations = document.getElementById('titre-formation');
 titre_hobbies = document.getElementById('titre-hobbies');
@@ -61,142 +68,196 @@ nav_hobbies = document.getElementById('nav-hobbies');
 nav_contact = document.getElementById('nav-contact');
 contact_aparition = false;
 hobbies_aparition = false;
+
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
   mobile = true
 }else{ mobile = false}
-// Scroll
+
+function scrollToSection(titreSectionCourante,oldSection,currentSection,oldNav,currentNav){
+
+  titreSectionCourante.style.display = "none";
+
+  sectionHeight = oldSection.offsetHeight + 150;
+  window.scrollTo(0, - sectionHeight);
+
+  currentSection.style.zIndex = 1;
+  currentNav.style.opacity = 1;
+  currentNav.style.paddingBottom = "1px";
+  main.classList.toggle("bg_gray");
+  main.classList.toggle("bg_purple");
+  paddingNavGeneral.animationPlayState = 'paused'
+  paddingNavGeneral.style.transition = "none";
+  paddingNavGeneral.classList.toggle("bg_gray");
+  paddingNavGeneral.classList.toggle("bg_purple");
+  oldNav.style.paddingBottom = "0";
+  oldSection.style.display = "none";
+  oldSection.classList.add('hide');
+  currentSection.classList.add('show');
+  setTimeout(function(){ 
+    paddingNavGeneral.style.transition = "";
+  }, 10);
+  if (mobile) {
+    setTimeout(function(){ 
+      window.scroll( { top : 50 , behavior : "smooth"})
+    }, 10);
+  }
+}
+
   // var checkScrollSpeed = (function(settings){
-  //   settings = settings || {};
+    //   settings = settings || {};
 
-  //   var lastPos, newPos, timer, delta, 
-  //       delay = settings.delay || 50; // in "ms" (higher means lower fidelity )
+    //   var lastPos, newPos, timer, delta, 
+    //       delay = settings.delay || 50; // in "ms" (higher means lower fidelity )
 
-  //   function clear() {
-  //     lastPos = null;
-  //     delta = 0;
-  //   }
+    //   function clear() {
+    //     lastPos = null;
+    //     delta = 0;
+    //   }
 
-  //   clear();
-    
-  //   return function(){
-  //     newPos = window.scrollY;
-  //     if ( lastPos != null ){ // && newPos < maxScroll 
-  //       delta = newPos -  lastPos;
-  //     }
-  //     lastPos = newPos;
-  //     clearTimeout(timer);
-  //     timer = setTimeout(clear, delay);
-  //     return delta;
-  //   };
+    //   clear();
+      
+    //   return function(){
+    //     newPos = window.scrollY;
+    //     if ( lastPos != null ){ // && newPos < maxScroll 
+    //       delta = newPos -  lastPos;
+    //     }
+    //     lastPos = newPos;
+    //     clearTimeout(timer);
+    //     timer = setTimeout(clear, delay);
+    //     return delta;
+    //   };
   // })();
 window.onscroll = function(e) {
   windowY = window.scrollY;
-
-  if(titre_projets.style.display != "none"){
-    position_projets = titre_projets.offsetTop - windowY - 16.5 ;
-    if (position_projets <= (mobile ? 30 : 10)) {
-      sectionHeight = home.offsetHeight + 100;
-      titre_projets.style.display = "none";
-      nav_projets.style.opacity = 1;
-      nav_projets.style.paddingBottom = "1px";
-      nav_home.style.paddingBottom = "0";
-      home.style.display = "none";
-      window.scrollBy(0, - sectionHeight);
-      // setTimeout(function(){ window.scroll( { top : 50 , behavior : "smooth"}) }, 2);
-      if (mobile) {
-        setTimeout(function(){ window.scroll( { top : 50 , behavior : "smooth"}) }, 2);
-      }
-
+  
+  if(homeDisplay){
+    position_projets = titre_projets.offsetParent.offsetTop - windowY;
+    if (position_projets <= (mobile ? 50 : 50)) {
+      homeDisplay = false;
+      scrollToSection(titre_projets,home,projets,nav_home,nav_projets);
     }
   }
 
-  if(titre_formations.style.display != "none" ){
-    position_formations = titre_formations.offsetTop - windowY - 16.5 ;
-    if (position_formations <= (mobile ? 30 : 10)) {
-      sectionHeight = projets.offsetHeight + 100;
-      titre_formations.style.display = "none";
-      nav_formations.style.opacity = 1;
-      nav_formations.style.paddingBottom = "1px";
-      nav_projets.style.paddingBottom = "0";
-      projets.style.display = "none";
-      window.scrollBy(0, - sectionHeight);
-      setTimeout(function(){ hobbies_aparition = true }, 50);
-      if (mobile) {
-        setTimeout(function(){ window.scroll( { top : 50 , behavior : "smooth"}) }, 2);
-      }
+  if(projetsDisplay){
+    position_formations = titre_formations.offsetParent.offsetTop - windowY;
+    if (position_formations <= (mobile ? 50 : 50)) {
+      scrollToSection(titre_formations,projets,formation,nav_projets,nav_formations);
+      setTimeout(function(){ hobbies_aparition = true }, 150);
+      projetsDisplay = false;
     }
   }
   
-  if(titre_hobbies.style.display != "none"){
-    position_hobbies = titre_hobbies.offsetTop - windowY - 16.5 ;
-    if (position_hobbies <= (mobile ? 30 : 10)) {
-      if(hobbies_aparition != true){ return;}
-      sectionHeight = formation.offsetHeight + 100;
-      titre_hobbies.style.display = "none";
-      nav_hobbies.style.opacity = 1;
-      nav_hobbies.style.paddingBottom = "1px";
-      nav_formations.style.paddingBottom = "0";
-      formation.style.display = "none";
-      window.scrollBy(0, - sectionHeight);
-      setTimeout(function(){ contact_aparition = true }, 50);
-      if (mobile) {
-        setTimeout(function(){ window.scroll( { top : 50 , behavior : "smooth"}) }, 2);
-      }
-      
+  if(hobbies_aparition && formationDisplay){
+    position_hobbies = titre_hobbies.offsetParent.offsetTop - windowY;
+    if (position_hobbies <= (mobile ? 50 : 50)) {
+      scrollToSection(titre_hobbies,formation,hobbies,nav_formations,nav_hobbies);
+      setTimeout(function(){ contact_aparition = true }, 100);      
+      formationDisplay = false;
     }
   }
   
-  if(titre_contact.style.display != "none"){
-    position_contact = titre_contact.offsetTop - windowY - 16.5 ;
-    if (position_contact <= (mobile ? 30 : 10)) {
-      if(contact_aparition != true){ return;}
-      sectionHeight = hobbies.offsetHeight + 100;
-      titre_contact.style.display = "none";
-      nav_contact.style.opacity = 1;
-      nav_contact.style.paddingBottom = "1px";
-      nav_hobbies.style.paddingBottom = "0";
-      hobbies.style.display = "none";
-      window.scrollBy(0, - sectionHeight);
-      if (mobile) {
-        setTimeout(function(){ window.scroll( { top : 50 , behavior : "smooth"}) }, 2);
-      }
+  if(contact_aparition  && hobbiesDisplay){
+    position_contact = titre_contact.offsetParent.offsetTop - windowY;
+    if (position_contact <= (mobile ? 50 : 50)) {
+      hobbiesDisplay = false;
+      scrollToSection(titre_contact,hobbies,contact,nav_hobbies,nav_contact);
     }
   }
 }
 
-// console.log(document.getElementById('nav-projets').offsetLeft)
-// console.log('titre offet', document.getElementById('titre-projets').offsetLeft)
+// function base(){
+//   home.style.display = "flex";
+//   projets.style.display = "block";
+//   formation.style.display = "block";
+//   hobbies.style.display = "block";
+//   titre_projets.style.display = "inline";
+//   titre_formations.style.display = "inline";
+//   titre_hobbies.style.display = "inline";
+//   titre_contact.style.display = "inline";
+//   contact_aparition = false;
+//   hobbies_aparition = false;
+//   nav_contact.style.opacity = 0;
+//   nav_formations.style.opacity = 0;
+//   nav_hobbies.style.opacity = 0;
+//   nav_projets.style.opacity = 0;
+//   window.scrollTo( { top : 50 , behavior : "smooth"}) 
 
-// console.log('titre offet', document.getElementById('titre-projets').style.left)
-
-// passer en switch case btn on clickou juste foreack selectoption changesection
-// opt_home.addEventListener("click", changeSection);
-// opt_projets.addEventListener("click", changeSection);
-// opt_formation.addEventListener("click", changeSection);
-// opt_hobbies.addEventListener("click", changeSection);
-// opt_contact.addEventListener("click", changeSection);
-
-// function changeSection(event) {
-//   console.log(event.target.value);
-//   idSection = document.getElementById(event.target.value);
-  
-
-//   var ctr = 1;
-//   idSection.className = idSection.className !== 'show' ? 'show' : 'hide';
-//   if (idSection.className === 'show') {
-//     idSection.style.display = 'block';
-//     window.setTimeout(function(){
-//       idSection.style.opacity = 1;
-//       idSection.style.transform = 'scale(1)';
-//     },0);
-//   }
-//   if (idSection.className === 'hide') {
-//     idSection.style.opacity = 0;
-//     idSection.style.transform = 'scale(0)';
-//     window.setTimeout(function(){
-//       idSection.style.display = 'none';
-//     },700); // timed to match animation-duration
-//   }
-  
-  
+//   setTimeout(function(){
+//     homeDisplay = true;
+//     projetsDisplay = true;
+//     formationDisplay = true;
+//     hobbiesDisplay = true;
+//     }, 300);
 // }
+
+nav_home.addEventListener("click", changeSection);
+nav_projets.addEventListener("click", changeSection);
+nav_formations.addEventListener("click", changeSection);
+nav_hobbies.addEventListener("click", changeSection);
+nav_contact.addEventListener("click", changeSection);
+
+function changeSection(event) {
+  idSection = document.getElementById(document.getElementById(event.target.id).id.split("-")[1]);
+
+  if(hobbiesDisplay){
+    hobbiesDisplay = false;
+    formationDisplay = false;
+    nav_contact.style.opacity = 1;
+    nav_formations.style.opacity = 1;
+    nav_hobbies.style.opacity = 1;
+    nav_projets.style.opacity = 1;
+    titre_contact.style.display = "none";
+    titre_formations.style.display = "none";
+    titre_hobbies.style.display = "none";
+    titre_projets.style.display = "none";
+  }
+
+  sections = document.querySelectorAll('section');
+  sections.forEach(element => {
+    if(element.classList.contains('show')){
+      currentBackground =  element.classList.item(0);
+      oldNav = document.getElementById("nav-"+element.id);
+    }
+    element.classList.add('hide');
+    element.classList.remove('show');
+    element.style.display = 'none';
+    if(element.style.zIndex != 2){
+      element.style.zIndex = 2;
+    }
+  });
+  currentNav = document.getElementById("nav-"+idSection.id);
+
+  currentNav.style.paddingBottom = "1px";
+  oldNav.style.paddingBottom = "0px";
+
+  idSection.style.opacity = 0;
+  idSection.style.transform = 'translateY(-5000px)';
+  idSection.classList.add('show');
+  idSection.classList.remove('hide');
+
+
+
+  if(  idSection.id == 'home'){
+    idSection.style.display = 'flex';
+  }else{
+    idSection.style.display = 'block';
+  }
+
+  window.setTimeout(function(){
+    idSection.style.opacity = 1;
+    idSection.style.transform = 'translateY(0px)';
+    if(idSection.classList.item(0) != currentBackground){
+      main.classList.toggle("bg_gray");
+      main.classList.toggle("bg_purple");
+      paddingNavGeneral.classList.toggle("bg_gray");
+      paddingNavGeneral.classList.toggle("bg_purple");
+    }
+    window.scrollBy( { top : -window.scrollY , behavior : "smooth"})
+    setTimeout(function(){ 
+      window.scroll( { top : 100 , behavior : "smooth"})
+    }, 450);
+    
+  },0);
+  
+
+}

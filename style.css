@@ -2,16 +2,27 @@ body{
     padding: 0;
     margin: 0;
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 main{
     padding-top: 50px;
+    
+}
+#paddingNavGeneral{
+    position: fixed;
+    top: 52px;
+    height: 10px;
+    z-index: 2;
+    width: 100vw;
 }
 section{
+    position: relative;
     padding-bottom: 100px !important;
     padding-top: 70px !important;
-    /* opacity: 0;
-    transform: scale(0);
-    transition: .6s ease opacity,.6s ease transform; */
+    z-index: 5;
+}
+#home{
+    z-index: 1;
 }
 button{
     all: unset;
@@ -29,7 +40,7 @@ button{
     padding: 20px 10px 1px 10px;
     position: fixed;
     top: 0;
-    z-index: 55;
+    z-index: 4;
     width: 100vw;
 }
 nav > ul {
@@ -84,9 +95,12 @@ ul{
 }
 .bg_purple{
     background-color: #A5A6F6;
+    transition: .5s ease background-color;
 }
 .bg_gray{
     background-color: #DADAE7;
+    transition: .5s ease background-color;
+
 }
 .bg_purpleDark{
     background-color: #252777;
@@ -179,7 +193,16 @@ section{
     top: 80% !important;
     color: #4649e6 !important;
 }
-
+.show{
+    opacity: 1;
+    transform: translateY(-200px);
+    transition: .9s ease opacity,.9s ease transform;
+}
+.hide{
+    opacity: 0;
+    transform: translateY(-5000px);
+    transition: .6s ease opacity,.6s ease transform;
+}
 @media all and (max-width: 661px) {
     nav ul li {
         font-size: 15px;
@@ -188,6 +211,9 @@ section{
     }
     #nav_general{
         padding: 20px 10px 0px 10px;
+    }
+    #paddingNavGeneral{
+        top: 39px;
     }
     main{
         padding-top: 39px;
