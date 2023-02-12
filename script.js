@@ -56,6 +56,8 @@ projetsDisplay = true;
 formationDisplay = true;
 hobbiesDisplay = true;
 
+
+
 titre_projets = document.getElementById('titre-projets');
 titre_formations = document.getElementById('titre-formation');
 titre_hobbies = document.getElementById('titre-hobbies');
@@ -68,7 +70,8 @@ nav_hobbies = document.getElementById('nav-hobbies');
 nav_contact = document.getElementById('nav-contact');
 contact_aparition = false;
 hobbies_aparition = false;
-
+currentBackground =  "bg_purple";
+oldNav = nav_home;
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
   mobile = true;
   site.classList.toggle("bg_purple");
@@ -139,6 +142,8 @@ window.onscroll = function(e) {
     if (position_projets <= (mobile ? 50 : 50)) {
       homeDisplay = false;
       scrollToSection(titre_projets,home,projets,nav_home,nav_projets);
+      currentBackground =  "bg_gray";
+      oldNav = nav_home;
     }
   }
 
@@ -148,6 +153,8 @@ window.onscroll = function(e) {
       scrollToSection(titre_formations,projets,formation,nav_projets,nav_formations);
       setTimeout(function(){ hobbies_aparition = true }, 150);
       projetsDisplay = false;
+      currentBackground =  "bg_purple";
+      oldNav = projet_home;
     }
   }
   
@@ -157,6 +164,8 @@ window.onscroll = function(e) {
       scrollToSection(titre_hobbies,formation,hobbies,nav_formations,nav_hobbies);
       setTimeout(function(){ contact_aparition = true }, 100);      
       formationDisplay = false;
+      currentBackground =  "bg_gray";
+      oldNav = nav_formations;
     }
   }
   
@@ -165,6 +174,8 @@ window.onscroll = function(e) {
     if (position_contact <= (mobile ? 50 : 50)) {
       hobbiesDisplay = false;
       scrollToSection(titre_contact,hobbies,contact,nav_hobbies,nav_contact);
+      currentBackground =  "bg_purple";
+      oldNav = nav_hobbies;
     }
   }
 }
@@ -222,8 +233,7 @@ function changeSection(event) {
     titre_hobbies.style.display = "none";
     titre_projets.style.display = "none";
   }
-  currentBackground =  "bg_purple";
-  oldNav = nav_home;
+
   sections = document.querySelectorAll('section');
   sections.forEach(element => {
     if(element.classList.contains('show')){
@@ -262,12 +272,15 @@ function changeSection(event) {
   window.setTimeout(function(){
     idSection.style.opacity = 1;
     idSection.style.transform = 'translateY(0px)';
+    console.log(homeDisplay ,idSection.classList.item(0) , currentBackground)
     if( !homeDisplay && idSection.classList.item(0) != currentBackground){
       main.classList.toggle("bg_gray");
       main.classList.toggle("bg_purple");
+      console.log('yes')
       paddingNavGeneral.classList.toggle("bg_gray");
       paddingNavGeneral.classList.toggle("bg_purple");
       if (!mobile) {
+        console.log('yes eys ')
         site.classList.toggle("bg_gray");
         site.classList.toggle("bg_purple");
       }
