@@ -70,15 +70,17 @@ contact_aparition = false;
 hobbies_aparition = false;
 
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-  mobile = true
+  mobile = true;
+  site.classList.toggle("bg_purple");
+  site.classList.toggle("bg_purpleDark");
 }else{ mobile = false}
 
 function scrollToSection(titreSectionCourante,oldSection,currentSection,oldNav,currentNav){
 
-  titreSectionCourante.style.display = "none";
 
   sectionHeight = oldSection.offsetHeight + 150;
   window.scrollTo(0, - sectionHeight);
+  titreSectionCourante.style.display = "none";
 
   currentSection.style.zIndex = 1;
   currentNav.style.opacity = 1;
@@ -89,13 +91,15 @@ function scrollToSection(titreSectionCourante,oldSection,currentSection,oldNav,c
   paddingNavGeneral.style.transition = "none";
   paddingNavGeneral.classList.toggle("bg_gray");
   paddingNavGeneral.classList.toggle("bg_purple");
+
   oldNav.style.paddingBottom = "0";
+  oldNav.classList.add('not_current');
+
   oldSection.style.display = "none";
-  oldSection.classList.add('hide');
-  currentSection.classList.add('show');
+
   setTimeout(function(){ 
     paddingNavGeneral.style.transition = "";
-  }, 10);
+  }, 50);
   if (mobile) {
     setTimeout(function(){ 
       window.scroll( { top : 50 , behavior : "smooth"})
@@ -200,18 +204,26 @@ function changeSection(event) {
   idSection = document.getElementById(document.getElementById(event.target.id).id.split("-")[1]);
 
   if(hobbiesDisplay){
+    homeDisplay = false;
+    projetsDisplay = false;
     hobbiesDisplay = false;
     formationDisplay = false;
     nav_contact.style.opacity = 1;
     nav_formations.style.opacity = 1;
     nav_hobbies.style.opacity = 1;
     nav_projets.style.opacity = 1;
+    nav_contact.classList.add('not_current');
+    nav_formations.classList.add('not_current');
+    nav_hobbies.classList.add('not_current');
+    nav_home.classList.add('not_current');
+    nav_projets.classList.add('not_current');
     titre_contact.style.display = "none";
     titre_formations.style.display = "none";
     titre_hobbies.style.display = "none";
     titre_projets.style.display = "none";
   }
-
+  currentBackground =  "bg_purple";
+  oldNav = nav_home;
   sections = document.querySelectorAll('section');
   sections.forEach(element => {
     if(element.classList.contains('show')){
@@ -228,7 +240,11 @@ function changeSection(event) {
   currentNav = document.getElementById("nav-"+idSection.id);
 
   currentNav.style.paddingBottom = "1px";
-  oldNav.style.paddingBottom = "0px";
+  currentNav.classList.remove('not_current');
+  if(oldNav != currentNav){
+    oldNav.style.paddingBottom = "0";
+    oldNav.classList.add('not_current');
+  }
 
   idSection.style.opacity = 0;
   idSection.style.transform = 'translateY(-5000px)';
@@ -246,16 +262,21 @@ function changeSection(event) {
   window.setTimeout(function(){
     idSection.style.opacity = 1;
     idSection.style.transform = 'translateY(0px)';
-    if(idSection.classList.item(0) != currentBackground){
+    if( !homeDisplay && idSection.classList.item(0) != currentBackground){
       main.classList.toggle("bg_gray");
       main.classList.toggle("bg_purple");
       paddingNavGeneral.classList.toggle("bg_gray");
       paddingNavGeneral.classList.toggle("bg_purple");
+      if (!mobile) {
+        site.classList.toggle("bg_gray");
+        site.classList.toggle("bg_purple");
+      }
+  
     }
     window.scrollBy( { top : -window.scrollY , behavior : "smooth"})
     setTimeout(function(){ 
       window.scroll( { top : 100 , behavior : "smooth"})
-    }, 450);
+    }, 550);
     
   },0);
   
