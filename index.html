@@ -20,7 +20,9 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
 </head>
-<body class="bg_purpleDark">
+<body id="site" class="bg_purple">
+
+    <!-- Navigations Onglets -->
     <nav id="nav_general" class="bg_purpleDark">
         <ul>
             <li id="nav-home" class="nav_generals bg_purple">Home</li>
@@ -31,8 +33,10 @@
         </ul>
     </nav>
     <div id="paddingNavGeneral" class="bg_purple"></div>
+
     <main id="main" class="bg_purple">
 
+        <!-- Home -->
         <section id="home" class="bg_purple inline_flex">
             <img class="heptagone" src="asset/IMG_1349.JPG" alt="photo de Clément">
             <div class="presentation">
@@ -72,14 +76,19 @@
             </div>
         </section>
 
+        <!-- Projets -->
         <section id="projets" class="bg_gray">
             <h2 id="titre-projets" class="section_titre bg_gray">Projets</h2>
             <div class="flex_projet">
+
+                <!-- Fedhubs -->
                 <div class="inline_flex p_projet shadow_purple card">
-                    <div class="m_10 content_card">
-                        <h3>Fedhubs</h3>
-                        <img class="img_projet" src="asset/projets/logo_fedhubs.png" alt="logo de Fedhubs">
+                    <!-- titre -->
+                    <div class="content_card bg_white">
+                        <h3 class="titre_projet">Fedhubs</h3>
+                        <img class="img_pLaceHorlder" src="asset/projets/logo_fedhubs.png" alt="logo de Fedhubs">
                     </div>
+                    <!-- Taches effectués -->
                     <div class="m_10">
                         <a target="_blank" href="https://fedhubs.org/">site web</a>
                         <h4>Taches effectués</h4>
@@ -90,6 +99,7 @@
                             <li>Teste unitaire</li>
                         </ul>
                     </div>
+                    <!-- Stack -->
                     <div class="m_10 stack">
                         <h4>Stack</h4>
                         <img src="https://img.shields.io/badge/Code-MySQL-blueviolet?style=flat&logo=MySQL&color=4479A1" />
@@ -99,26 +109,32 @@
                         <img src="https://img.shields.io/badge/Tools-Notion-blueviolet?style=flat&logo=notion&color=000000" />
 
                     </div>
+                    <!-- Détails -->
                     <div class="m_10">
-                        <button class="button">Voir Plus</button>
+                        <button class="button">Détails</button>
                     </div>
                 </div>
 
+                <!-- Dev In -->
                 <div class="inline_flex p_projet shadow_purple card">
-                    <div class="m_10 content_card">
-                        <h3>Dev In</h3>
-                        <img class="img_projet" src="asset/projets/logo_devin.png" alt="logo de Dev In">
+                    <!-- Titre -->
+                    <div class="content_card bg_devIn">
+                        <h3 class="titre_projet">Dev In</h3>
+                        <!-- <img class="img_projet" src="asset/projets/logo_devin.png" alt="logo de Dev In"> -->
+                        <img class="img_pLaceHorlder" src="asset/projets/placement_Dev_In.png" alt="logo de Dev In">
                     </div>
+                    <!-- Taches effectués -->
                     <div class="m_10">
                         <a target="_blank" href="https://github.com/clemmlec/dev_in">GitHub</a>
                         <h4>Taches effectués</h4>
                         <ul>
-                            <li>stage de fin de formation</li>
-                            <li>MCD MLD </li>
-                            <li>Création de l'API REST</li>
+                            <li>Scroll infini</li>
+                            <li>Pagination</li>
+                            <li>Optimisation des requêtes SQL</li>
                             <li>Teste unitaire</li>
                         </ul>
                     </div>
+                    <!-- Stack -->
                     <div class="m_10 stack">
                         <h4>Stack</h4>
                         <img src="https://img.shields.io/badge/Code-Javascipt-blueviolet?style=flat&logo=javascript&color=yellow" />
@@ -128,26 +144,28 @@
                         <img src="https://img.shields.io/badge/Framework-Chart.js-blueviolet?style=flat&logo=chart.js&color=FF6384" />
 
                     </div>
+                    <!-- Détails -->
                     <div class="m_10">
-                        <button class="button">Voir Plus</button>
+                        <button class="button">Détails</button>
                     </div>
                 </div>
 
+                <!-- API Images -->
                 <div class="inline_flex p_projet shadow_purple card">
-                    <div class="m_10 content_card">
-                        <h3>API Images</h3>
-                        <img class="img_projet" src="asset/projets/logo_photo.png" alt="logo d'API Images">
+                    <!-- Titre -->
+                    <div class="content_card bg_devIn">
+                        <h3 class="titre_projet">API Images</h3>
+                        <img class="img_pLaceHorlder" src="asset/projets/logo_photo.png" alt="logo d'API Images">
                     </div>
+                    <!-- Taches effectués -->
                     <div class="m_10">
                         <a target="_blank" href="https://github.com/clemmlec/api_images">GitHub</a>
                         <h4>Taches effectués</h4>
-                        <ul>
-                            <li>stage de fin de formation</li>
-                            <li>MCD MLD </li>
-                            <li>Création de l'API REST</li>
-                            <li>Teste unitaire</li>
-                        </ul>
+                        <p>Site conçu avesle framework Symfony sous forme d'API.
+                            L'idée est de permettre d'ajouter des images temporaires pendant le developpement d'un site.
+                            Il suffit d'appeler l'url dans le source d'une balise image pour avoir une image aléaotire suivant la categorie choisi.</p>
                     </div>
+                    <!-- Stack -->
                     <div class="m_10 stack">
                         <h4>Stack</h4>
                         <img src="https://img.shields.io/badge/Framework-Symphony-blueviolet?style=flat&logo=symfony&color=000000" />
@@ -156,26 +174,31 @@
                         <img src="https://img.shields.io/badge/Code-MySQL-blueviolet?style=flat&logo=MySQL&color=4479A1" />
 
                     </div>
+                    <!-- Détails -->
                     <div class="m_10">
-                        <button class="button">Voir Plus</button>
+                        <button class="button">Détails</button>
                     </div>
                 </div>
 
+                <!-- Jarez Solidarité -->
                 <div class="inline_flex p_projet shadow_purple card">
-                    <div class="m_10 content_card">
-                        <h3>Jarez Solidaritées</h3>
-                        <img class="img_projet" src="asset/projets/logo_jarezsolidarites.png" alt="logo de Jarez Solidaritées">
+                    <!-- Titre -->
+                    <div class="content_card bg_jarez">
+                        <h3 class="titre_projet">Jarez Solidaritées</h3>
+                        <img class="img_pLaceHorlder" src="asset/projets/jarez.png" alt="logo de Jarez Solidaritées">
                     </div>
+                    <!-- Taches effectués -->
                     <div class="m_10">
                         <a target="_blank" href="http://jarezsolidarites.free.fr/">site web</a>
                         <h4>Taches effectués</h4>
                         <ul>
-                            <li>stage de fin de formation</li>
-                            <li>MCD MLD </li>
-                            <li>Création de l'API REST</li>
-                            <li>Teste unitaire</li>
+                            <li>Ecoute des besoins du client</li>
+                            <li>Refonte from STRACH du site</li>
+                            <li>Gestion du temps (1 mois)</li>
+                            <li>Responcive</li>
                         </ul>
                     </div>
+                    <!-- Stack -->
                     <div class="m_10 stack">
                         <h4>Stack</h4>
                         <img src="https://img.shields.io/badge/Code-HTML-blueviolet?style=flat&logo=html&color=E34F26" />
@@ -183,26 +206,31 @@
                         <img src="https://img.shields.io/badge/Tools-FileZilla-blueviolet?style=flat&logo=FileZilla&color=BF0000" />
 
                     </div>
+                    <!-- Détails -->
                     <div class="m_10">
-                        <button class="button">Voir Plus</button>
+                        <button class="button">Détails</button>
                     </div>
                 </div>
 
+                <!-- You Save The World -->
                 <div class="inline_flex p_projet shadow_purple card">
-                    <div class="m_10 content_card">
-                        <h3>Save World</h3>
-                        <img class="img_projet" src="asset/projets/logo_saveworld.png" alt="logo de Save World">
+                    <!-- Titre -->
+                    <div class="m_10 content_card bg_devIn">
+                        <h3 class="titre_projet">Save World</h3>
+                        <img class="img_pLaceHorlder" src="asset/projets/logo_saveworld.png" alt="logo de Save World">
                     </div>
+                    <!-- Taches effectués -->
                     <div class="m_10">
                         <a target="_blank" href="https://save-world.itch.io/you-save-the-world">site web</a>
                         <h4>Taches effectués</h4>
                         <ul>
-                            <li>stage de fin de formation</li>
-                            <li>MCD MLD </li>
-                            <li>Création de l'API REST</li>
-                            <li>Teste unitaire</li>
+                            <li>Lecture / écriture sur le disque dur</li>
+                            <li>Accessibilité Mac/Window/Linux</li>
+                            <li>Mise en pratique de la programation</li>
+                            <li>Mise en conditaion</li>
                         </ul>
                     </div>
+                    <!-- Stack -->
                     <div class="m_10 stack">
                         <h4>Stack</h4>
                         <img src="https://img.shields.io/badge/Code-Lua-blueviolet?style=flat&logo=lua&color=2C2D72" />
@@ -211,8 +239,9 @@
                         <img src="https://img.shields.io/badge/Hebergeur-Itch.io-blueviolet?style=flat&logo=Itch.io&color=FA5C5C" />
 
                     </div>
+                    <!-- Détails -->
                     <div class="m_10">
-                        <button class="button">Voir Plus</button>
+                        <button class="button">Détails</button>
                     </div>
                 </div>
             </div>
@@ -319,14 +348,15 @@
         <section id="hobbies" class="bg_gray">
             <h2 id="titre-hobbies" class="section_titre bg_gray">Hobbies</h2>
             <!-- Cuisine -->
-            <div class="inline_flex p_projet shadow_purple">
+            <div class="inline_flex p_projet  shadow_purple">
                 
-                <div class="m_10">
+                <div class="m_10 titre_hobbies">
                     <h3>Cuisine</h3>
                     <img class="img_hobbies" src="asset/hobbies/cuisine/IMG_0016.jpg" alt="plats de cuisine">
                 </div>
-                <div class="m_10 swip">
-                    <p>Après 10 années d'éxeprience dans le metier, la cuisine reste toujours une passion.</p>
+                <p>Après 10 années d'éxeprience dans le metier, la cuisine reste toujours une passion.</p>
+
+                <div class="swip">
                 <!-- Slider main container -->
                 <div class="swiper">
                     <!-- Additional required wrapper -->
@@ -366,7 +396,7 @@
                     <h3>Photographie</h3>
                     <img class="img_hobbies" src="asset/hobbies/photographie/IMG_1212.jpg" alt="fleurs de cerisiers">
                 </div>
-                <div class="m_10 swip">
+                <div class="swip">
                     <p>Très porté sur la nature, j'aime aussi l'immortaliser.</p>
                     <!-- Slider main container -->
                     <div class="swiper">
@@ -422,7 +452,7 @@
                     <h3>Metier du bois</h3>
                     <img class="img_hobbies" src="asset/hobbies/bois/572.JPG" alt="plats de cuisine">
                 </div>
-                <div class="m_10 swip">
+                <div class="swip">
                     <p>Attiré par la curiosité, j'ai créer plusieurs meubles ou objcts en bois.</p>
                     <!-- Slider main container -->
                     <div class="swiper">
@@ -463,7 +493,7 @@
                     <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Deezer</title><path d="M18.81 4.16v3.03H24V4.16h-5.19zM6.27 8.38v3.027h5.189V8.38h-5.19zm12.54 0v3.027H24V8.38h-5.19zM6.27 12.594v3.027h5.189v-3.027h-5.19zm6.271 0v3.027h5.19v-3.027h-5.19zm6.27 0v3.027H24v-3.027h-5.19zM0 16.81v3.029h5.19v-3.03H0zm6.27 0v3.029h5.189v-3.03h-5.19zm6.271 0v3.029h5.19v-3.03h-5.19zm6.27 0v3.029H24v-3.03h-5.19Z"/></svg>
                     <!-- <img class="img_hobbies" src="asset/hobbies/cuisine/IMG_0016.jpg" alt="plats de cuisine"> -->
                 </div>
-                <div class="m_10 swip">
+                <div class="swip">
                     <p>En avant première un apercu de mes titres favoris.</p>
                     <!-- <iframe title="deezer-widget" src="https://widget.deezer.com/widget/auto/playlist/11118641424" width="100%" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media; clipboard-write"></iframe> -->
                 </div>

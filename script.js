@@ -4,9 +4,9 @@ const swiper = new Swiper('.swiper', {
   // loop: true,
   grabCursor: true,
   clickable: true,
-  mousewheel:{
-    forceToAxis: true,
-  },
+  // mousewheel:{
+  //   forceToAxis: true,
+  // },
   
   breakpoints: {
       "@0.00": {
@@ -154,7 +154,7 @@ window.onscroll = function(e) {
       setTimeout(function(){ hobbies_aparition = true }, 150);
       projetsDisplay = false;
       currentBackground =  "bg_purple";
-      oldNav = projet_home;
+      oldNav = nav_projets;
     }
   }
   
@@ -257,9 +257,11 @@ function changeSection(event) {
   }
 
   idSection.style.opacity = 0;
-  idSection.style.transform = 'translateY(-5000px)';
-  idSection.classList.add('show');
+  idSection.style.transform = 'translateX(2000px)';
+  console.log(idSection.style.transform, idSection,"idSection.style.transfor")
   idSection.classList.remove('hide');
+  idSection.classList.add('show');
+
 
 
 
@@ -271,16 +273,14 @@ function changeSection(event) {
 
   window.setTimeout(function(){
     idSection.style.opacity = 1;
-    idSection.style.transform = 'translateY(0px)';
-    console.log(homeDisplay ,idSection.classList.item(0) , currentBackground)
+    idSection.style.transform = 'translateX(0px)';
+    
     if( !homeDisplay && idSection.classList.item(0) != currentBackground){
       main.classList.toggle("bg_gray");
       main.classList.toggle("bg_purple");
-      console.log('yes')
       paddingNavGeneral.classList.toggle("bg_gray");
       paddingNavGeneral.classList.toggle("bg_purple");
       if (!mobile) {
-        console.log('yes eys ')
         site.classList.toggle("bg_gray");
         site.classList.toggle("bg_purple");
       }
@@ -288,7 +288,7 @@ function changeSection(event) {
     }
     window.scrollBy( { top : -window.scrollY , behavior : "smooth"})
     setTimeout(function(){ 
-      window.scroll( { top : 100 , behavior : "smooth"})
+      window.scroll( { left : 0 , behavior : "smooth"})
     }, 550);
     
   },0);
