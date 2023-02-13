@@ -2,7 +2,7 @@ body{
     padding: 0;
     margin: 0;
     scroll-behavior: smooth;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 main{
     padding-top: 50px;
@@ -413,18 +413,22 @@ section{
     .no_wrap{
         flex-wrap: wrap !important;
     }
+    .timeline {
+        max-width: 95vw;
+        margin: 0 0;
+    }
     .timeline::after {
-        left: 31px;
+        left: 21px;
     }
     /* Full-width containers */
     .container {
-        width: 80%;
-        padding-left: 70px;
-        padding-right: 25px;
+        width: 85%;
+        padding-left: 50px;
+        padding-right: 0;
     }
     /* Make sure that all arrows are pointing leftwards */
     .container::before {
-        left: 60px;
+        left: 40px;
         border: medium solid white;
         border-width: 10px 10px 10px 0;
         border-color: transparent white transparent transparent;
@@ -434,7 +438,7 @@ section{
     }
     /* Make sure all circles are at the same spot */
     .left::after, .right::after {
-        left: 15px;
+        left: 5px;
     }
     /* Make all right containers behave like the left ones */
     .right {
