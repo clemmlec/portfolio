@@ -301,3 +301,42 @@ function changeSection(event) {
   
 
 }
+
+
+// btn_tools
+
+btn_tools = document.querySelectorAll('.btn_tool');
+p_tools = document.querySelectorAll('.p_tools');
+btn_tools.forEach(element => {
+  element.addEventListener("click", changeTools);
+});
+
+p_tools.forEach(element => {
+  if(element.id != "p1"){
+    element.style.opacity = "0";
+  }
+});
+function changeTools(event) {
+  current_tool = document.getElementById(event.target.value);
+  btn_tools.forEach(element => {
+    element.classList.add('not_current')
+  });
+  p_tools.forEach(element => {
+    if(element.style.opacity !== "0" ){
+      old_elem = element;
+      element.classList.add('hide');
+      element.classList.remove('show');
+    }
+  });
+
+  current_tool.classList.toggle('hide');
+  current_tool.classList.toggle('show');
+
+  window.setTimeout(function(){
+    old_elem.style.opacity = 0;
+    setTimeout(function(){ 
+      current_tool.style.opacity = 1;
+    }, 70);
+    event.target.classList.remove("not_current")
+  },20);
+}
