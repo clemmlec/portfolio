@@ -241,7 +241,7 @@ section{
 }
 .hide{
     opacity: 0;
-    transform: translateX(-1000px);
+    transform: translateX(200px);
     transition: .6s ease opacity,.6s ease transform;
 }
 @media all and (max-width: 661px) {

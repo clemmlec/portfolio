@@ -212,12 +212,12 @@ nav_hobbies.addEventListener("click", changeSection);
 nav_contact.addEventListener("click", changeSection);
 
 function changeSection(event) {
-  idSection = document.getElementById(document.getElementById(event.target.id).id.split("-")[1]);
+  currentSection = document.getElementById(document.getElementById(event.target.id).id.split("-")[1]);
+  currentNav = event.target;
 
   if(hobbiesDisplay){
     homeDisplay = false;
     projetsDisplay = false;
-    hobbiesDisplay = false;
     formationDisplay = false;
     nav_contact.style.opacity = 1;
     nav_formations.style.opacity = 1;
@@ -232,6 +232,7 @@ function changeSection(event) {
     titre_formations.style.display = "none";
     titre_hobbies.style.display = "none";
     titre_projets.style.display = "none";
+    
   }
 
   sections = document.querySelectorAll('section');
@@ -239,15 +240,23 @@ function changeSection(event) {
     if(element.classList.contains('show')){
       currentBackground =  element.classList.item(0);
       oldNav = document.getElementById("nav-"+element.id);
-    }
-    element.classList.add('hide');
-    element.classList.remove('show');
-    element.style.display = 'none';
-    if(element.style.zIndex != 2){
+      element.style.opacity = 0;
+      element.classList.add('hide');
+      element.classList.remove('show');
+      element.style.display = 'none';
+      element.style.transform = 'translateX(+200px)';
+    }  
+    if(hobbiesDisplay){
+      element.style.opacity = 0;
+      element.classList.add('hide');
+      element.classList.remove('show');
+      element.style.display = 'none';
+      element.style.transform = 'translateX(+200px)';
       element.style.zIndex = 2;
+
     }
   });
-  currentNav = document.getElementById("nav-"+idSection.id);
+  hobbiesDisplay = false;
 
   currentNav.style.paddingBottom = "1px";
   currentNav.classList.remove('not_current');
@@ -256,26 +265,23 @@ function changeSection(event) {
     oldNav.classList.add('not_current');
   }
 
-  idSection.style.opacity = 0;
-  idSection.style.transform = 'translateX(2000px)';
-  console.log(idSection.style.transform, idSection,"idSection.style.transfor")
-  idSection.classList.remove('hide');
-  idSection.classList.add('show');
+  currentSection.style.opacity = 0;
+  currentSection.style.transform = 'translateX(+100px)';
+  currentSection.classList.remove('hide');
+  currentSection.classList.add('show');
 
-
-
-
-  if(  idSection.id == 'home'){
-    idSection.style.display = 'flex';
+  if(  currentSection.id == 'home'){
+    currentSection.style.display = 'flex';
   }else{
-    idSection.style.display = 'block';
+    currentSection.style.display = 'block';
   }
 
   window.setTimeout(function(){
-    idSection.style.opacity = 1;
-    idSection.style.transform = 'translateX(0px)';
     
-    if( !homeDisplay && idSection.classList.item(0) != currentBackground){
+    currentSection.style.opacity = 1;
+    currentSection.style.transform = 'translateX(-20px)';
+    
+    if( !homeDisplay && currentSection.classList.item(0) != currentBackground){
       main.classList.toggle("bg_gray");
       main.classList.toggle("bg_purple");
       paddingNavGeneral.classList.toggle("bg_gray");
@@ -284,11 +290,11 @@ function changeSection(event) {
         site.classList.toggle("bg_gray");
         site.classList.toggle("bg_purple");
       }
-  
     }
-    window.scrollBy( { top : -window.scrollY , behavior : "smooth"})
+    window.scrollBy( { top : -window.scrollY })
     setTimeout(function(){ 
-      window.scroll( { left : 0 , behavior : "smooth"})
+      currentSection.style.transform = 'translateX(0px)';
+
     }, 550);
     
   },0);
