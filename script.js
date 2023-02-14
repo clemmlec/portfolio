@@ -316,7 +316,11 @@ p_tools.forEach(element => {
     element.style.opacity = "0";
   }
 });
+
 function changeTools(event) {
+  width = tool.offsetWidth + "px";
+
+
   current_tool = document.getElementById(event.target.value);
   btn_tools.forEach(element => {
     element.classList.add('not_current')
@@ -331,11 +335,13 @@ function changeTools(event) {
 
   current_tool.classList.toggle('hide');
   current_tool.classList.toggle('show');
-
+  current_tool.parentNode.parentNode.style.width = width;
+  
   window.setTimeout(function(){
     old_elem.style.opacity = 0;
     setTimeout(function(){ 
       current_tool.style.opacity = 1;
+
     }, 70);
     event.target.classList.remove("not_current")
   },20);
