@@ -8,9 +8,10 @@ main{
     padding-top: 50px;
     
 }
+
 #paddingNavGeneral{
     position: fixed;
-    top: 52px;
+    top: 77px;
     height: 10px;
     z-index: 2;
     width: 100vw;
@@ -20,6 +21,20 @@ section{
     padding-bottom: 100px !important;
     padding-top: 70px !important;
     z-index: 5;
+    margin-bottom: 0 !important;
+}
+footer{
+    position: fixed;
+    bottom: 0;
+    z-index: 5;
+    padding: 3px;
+    padding-left: 8px;
+    width: 100vw;
+    font-size: 13px;
+}
+#icone_footer{
+    position: absolute;
+    right: 20px;
 }
 #home{
     z-index: 1;
@@ -36,10 +51,42 @@ button{
     border-radius: 50px;
     margin-top: 40px;
 }
+.btn{
+    width: 20px;
+    height: 20px;
+    background-color: #484a9f;
+    margin-left: 5px;
+    padding: 5px;
+    border-radius: 5px;
+}
+#nav_search{
+    padding: 10px 10px 0px 10px;
+    position: fixed;
+    top: 0;
+    z-index: 5;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 0.5fr 4fr;
+}
+#btn_historique{
+    position: absolute;
+    right: 40px;
+    top: 5px;
+}
+#search{
+    all: unset;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #16174c;
+    position: relative;
+    top: -5px;
+    max-width: 60vw;
+    color: #DADAE7;
+}
 #nav_general{
     padding: 20px 10px 1px 10px;
     position: fixed;
-    top: 0;
+    top: 25px;
     z-index: 4;
     width: 100vw;
 }
@@ -71,6 +118,10 @@ ul{
     padding: 0 10px 10px 10px;
     margin-top: 0;
 }
+.margin_auto{
+    margin: auto;
+    display: flex;
+}
 .section_titre{
     display: inline;
     font-size: 30px;
@@ -85,6 +136,7 @@ ul{
     z-index: 56;
 
 }
+
 .inline_flex{
     display: flex;
     flex-wrap: wrap;
@@ -135,30 +187,51 @@ section{
     clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
     /* clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); */
+    -webkit-clip-path: polygon(92.32051% 40%, 93.79385% 43.1596%, 94.69616% 46.52704%, 95% 50%, 94.69616% 53.47296%, 93.79385% 56.8404%, 92.32051% 60%, 79.82051% 81.65064%, 77.82089% 84.50639%, 75.35575% 86.97152%, 72.5% 88.97114%, 69.3404% 90.44449%, 65.97296% 91.34679%, 62.5% 91.65064%, 37.5% 91.65064%, 34.02704% 91.34679%, 30.6596% 90.44449%, 27.5% 88.97114%, 24.64425% 86.97152%, 22.17911% 84.50639%, 20.17949% 81.65064%, 7.67949% 60%, 6.20615% 56.8404%, 5.30384% 53.47296%, 5% 50%, 5.30384% 46.52704%, 6.20615% 43.1596%, 7.67949% 40%, 20.17949% 18.34936%, 22.17911% 15.49361%, 24.64425% 13.02848%, 27.5% 11.02886%, 30.6596% 9.55551%, 34.02704% 8.65321%, 37.5% 8.34936%, 62.5% 8.34936%, 65.97296% 8.65321%, 69.3404% 9.55551%, 72.5% 11.02886%, 75.35575% 13.02848%, 77.82089% 15.49361%, 79.82051% 18.34936%);
+    clip-path: polygon(92.32051% 40%, 93.79385% 43.1596%, 94.69616% 46.52704%, 95% 50%, 94.69616% 53.47296%, 93.79385% 56.8404%, 92.32051% 60%, 79.82051% 81.65064%, 77.82089% 84.50639%, 75.35575% 86.97152%, 72.5% 88.97114%, 69.3404% 90.44449%, 65.97296% 91.34679%, 62.5% 91.65064%, 37.5% 91.65064%, 34.02704% 91.34679%, 30.6596% 90.44449%, 27.5% 88.97114%, 24.64425% 86.97152%, 22.17911% 84.50639%, 20.17949% 81.65064%, 7.67949% 60%, 6.20615% 56.8404%, 5.30384% 53.47296%, 5% 50%, 5.30384% 46.52704%, 6.20615% 43.1596%, 7.67949% 40%, 20.17949% 18.34936%, 22.17911% 15.49361%, 24.64425% 13.02848%, 27.5% 11.02886%, 30.6596% 9.55551%, 34.02704% 8.65321%, 37.5% 8.34936%, 62.5% 8.34936%, 65.97296% 8.65321%, 69.3404% 9.55551%, 72.5% 11.02886%, 75.35575% 13.02848%, 77.82089% 15.49361%, 79.82051% 18.34936%);
     width: 20vw;
     height: 20vW;
     object-fit: cover;
-    min-width: 200px;
-    min-height: 200px;
+    min-width: 300px;
+    min-height: 300px;
     margin: auto;
 
+}
+.contact{
+    width: 20vw;
+    height: 20vW;
+    min-width: 300px;
+    min-height: 200px;
+    margin: auto;
+    box-shadow: #25267783 3px 3px 3px, inset 2px 2px 2px rgba(177, 173, 249, 0.684);
+    border-radius: 5px;
+}
+.lien_contact{
+    display: block;
+    padding: 10px;
+    width: max-content;
+    padding-left: 30px;
 }
 .presentation{
     min-width: 200px;
     margin: auto;
 }
+.center{
+    text-align: center;
+}
 .tool{
-    max-width: 400px;
+    margin: auto;
+    max-width: 700px;
     display: grid;
     grid-template-columns: 1fr 2fr;
     /* padding: 10px; */
     height: 250px;
-    border: #2526776b 1px solid;
+    /* border: #2526776b 1px solid; */
     border-radius: 5px;
     text-align: center;
     background-color: #DADAE7;
     background-color: #A5A6F6;
-    box-shadow: #25267783 3px 3px 3px;
+    box-shadow: #25267783 3px 3px 3px, inset 2px 2px 2px rgba(177, 173, 249, 0.684);
 }
 .btn_tools{
     display: grid;
@@ -167,7 +240,9 @@ section{
 }
 .btn_tool{
     text-align: center;
-    border: #2526776b 1px solid;
+    /* border: #2526776b 1px solid; */
+    box-shadow: #25267783 3px 3px 3px;
+
 }
 .div_tools{
     max-width: 80%;
@@ -296,7 +371,17 @@ section{
     background-color: inherit;
     width: 50%;
 }
-
+.radius_ext{
+    display: inline-block;
+    position: relative;
+    width: 350px;
+    height: 350px;
+    background: red;
+    box-sizing: border-box;
+    -webkit-clip-path: polygon(92.32051% 40%, 93.79385% 43.1596%, 94.69616% 46.52704%, 95% 50%, 94.69616% 53.47296%, 93.79385% 56.8404%, 92.32051% 60%, 79.82051% 81.65064%, 77.82089% 84.50639%, 75.35575% 86.97152%, 72.5% 88.97114%, 69.3404% 90.44449%, 65.97296% 91.34679%, 62.5% 91.65064%, 37.5% 91.65064%, 34.02704% 91.34679%, 30.6596% 90.44449%, 27.5% 88.97114%, 24.64425% 86.97152%, 22.17911% 84.50639%, 20.17949% 81.65064%, 7.67949% 60%, 6.20615% 56.8404%, 5.30384% 53.47296%, 5% 50%, 5.30384% 46.52704%, 6.20615% 43.1596%, 7.67949% 40%, 20.17949% 18.34936%, 22.17911% 15.49361%, 24.64425% 13.02848%, 27.5% 11.02886%, 30.6596% 9.55551%, 34.02704% 8.65321%, 37.5% 8.34936%, 62.5% 8.34936%, 65.97296% 8.65321%, 69.3404% 9.55551%, 72.5% 11.02886%, 75.35575% 13.02848%, 77.82089% 15.49361%, 79.82051% 18.34936%);
+    clip-path: polygon(92.32051% 40%, 93.79385% 43.1596%, 94.69616% 46.52704%, 95% 50%, 94.69616% 53.47296%, 93.79385% 56.8404%, 92.32051% 60%, 79.82051% 81.65064%, 77.82089% 84.50639%, 75.35575% 86.97152%, 72.5% 88.97114%, 69.3404% 90.44449%, 65.97296% 91.34679%, 62.5% 91.65064%, 37.5% 91.65064%, 34.02704% 91.34679%, 30.6596% 90.44449%, 27.5% 88.97114%, 24.64425% 86.97152%, 22.17911% 84.50639%, 20.17949% 81.65064%, 7.67949% 60%, 6.20615% 56.8404%, 5.30384% 53.47296%, 5% 50%, 5.30384% 46.52704%, 6.20615% 43.1596%, 7.67949% 40%, 20.17949% 18.34936%, 22.17911% 15.49361%, 24.64425% 13.02848%, 27.5% 11.02886%, 30.6596% 9.55551%, 34.02704% 8.65321%, 37.5% 8.34936%, 62.5% 8.34936%, 65.97296% 8.65321%, 69.3404% 9.55551%, 72.5% 11.02886%, 75.35575% 13.02848%, 77.82089% 15.49361%, 79.82051% 18.34936%);
+    clip-path: polygon(100% 100%, 0% 100%, 36% 94%, 62% 85%, 67% 82%, 75% 75%, 82% 67%, 85% 62%, 94% 36%, 100% 0);
+  }
 /* The circles on the timeline */
 .container::after {
     content: '';
@@ -326,9 +411,9 @@ section{
     top: 22px;
     width: 0;
     z-index: 1;
-    right: 30px;
+    right: 15px;
     border: medium solid white;
-    border-width: 10px 0 10px 10px;
+    border-width: 6px 0 10px 30px;
     border-color: transparent transparent transparent  #252777;
 }
 /* Add arrows to the right container (pointing left) */
@@ -339,9 +424,9 @@ section{
     top: 22px;
     width: 0;
     z-index: 1;
-    left: 30px;
+    left: 15px;
     border: medium solid white;
-    border-width: 10px 10px 10px 0;
+    border-width: 6px 30px 10px 0;
     border-color: transparent  #252777 transparent transparent;
 }
 /* Fix the circle for containers on the right side */
@@ -387,11 +472,14 @@ section{
         margin-left: 0px;
         margin-right: 0px;
     }
+    #search{
+        max-width: 40vw;
+    }
     #nav_general{
         padding: 20px 10px 0px 10px;
     }
     #paddingNavGeneral{
-        top: 39px;
+        top: 62px;
     }
     main{
         padding-top: 39px;
@@ -457,7 +545,7 @@ section{
         left: 40px;
         border: medium solid white;
         border-width: 10px 10px 10px 0;
-        border-color: transparent white transparent transparent;
+        border-color: transparent #252777 transparent transparent;
     }
     .left{
         left: 0;
