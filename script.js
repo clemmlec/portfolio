@@ -139,7 +139,7 @@ window.onscroll = function(e) {
   
   if(homeDisplay){
     position_projets = titre_projets.offsetParent.offsetTop - windowY;
-    if (position_projets <= (mobile ? 50 : 50)) {
+    if (position_projets <= (mobile ? 80 : 80)) {
       homeDisplay = false;
       scrollToSection(titre_projets,home,projets,nav_home,nav_projets);
       currentBackground =  "bg_gray";
@@ -149,7 +149,7 @@ window.onscroll = function(e) {
 
   if(projetsDisplay){
     position_formations = titre_formations.offsetParent.offsetTop - windowY;
-    if (position_formations <= (mobile ? 50 : 50)) {
+    if (position_formations <= (mobile ? 80 : 80)) {
       scrollToSection(titre_formations,projets,formation,nav_projets,nav_formations);
       setTimeout(function(){ hobbies_aparition = true }, 150);
       projetsDisplay = false;
@@ -160,7 +160,7 @@ window.onscroll = function(e) {
   
   if(hobbies_aparition && formationDisplay){
     position_hobbies = titre_hobbies.offsetParent.offsetTop - windowY;
-    if (position_hobbies <= (mobile ? 50 : 50)) {
+    if (position_hobbies <= (mobile ? 80 : 80)) {
       scrollToSection(titre_hobbies,formation,hobbies,nav_formations,nav_hobbies);
       setTimeout(function(){ contact_aparition = true }, 100);      
       formationDisplay = false;
@@ -171,7 +171,7 @@ window.onscroll = function(e) {
   
   if(contact_aparition  && hobbiesDisplay){
     position_contact = titre_contact.offsetParent.offsetTop - windowY;
-    if (position_contact <= (mobile ? 50 : 50)) {
+    if (position_contact <= (mobile ? 80 : 80)) {
       hobbiesDisplay = false;
       scrollToSection(titre_contact,hobbies,contact,nav_hobbies,nav_contact);
       currentBackground =  "bg_purple";
@@ -317,6 +317,8 @@ p_tools.forEach(element => {
   }
 });
 
+height = tool.offsetHeight;
+contact_home.style.height = height + "px";
 function changeTools(event) {
   width = tool.offsetWidth + "px";
 
