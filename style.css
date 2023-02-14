@@ -214,7 +214,11 @@ section{
 }
 .presentation{
     min-width: 200px;
+    width: 60vw;
     margin: auto;
+}
+.presentation > p{
+    margin: auto 0 !important;
 }
 .center{
     text-align: center;
@@ -468,12 +472,22 @@ section{
     border-radius: 6px;
     margin: 0px auto 20px auto !important;
 }
+
+@media all and (min-width: 1301px) {
+    #tool{
+        width: 60vw;
+        max-width: 60vw;
+    }
+}
 @media all and (max-width: 1101px) {
-    #home :nth-child(2) { order: 2; }
-    #home :nth-child(4) { order: 4; }
+    #home .flex_home:nth-child(2) { order: 2;}
+    #home #tool { order: 2;}
     .contact{
         margin-top: auto;
         margin-bottom: auto;
+    }
+    .presentation{
+        margin: 20px auto;
     }
 }
 @media all and (max-width: 861px) {
@@ -491,15 +505,16 @@ section{
     #paddingNavGeneral{
         top: 62px;
     }
+    .presentation{
+        width: 90vw;
+    }
     main{
         padding-top: 39px;
     }
     .heptagone{
         margin: auto;
     }
-    .presentation{
-        margin: auto;
-    }
+
     #tool{
         max-width: 90vw;
     }
@@ -592,6 +607,6 @@ section{
         margin-top: 20px;
         margin-bottom: 20px;
     }
-    #home :nth-child(3) { order: 4; }
-    #home :nth-child(4) { order: 3; }
+    #home .flex_home:nth-child(3) { order: 4; }
+    #home .flex_home:nth-child(4) { order: 3; }
 }
