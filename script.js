@@ -349,5 +349,6 @@ function changeTools(event) {
   },20);
 }
 
-
-  window.location= "index.html#formation";
+  hobbies_aparition = true;
+  window.location= "index.html#hobbies";
+  

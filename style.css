@@ -8,6 +8,11 @@ main{
     padding-top: 50px;
     
 }
+li{
+    /* all: unset; */
+    /* list-style-type: '- '; */
+    list-style-type: circle;
+}
 .js{
     fill: #F7DF1E;
 }
@@ -144,8 +149,9 @@ h4{
     margin-bottom: 10px;
 }
 ul{
-    padding: 0 10px 10px 10px;
+    /* padding: 0 10px 10px 10px; */
     margin-top: 0;
+    margin-bottom: 0;
 }
 .margin_auto{
     margin: auto;
@@ -213,7 +219,16 @@ ul{
 }
 .bg_black{
     background-color: #000000;
+    color: white !important;
 }
+.swiper-scrollbar {
+    position: relative;
+    background: rgb(133, 130, 130) !important;
+    height: 8px !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    left: 0 !important;
+}  
 .borderL{
     border-radius: 5px 0 0 5px;
 }
@@ -501,12 +516,7 @@ section{
     box-shadow: 2px 2px 2px rgba(228, 227, 227, 0.59);
 }
 
-.img_hobbies{
-    border-radius: 100px;
-    width: 100px;
-    height:100px;
-    object-fit: cover;
-}
+
 .swip{
     width: 100%;
     max-width: inherit;
@@ -656,6 +666,14 @@ section{
     top: 0;
     font-size: 35px;
 }
+.durer{
+    background-color: unset;
+    color: #757575;
+    font-size: 16px;
+
+    top: 50px !important;
+    /* left: 40px; */
+}
 /* The actual content */
 .content {
     padding: 20px 30px;
@@ -704,10 +722,53 @@ section{
     width: 30px;
     margin: auto;
 }
+.img_hobbies{
+    position: relative;
+    top: -68px;
+    z-index: 0;
+    border-radius: 5px 0 0 5px;
+    width: 100%;
+    height:100%;
+    object-fit: cover;
+    opacity: 0.8;
+    /* box-shadow:  inset 2px 2px 20px rgb(51, 48, 110); */
+
+}
+.titre_hobbies{
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin-top: 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 5px 0 0 0;
+    /* margin: ; */
+    background-color: #00000094;
+    color: white;
+    /* top: -49px; */
+}
+.p_hobbies{
+    display: grid;
+    grid-template-columns: 15% 85%;
+    /* margin-bottom: 70px !important; */
+}
+.photo_hobbie{
+    height: 271px;
+}
+.swip > p{
+    margin: 0;
+    padding: 16px;
+    margin-bottom: 1px;
+    /* background-color: #484a9f; */
+}
 @media all and (min-width: 1301px) {
     #tool{
         width: 60vw;
         max-width: 60vw;
+    }
+    .p_hobbies{
+        display: grid;
+        grid-template-columns: 10% 90%;
     }
 }
 @media all and (max-width: 1101px) {
@@ -722,6 +783,14 @@ section{
     }
 }
 @media all and (max-width: 861px) {
+    .photo_hobbie{
+        max-height: 300px;
+        height: auto;
+    }
+    .p_hobbies{
+        display: flex;
+        grid-template-columns: unset;
+    }
     nav ul li {
         font-size: 15px;
         margin-left: 0px;
@@ -775,7 +844,7 @@ section{
         top: -86px;
     }
     .m_10{
-        margin: 0 10px 0 10px;
+        margin: 0 20px 0 20px;
     }
     .swip{
         width: 100%;
