@@ -348,3 +348,6 @@ function changeTools(event) {
     event.target.classList.remove("not_current")
   },20);
 }
+
+
+  window.location= "index.html#formation";
