@@ -468,6 +468,7 @@ section{
     /* font-size: 20px; */
     /* background-color:#A5A6F6 !important; */
     box-shadow: inset  2px 2px 2px rgba(167, 161, 212, 0.187);
+    
     /* background-color:#252777 !important; */
     color: #ffffff;
     top: -40px;
@@ -475,7 +476,7 @@ section{
     width: fit-content;
     /* background-color: #787676ca; */
     border-radius: 5px 5px 0 0;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
     padding-left: 20px;
     padding-top: 10px;
     margin-bottom: 0;
@@ -500,6 +501,18 @@ section{
 .card{
     width: 500px;
     display: block;
+}
+.card_70{
+    width: 70vw;
+    display: block;
+}
+.contact_fin{
+    margin: auto;
+    width: 49%;
+    min-width: 270px;
+}
+.t_center{
+    text-align: center;
 }
 .content_card{
 
@@ -761,6 +774,15 @@ section{
     margin-bottom: 1px;
     /* background-color: #484a9f; */
 }
+.gridR2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: 16px !important;
+}
+.gridR2 > .lien_contact{
+    padding-left: 60px !important;
+    width: 60%;
+}
 @media all and (min-width: 1301px) {
     #tool{
         width: 60vw;
@@ -783,6 +805,24 @@ section{
     }
 }
 @media all and (max-width: 861px) {
+    .card_70{
+        width: 90vw;
+        display: block;
+    }
+    .contact_fin{
+        width: 90vw;
+    
+    }
+    .gridR2{
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: unset;
+        font-size: 16px !important;
+    }
+    .gridR2 > .lien_contact{
+        margin-top: 10px !important;
+        width: max-content;
+    }
     .photo_hobbie{
         max-height: 300px;
         height: auto;

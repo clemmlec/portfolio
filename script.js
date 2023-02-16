@@ -350,5 +350,9 @@ function changeTools(event) {
 }
 
   hobbies_aparition = true;
-  window.location= "index.html#hobbies";
-  
+  contact_aparition = true;
+  window.location= "index.html#contact";
+  envoyer_mail.addEventListener("click", sendMail());
+  function sendMail() {
+    
+  }
