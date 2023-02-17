@@ -18,7 +18,9 @@
         href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
         />
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400&display=swap" rel="stylesheet">
 </head>
 <body id="site" class="bg_purple">
 
@@ -38,23 +40,25 @@
         <nav id="nav_general" class="bg_purpleDark">
             <ul>
                 <li id="nav-home" class="nav_generals bg_purple">Home</li>
-                <li id="nav-projets" class="nav_generals bg_gray">Projets</li>
-                <li id="nav-formation" class="nav_generals bg_purple">Formations</li>
-                <li id="nav-hobbies" class="nav_generals bg_gray">Hobbies</li>
-                <li id="nav-contact" class="nav_generals bg_purple">Contact</li>
+                <li id="nav-projets" class="nav_generals bg_purple not_current">Projets</li>
+                <li id="nav-formation" class="nav_generals bg_purple not_current">Formations</li>
+                <li id="nav-hobbies" class="nav_generals bg_purple not_current">Hobbies</li>
+                <li id="nav-contact" class="nav_generals bg_purple not_current">Contact</li>
             </ul>
         </nav>
         <div id="paddingNavGeneral" class="bg_purple"></div>
+
     </header>
 
-    <main id="main" class="bg_purple">
+    <main id="" class="bg_purple">
+        <div id="particles-js"></div>
 
         <!-- Home -->
-        <section id="home" class="bg_purple inline_flex">
+        <section id="home" class="inline_flex show">
             <!-- Photo profil -->
-            <img class="heptagone flex_home" src="asset/IMG_1349.JPG" alt="photo de Clément">
+            <img class="heptagone flex_home home_index" src="asset/logo1.png" alt="photo de Clément">
             <!-- Présentation -->
-            <div class="presentation flex_home">
+            <div class="presentation flex_home home_index">
                 <h1 id="h1">Canale Clément <br> Développeur Web Fullstack</h1>
                 <p class="inline_flex intro"> 
                     <span>J'aime transformer des idées en réalité avec Javascript et PHP,&nbsp;</span> 
@@ -64,7 +68,7 @@
                 
             </div>
             <!-- Contact Home -->
-            <div id="contact_home" class="flex_home bg_gray">
+            <div id="contact_home" class="flex_home bg_gray home_index">
                 <h2 id="titre_contact_home" class="center bg_gray">Contact</h2>
                 <!-- Linkedin -->
                 <div class="lien_contact">
@@ -89,7 +93,7 @@
                 </div>
             </div>
             <!-- Tools -->
-            <div id="tool" class="fex_home">
+            <div id="tool" class="fex_home home_index">
                 <!-- <h2 id="h_tools" class="center titre_home">Tools</h2> -->
                 <!-- Boutons -->
                 <div class="btn_tools">
@@ -169,15 +173,16 @@
                     </p>
                 </div>
             </div>
+
         </section>
 
         <!-- Projets -->
-        <section id="projets" class="bg_gray">
+        <section id="projets" class="">
             <h2 id="titre-projets" class="section_titre bg_gray">Projets</h2>
             <div class="flex_projet">
 
                 <!-- Fedhubs -->
-                <div class="inline_flex p_projet shadow_purple card">
+                <div class="inline_flex p_projet shadow_purple bg_gray card">
                     <!-- titre -->
                     <div class="content_card bg_white">
                         <h3 class="bg_white titre_projet"><img class="logo" src="asset/projets/fed.png" alt="logo de Fedhubs">Fedhubs</h3>
@@ -217,7 +222,7 @@
                 </div>
 
                 <!-- Dev In -->
-                <div class="inline_flex p_projet shadow_purple card">
+                <div class="inline_flex p_projet shadow_purple bg_gray card">
                     <!-- Titre -->
                     <div class="content_card bg_devIn">
                         <h3 class="titre_projet bg_devIn"><img class="logo" src="asset/projets/logo_devin.png" alt="logo de Dev In">Dev In</h3>
@@ -256,7 +261,7 @@
                 </div>
 
                 <!-- API Images -->
-                <div class="inline_flex p_projet shadow_purple card">
+                <div class="inline_flex p_projet shadow_purple bg_gray card">
                     <!-- Titre -->
                     <div class="content_card bg_devIn">
                         <h3 class="titre_projet bg_devIn"><img class="logo" src="asset/projets/logo_photo.png" alt="logo d'API Images">API Images</h3>
@@ -292,7 +297,7 @@
                 </div>
 
                 <!-- Jarez Solidarité -->
-                <div class="inline_flex p_projet shadow_purple card">
+                <div class="inline_flex p_projet shadow_purple bg_gray card">
                     <!-- Titre -->
                     <div class="content_card bg_jarez">
                         <h3 class="titre_projet bg_jarez"><img class="logo" src="asset/projets/logo_jarezsolidarites.png" alt="logo de Jarez Solidaritées">Jarez Solidaritées</h3>
@@ -329,7 +334,7 @@
                 </div>
 
                 <!-- You Save The World -->
-                <div class="inline_flex p_projet shadow_purple card">
+                <div class="inline_flex p_projet shadow_purple bg_gray card">
                     <!-- Titre -->
                     <div class="m_10 content_card bg_devIn">
                         <h3 class="titre_projet bg_devIn"><img class="logo" src="asset/projets/logo_saveworld.png" alt="logo de Save World">Save World</h3>
@@ -365,11 +370,13 @@
                         <button class="button">Détails</button>
                     </div>
                 </div>
+
             </div>
+
         </section>
 
         <!-- Formation -->
-        <section id="formation" class="bg_purple">
+        <section id="formation" class="">
             <h2 id="titre-formation" class="section_titre bg_purple">Formations</h2>
             <div class="timeline">
                 <!-- DWWM 2022 -->
@@ -503,17 +510,17 @@
         </section>
         
         <!-- Hobbies -->
-        <section id="hobbies" class="bg_gray">
+        <section id="hobbies" class="">
             <h2 id="titre-hobbies" class="section_titre bg_gray">Hobbies</h2>
             <!-- Cuisine -->
-            <div class="inline_flex p_hobbies  shadow_purple">
+            <div class="inline_flex p_hobbies bg_black">
                 
                 <div class="photo_hobbie">
                     <h3 class="titre_hobbies">Cuisine</h3>
                     <img class="img_hobbies" src="asset/hobbies/cuisine/IMG_0016.jpg" alt="plats de cuisine">
                 </div>
 
-                <div class="swip">
+                <div class="swip shadow_purple">
                     <p>Après 10 années d'éxeprience dans le metier, la cuisine reste toujours une passion.</p>
                     <!-- Slider main container -->
                     <div class="swiper">
@@ -548,13 +555,13 @@
             </div>
         
             <!-- Photographie -->
-            <div class="inline_flex p_hobbies bg_black shadow_purple">
+            <div class="inline_flex p_hobbies bg_black">
                 
                 <div class="photo_hobbie">
                     <h3 class="titre_hobbies">Photographie</h3>
                     <img class="img_hobbies" src="asset/hobbies/photographie/IMG_1212.jpg" alt="fleurs de cerisiers">
                 </div>
-                <div class="swip">
+                <div class="swip shadow_purple">
                     <p>Très porté sur la nature, j'aime aussi l'immortaliser.</p>
                     <!-- Slider main container -->
                     <div class="swiper">
@@ -603,13 +610,13 @@
             </div>
         
             <!-- Metier du bois -->
-            <div class="inline_flex p_hobbies bg_black shadow_purple">
+            <div class="inline_flex p_hobbies bg_black">
         
                 <div class="photo_hobbie">
                     <h3 class="titre_hobbies">Metier du bois</h3>
                     <img class="img_hobbies" src="asset/hobbies/bois/572.JPG" alt="plats de cuisine">
                 </div>
-                <div class="swip">
+                <div class="swip shadow_purple">
                     <p>Attiré par la curiosité, j'ai créer plusieurs meubles ou objcts en bois.</p>
                     <!-- Slider main container -->
                     <div class="swiper">
@@ -643,14 +650,14 @@
             </div>
         
             <!-- Musique -->
-            <div class="inline_flex p_hobbies shadow_purple">
+            <div class="inline_flex p_hobbies bg_black">
         
                 <div>
                     <h3 class="titre_hobbies">Musique</h3>
                     <svg class="" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Deezer</title><path d="M18.81 4.16v3.03H24V4.16h-5.19zM6.27 8.38v3.027h5.189V8.38h-5.19zm12.54 0v3.027H24V8.38h-5.19zM6.27 12.594v3.027h5.189v-3.027h-5.19zm6.271 0v3.027h5.19v-3.027h-5.19zm6.27 0v3.027H24v-3.027h-5.19zM0 16.81v3.029h5.19v-3.03H0zm6.27 0v3.029h5.189v-3.03h-5.19zm6.271 0v3.029h5.19v-3.03h-5.19zm6.27 0v3.029H24v-3.03h-5.19Z"/></svg>
                     <!-- <img class="img_hobbies" src="asset/hobbies/cuisine/IMG_0016.jpg" alt="plats de cuisine"> -->
                 </div>
-                <div class="swip">
+                <div class="swip shadow_purple">
                     <p>En avant première un apercu de mes titres favoris.</p>
                     <!-- <iframe title="deezer-widget" src="https://widget.deezer.com/widget/auto/playlist/11118641424" width="100%" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media; clipboard-write"></iframe> -->
                 </div>
@@ -658,7 +665,7 @@
         </section>
 
         <!-- Contact -->
-        <section id="contact" class="bg_purple">
+        <section id="contact" class="">
             <div id="titre-contact" class="section_titre bg_gray">Contact</div>
             <div class="inline_flex p_projet shadow_purple bg_gray card_70">
                 <!-- titre -->
@@ -697,6 +704,7 @@
             <div style="height: 800px;"></div>
         </section>
     </main>
+
     <footer class="bg_purpleDark">
         <span>mentions légales</span>
         <span id="icone_footer">
@@ -704,6 +712,8 @@
         </span>
     </footer>
 </body>
-
+<script src="particles.min.js"></script>
+<script src="app.js"></script>
 <script src="script.js"></script>
+
 </html>

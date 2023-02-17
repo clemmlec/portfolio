@@ -78,37 +78,37 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
   site.classList.toggle("bg_purpleDark");
 }else{ mobile = false}
 
-function scrollToSection(titreSectionCourante,oldSection,currentSection,oldNav,currentNav){
+// function scrollToSection(titreSectionCourante,oldSection,currentSection,oldNav,currentNav){
 
 
-  sectionHeight = oldSection.offsetHeight + 150;
-  window.scrollTo(0, - sectionHeight);
-  titreSectionCourante.style.display = "none";
+//   sectionHeight = oldSection.offsetHeight + 150;
+//   window.scrollTo(0, - sectionHeight);
+//   titreSectionCourante.style.display = "none";
 
-  currentSection.style.zIndex = 1;
-  currentNav.style.opacity = 1;
-  currentNav.style.paddingBottom = "1px";
-  main.classList.toggle("bg_gray");
-  main.classList.toggle("bg_purple");
-  paddingNavGeneral.animationPlayState = 'paused'
-  paddingNavGeneral.style.transition = "none";
-  paddingNavGeneral.classList.toggle("bg_gray");
-  paddingNavGeneral.classList.toggle("bg_purple");
+//   currentSection.style.zIndex = 1;
+//   currentNav.style.opacity = 1;
+//   currentNav.style.paddingBottom = "1px";
+//   main.classList.toggle("bg_gray");
+//   main.classList.toggle("bg_purple");
+//   paddingNavGeneral.animationPlayState = 'paused'
+//   paddingNavGeneral.style.transition = "none";
+//   paddingNavGeneral.classList.toggle("bg_gray");
+//   paddingNavGeneral.classList.toggle("bg_purple");
 
-  oldNav.style.paddingBottom = "0";
-  oldNav.classList.add('not_current');
+//   oldNav.style.paddingBottom = "0";
+//   oldNav.classList.add('not_current');
 
-  oldSection.style.display = "none";
+//   oldSection.style.display = "none";
 
-  setTimeout(function(){ 
-    paddingNavGeneral.style.transition = "";
-  }, 50);
-  if (mobile) {
-    setTimeout(function(){ 
-      window.scroll( { top : 50 , behavior : "smooth"})
-    }, 10);
-  }
-}
+//   setTimeout(function(){ 
+//     paddingNavGeneral.style.transition = "";
+//   }, 50);
+//   if (mobile) {
+//     setTimeout(function(){ 
+//       window.scroll( { top : 50 , behavior : "smooth"})
+//     }, 10);
+//   }
+// }
 
   // var checkScrollSpeed = (function(settings){
     //   settings = settings || {};
@@ -134,51 +134,51 @@ function scrollToSection(titreSectionCourante,oldSection,currentSection,oldNav,c
     //     return delta;
     //   };
   // })();
-window.onscroll = function(e) {
-  windowY = window.scrollY;
+// window.onscroll = function(e) {
+//   windowY = window.scrollY;
   
-  if(homeDisplay){
-    position_projets = titre_projets.offsetParent.offsetTop - windowY;
-    if (position_projets <= (mobile ? 80 : 80)) {
-      homeDisplay = false;
-      scrollToSection(titre_projets,home,projets,nav_home,nav_projets);
-      currentBackground =  "bg_gray";
-      oldNav = nav_home;
-    }
-  }
+//   if(homeDisplay){
+//     position_projets = titre_projets.offsetParent.offsetTop - windowY;
+//     if (position_projets <= (mobile ? 80 : 80)) {
+//       homeDisplay = false;
+//       scrollToSection(titre_projets,home,projets,nav_home,nav_projets);
+//       currentBackground =  "bg_gray";
+//       oldNav = nav_home;
+//     }
+//   }
 
-  if(projetsDisplay){
-    position_formations = titre_formations.offsetParent.offsetTop - windowY;
-    if (position_formations <= (mobile ? 80 : 80)) {
-      scrollToSection(titre_formations,projets,formation,nav_projets,nav_formations);
-      setTimeout(function(){ hobbies_aparition = true }, 150);
-      projetsDisplay = false;
-      currentBackground =  "bg_purple";
-      oldNav = nav_projets;
-    }
-  }
+//   if(projetsDisplay){
+//     position_formations = titre_formations.offsetParent.offsetTop - windowY;
+//     if (position_formations <= (mobile ? 80 : 80)) {
+//       scrollToSection(titre_formations,projets,formation,nav_projets,nav_formations);
+//       setTimeout(function(){ hobbies_aparition = true }, 150);
+//       projetsDisplay = false;
+//       currentBackground =  "bg_purple";
+//       oldNav = nav_projets;
+//     }
+//   }
   
-  if(hobbies_aparition && formationDisplay){
-    position_hobbies = titre_hobbies.offsetParent.offsetTop - windowY;
-    if (position_hobbies <= (mobile ? 80 : 80)) {
-      scrollToSection(titre_hobbies,formation,hobbies,nav_formations,nav_hobbies);
-      setTimeout(function(){ contact_aparition = true }, 100);      
-      formationDisplay = false;
-      currentBackground =  "bg_gray";
-      oldNav = nav_formations;
-    }
-  }
+//   if(hobbies_aparition && formationDisplay){
+//     position_hobbies = titre_hobbies.offsetParent.offsetTop - windowY;
+//     if (position_hobbies <= (mobile ? 80 : 80)) {
+//       scrollToSection(titre_hobbies,formation,hobbies,nav_formations,nav_hobbies);
+//       setTimeout(function(){ contact_aparition = true }, 100);      
+//       formationDisplay = false;
+//       currentBackground =  "bg_gray";
+//       oldNav = nav_formations;
+//     }
+//   }
   
-  if(contact_aparition  && hobbiesDisplay){
-    position_contact = titre_contact.offsetParent.offsetTop - windowY;
-    if (position_contact <= (mobile ? 80 : 80)) {
-      hobbiesDisplay = false;
-      scrollToSection(titre_contact,hobbies,contact,nav_hobbies,nav_contact);
-      currentBackground =  "bg_purple";
-      oldNav = nav_hobbies;
-    }
-  }
-}
+//   if(contact_aparition  && hobbiesDisplay){
+//     position_contact = titre_contact.offsetParent.offsetTop - windowY;
+//     if (position_contact <= (mobile ? 80 : 80)) {
+//       hobbiesDisplay = false;
+//       scrollToSection(titre_contact,hobbies,contact,nav_hobbies,nav_contact);
+//       currentBackground =  "bg_purple";
+//       oldNav = nav_hobbies;
+//     }
+//   }
+// }
 
 // function base(){
 //   home.style.display = "flex";
@@ -244,15 +244,15 @@ function changeSection(event) {
       element.classList.add('hide');
       element.classList.remove('show');
       element.style.display = 'none';
-      element.style.transform = 'translateX(+200px)';
+      element.style.transform = 'translate(+200px)';
     }  
     if(hobbiesDisplay){
       element.style.opacity = 0;
       element.classList.add('hide');
       element.classList.remove('show');
-      element.style.display = 'none';
+      // element.style.display = 'none';
       element.style.transform = 'translateX(+200px)';
-      element.style.zIndex = 2;
+      // element.style.zIndex = 2;
 
     }
   });
@@ -266,7 +266,7 @@ function changeSection(event) {
   }
 
   currentSection.style.opacity = 0;
-  currentSection.style.transform = 'translateX(+100px)';
+  currentSection.style.transform = 'translateX(50px)';
   currentSection.classList.remove('hide');
   currentSection.classList.add('show');
 
@@ -275,21 +275,22 @@ function changeSection(event) {
   }else{
     currentSection.style.display = 'block';
   }
-
+  // currentSection.insertBefore(document.getElementById('particles-js'),js);
   window.setTimeout(function(){
     
     currentSection.style.opacity = 1;
     currentSection.style.transform = 'translateX(-20px)';
-    
+
+
     if( !homeDisplay && currentSection.classList.item(0) != currentBackground){
-      main.classList.toggle("bg_gray");
-      main.classList.toggle("bg_purple");
-      paddingNavGeneral.classList.toggle("bg_gray");
-      paddingNavGeneral.classList.toggle("bg_purple");
-      if (!mobile) {
-        site.classList.toggle("bg_gray");
-        site.classList.toggle("bg_purple");
-      }
+      // main.classList.toggle("bg_gray");
+      // main.classList.toggle("bg_purple");
+      // paddingNavGeneral.classList.toggle("bg_gray");
+      // paddingNavGeneral.classList.toggle("bg_purple");
+      // if (!mobile) {
+      //   site.classList.toggle("bg_gray");
+      //   site.classList.toggle("bg_purple");
+      // }
     }
     window.scrollBy( { top : -window.scrollY })
     setTimeout(function(){ 
@@ -297,7 +298,7 @@ function changeSection(event) {
 
     }, 550);
     
-  },0);
+  },10);
   
 
 }
@@ -349,10 +350,12 @@ function changeTools(event) {
   },20);
 }
 
-  hobbies_aparition = true;
-  contact_aparition = true;
-  window.location= "index.html#contact";
-  envoyer_mail.addEventListener("click", sendMail());
-  function sendMail() {
+  // hobbies_aparition = true;
+  // contact_aparition = true;
+  // homeDisplay=false;
+  // projets.style.display="block"
+  // window.location= "index.html#projets";
+  // envoyer_mail.addEventListener("click", sendMail());
+  // function sendMail() {
     
-  }
+  // }
