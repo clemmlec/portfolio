@@ -235,11 +235,14 @@ function changeSection(event) {
     
   }
 
+  projets_detail.style.opacity = 0;
+  projets_detail.classList.remove("show")
+  projets_detail.classList.add("hide")
+
   sections = document.querySelectorAll('section');
   sections.forEach(element => {
     if(element.classList.contains('show')){
       currentBackground =  element.classList.item(0);
-      oldNav = document.getElementById("nav-"+element.id);
       element.style.opacity = 0;
       element.classList.add('hide');
       element.classList.remove('show');
@@ -300,6 +303,7 @@ function changeSection(event) {
     
   },10);
   
+  oldNav = currentNav;
 
 }
 
@@ -359,3 +363,43 @@ function changeTools(event) {
   // function sendMail() {
     
   // }
+btn_details = document.querySelectorAll('.button_detail');
+btn_details.forEach(element => {
+  element.addEventListener("click", changeDetails);
+});
+
+function changeDetails(event) {
+  console.log(event)
+  // projets_detail.style.display = "block";
+  // projets.style.display = "none";
+  projets_detail.classList.remove("hide")
+  projets_detail.style.opacity = 0;
+  projets_detail.classList.add("show")
+  projets.classList.add('hide')
+
+
+  // Création de l'objet XMLHttpRequest
+  let xhttp = new XMLHttpRequest();
+
+  // Configuration de la requête
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      // Le contenu HTML a été chargé avec succès
+      document.getElementById("projets_detail").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "html/projet/"+event.target.value+".html", true);
+
+  // Envoi de la requête
+  xhttp.send();
+  window.setTimeout(function(){
+
+    projets_detail.style.opacity = 1;
+    projets.style.opacity = 0;
+    window.setTimeout(function(){
+        projets.classList.remove('show')
+        projets.style.display = "none";
+    },400);
+
+  },50);
+}
