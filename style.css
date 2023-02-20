@@ -119,10 +119,22 @@ button{
     display: grid;
     grid-template-columns: 0.5fr 4fr;
 }
-#btn_historique{
+#btns_historique{
     position: absolute;
     right: 40px;
     top: 5px;
+}
+#lst_historique{
+    height: max-content;
+    max-height: 300px;
+    width: 200px;
+    background-color: #000000;
+    position: fixed;
+    top: 50px;
+    right: 120px;
+    color: white;
+    overflow-y: scroll;
+    cursor: pointer;
 }
 #search{
     all: unset;
@@ -288,7 +300,6 @@ section{
     min-height: 300px;
     margin: auto;
     z-index: 3;
-
 }
 #contact_home{
     position: relative;
@@ -383,6 +394,7 @@ section{
     width: 60vw;
     margin: auto;
     color: white;
+    text-shadow: 0 0 100px #00fe08;
 }
 
 .presentation > p{
@@ -599,6 +611,13 @@ section{
     color: #4649e6 !important;
 }
 .show{
+    opacity: 1;
+    transform: translateX(0px);
+    display: block;
+    /* z-index: 3; */
+    transition: .9s ease opacity,.9s ease transform;
+}
+.showFlex{
     opacity: 1;
     transform: translateX(0px);
     display: flex;

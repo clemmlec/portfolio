@@ -35,175 +35,57 @@ const swiper = new Swiper('.swiper', {
 });
 
 // Responcive nav onglet
-adaptNavGeneral();
+// adaptNavGeneral();
 
-function adaptNavGeneral(){
-  document.getElementById('titre-projets').style.left = ((document.getElementById('nav-projets').offsetLeft - 20) + "px");
-  document.getElementById('titre-formation').style.left = ((document.getElementById('nav-formation').offsetLeft - 20) + "px");
-  document.getElementById('titre-hobbies').style.left = ((document.getElementById('nav-hobbies').offsetLeft - 20) + "px");
-  document.getElementById('titre-contact').style.left = ((document.getElementById('nav-contact').offsetLeft - 20) + "px");
-};
+// function adaptNavGeneral(){
+//   document.getElementById('titre-projets').style.left = ((document.getElementById('nav-projets').offsetLeft - 20) + "px");
+//   document.getElementById('titre-formation').style.left = ((document.getElementById('nav-formations').offsetLeft - 20) + "px");
+//   document.getElementById('titre-hobbies').style.left = ((document.getElementById('nav-hobbies').offsetLeft - 20) + "px");
+//   document.getElementById('titre-contact').style.left = ((document.getElementById('nav-contact').offsetLeft - 20) + "px");
+// };
 
-window.onresize = function(){
-  adaptNavGeneral();
-}
+// window.onresize = function(){
+//   adaptNavGeneral();
+// }
 
 
 // Scroll
 
-homeDisplay = true;
-projetsDisplay = true;
-formationDisplay = true;
-hobbiesDisplay = true;
-
-
-
-titre_projets = document.getElementById('titre-projets');
-titre_formations = document.getElementById('titre-formation');
-titre_hobbies = document.getElementById('titre-hobbies');
-titre_contact = document.getElementById('titre-contact');
+// titre_projets = document.getElementById('titre-projets');
+// titre_formations = document.getElementById('titre-formation');
+// titre_hobbies = document.getElementById('titre-hobbies');
+// titre_contact = document.getElementById('titre-contact');
 
 nav_home = document.getElementById('nav-home');
 nav_projets = document.getElementById('nav-projets');
-nav_formations = document.getElementById('nav-formation');
+nav_formations = document.getElementById('nav-formations');
 nav_hobbies = document.getElementById('nav-hobbies');
 nav_contact = document.getElementById('nav-contact');
 contact_aparition = false;
 hobbies_aparition = false;
 currentBackground =  "bg_purple";
 oldNav = nav_home;
+oldSection = home;
+
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
   mobile = true;
   site.classList.toggle("bg_purple");
   site.classList.toggle("bg_purpleDark");
 }else{ mobile = false}
 
-// function scrollToSection(titreSectionCourante,oldSection,currentSection,oldNav,currentNav){
+route = [
+  ["home",
+  "projets",
+  "formations",
+  "hobbies",
+  "contact"],
+  [
+    "fedhubs",
+    "devin"
+  ]
+];
 
-
-//   sectionHeight = oldSection.offsetHeight + 150;
-//   window.scrollTo(0, - sectionHeight);
-//   titreSectionCourante.style.display = "none";
-
-//   currentSection.style.zIndex = 1;
-//   currentNav.style.opacity = 1;
-//   currentNav.style.paddingBottom = "1px";
-//   main.classList.toggle("bg_gray");
-//   main.classList.toggle("bg_purple");
-//   paddingNavGeneral.animationPlayState = 'paused'
-//   paddingNavGeneral.style.transition = "none";
-//   paddingNavGeneral.classList.toggle("bg_gray");
-//   paddingNavGeneral.classList.toggle("bg_purple");
-
-//   oldNav.style.paddingBottom = "0";
-//   oldNav.classList.add('not_current');
-
-//   oldSection.style.display = "none";
-
-//   setTimeout(function(){ 
-//     paddingNavGeneral.style.transition = "";
-//   }, 50);
-//   if (mobile) {
-//     setTimeout(function(){ 
-//       window.scroll( { top : 50 , behavior : "smooth"})
-//     }, 10);
-//   }
-// }
-
-  // var checkScrollSpeed = (function(settings){
-    //   settings = settings || {};
-
-    //   var lastPos, newPos, timer, delta, 
-    //       delay = settings.delay || 50; // in "ms" (higher means lower fidelity )
-
-    //   function clear() {
-    //     lastPos = null;
-    //     delta = 0;
-    //   }
-
-    //   clear();
-      
-    //   return function(){
-    //     newPos = window.scrollY;
-    //     if ( lastPos != null ){ // && newPos < maxScroll 
-    //       delta = newPos -  lastPos;
-    //     }
-    //     lastPos = newPos;
-    //     clearTimeout(timer);
-    //     timer = setTimeout(clear, delay);
-    //     return delta;
-    //   };
-  // })();
-// window.onscroll = function(e) {
-//   windowY = window.scrollY;
-  
-//   if(homeDisplay){
-//     position_projets = titre_projets.offsetParent.offsetTop - windowY;
-//     if (position_projets <= (mobile ? 80 : 80)) {
-//       homeDisplay = false;
-//       scrollToSection(titre_projets,home,projets,nav_home,nav_projets);
-//       currentBackground =  "bg_gray";
-//       oldNav = nav_home;
-//     }
-//   }
-
-//   if(projetsDisplay){
-//     position_formations = titre_formations.offsetParent.offsetTop - windowY;
-//     if (position_formations <= (mobile ? 80 : 80)) {
-//       scrollToSection(titre_formations,projets,formation,nav_projets,nav_formations);
-//       setTimeout(function(){ hobbies_aparition = true }, 150);
-//       projetsDisplay = false;
-//       currentBackground =  "bg_purple";
-//       oldNav = nav_projets;
-//     }
-//   }
-  
-//   if(hobbies_aparition && formationDisplay){
-//     position_hobbies = titre_hobbies.offsetParent.offsetTop - windowY;
-//     if (position_hobbies <= (mobile ? 80 : 80)) {
-//       scrollToSection(titre_hobbies,formation,hobbies,nav_formations,nav_hobbies);
-//       setTimeout(function(){ contact_aparition = true }, 100);      
-//       formationDisplay = false;
-//       currentBackground =  "bg_gray";
-//       oldNav = nav_formations;
-//     }
-//   }
-  
-//   if(contact_aparition  && hobbiesDisplay){
-//     position_contact = titre_contact.offsetParent.offsetTop - windowY;
-//     if (position_contact <= (mobile ? 80 : 80)) {
-//       hobbiesDisplay = false;
-//       scrollToSection(titre_contact,hobbies,contact,nav_hobbies,nav_contact);
-//       currentBackground =  "bg_purple";
-//       oldNav = nav_hobbies;
-//     }
-//   }
-// }
-
-// function base(){
-//   home.style.display = "flex";
-//   projets.style.display = "block";
-//   formation.style.display = "block";
-//   hobbies.style.display = "block";
-//   titre_projets.style.display = "inline";
-//   titre_formations.style.display = "inline";
-//   titre_hobbies.style.display = "inline";
-//   titre_contact.style.display = "inline";
-//   contact_aparition = false;
-//   hobbies_aparition = false;
-//   nav_contact.style.opacity = 0;
-//   nav_formations.style.opacity = 0;
-//   nav_hobbies.style.opacity = 0;
-//   nav_projets.style.opacity = 0;
-//   window.scrollTo( { top : 50 , behavior : "smooth"}) 
-
-//   setTimeout(function(){
-//     homeDisplay = true;
-//     projetsDisplay = true;
-//     formationDisplay = true;
-//     hobbiesDisplay = true;
-//     }, 300);
-// }
+historique = [];
 
 nav_home.addEventListener("click", changeSection);
 nav_projets.addEventListener("click", changeSection);
@@ -211,55 +93,29 @@ nav_formations.addEventListener("click", changeSection);
 nav_hobbies.addEventListener("click", changeSection);
 nav_contact.addEventListener("click", changeSection);
 
-function changeSection(event) {
-  currentSection = document.getElementById(document.getElementById(event.target.id).id.split("-")[1]);
-  currentNav = event.target;
-
-  if(hobbiesDisplay){
-    homeDisplay = false;
-    projetsDisplay = false;
-    formationDisplay = false;
-    nav_contact.style.opacity = 1;
-    nav_formations.style.opacity = 1;
-    nav_hobbies.style.opacity = 1;
-    nav_projets.style.opacity = 1;
-    nav_contact.classList.add('not_current');
-    nav_formations.classList.add('not_current');
-    nav_hobbies.classList.add('not_current');
-    nav_home.classList.add('not_current');
-    nav_projets.classList.add('not_current');
-    titre_contact.style.display = "none";
-    titre_formations.style.display = "none";
-    titre_hobbies.style.display = "none";
-    titre_projets.style.display = "none";
-    
+function changeSection(event, elem) {
+  if(event){
+    currentSection = document.getElementById(document.getElementById(event.target.id).id.split("-")[1]);
+    currentNav = event.target;
+  }else{
+    currentSection = elem;
+    // console.log("nav-"+elem.id)
+    currentNav = document.getElementById("nav-"+elem.id);
   }
+
+  historiqueScroll = 0;
 
   projets_detail.style.opacity = 0;
   projets_detail.classList.remove("show")
   projets_detail.classList.add("hide")
 
-  sections = document.querySelectorAll('section');
-  sections.forEach(element => {
-    if(element.classList.contains('show')){
-      currentBackground =  element.classList.item(0);
-      element.style.opacity = 0;
-      element.classList.add('hide');
-      element.classList.remove('show');
-      element.style.display = 'none';
-      element.style.transform = 'translate(+200px)';
-    }  
-    if(hobbiesDisplay){
-      element.style.opacity = 0;
-      element.classList.add('hide');
-      element.classList.remove('show');
-      // element.style.display = 'none';
-      element.style.transform = 'translateX(+200px)';
-      // element.style.zIndex = 2;
+  oldSection.style.opacity = 0;
+  oldSection.classList.add('hide');
+  oldSection.classList.remove('show');
+  oldSection.classList.remove('showFlex');
+  oldSection.style.transform = 'translate(+200px)';
+  // oldSection.style.display="none";
 
-    }
-  });
-  hobbiesDisplay = false;
 
   currentNav.style.paddingBottom = "1px";
   currentNav.classList.remove('not_current');
@@ -274,28 +130,19 @@ function changeSection(event) {
   currentSection.classList.add('show');
 
   if(  currentSection.id == 'home'){
-    currentSection.style.display = 'flex';
+    currentSection.classList.remove('hide');
+    currentSection.classList.add('showFlex');
   }else{
-    currentSection.style.display = 'block';
+    currentSection.classList.remove('hide');
+    currentSection.classList.add('show');
   }
+  saveScroll = window.scrollY;
   // currentSection.insertBefore(document.getElementById('particles-js'),js);
   window.setTimeout(function(){
     
     currentSection.style.opacity = 1;
     currentSection.style.transform = 'translateX(-20px)';
-
-
-    if( !homeDisplay && currentSection.classList.item(0) != currentBackground){
-      // main.classList.toggle("bg_gray");
-      // main.classList.toggle("bg_purple");
-      // paddingNavGeneral.classList.toggle("bg_gray");
-      // paddingNavGeneral.classList.toggle("bg_purple");
-      // if (!mobile) {
-      //   site.classList.toggle("bg_gray");
-      //   site.classList.toggle("bg_purple");
-      // }
-    }
-    window.scrollBy( { top : -window.scrollY })
+    window.scrollBy( { top : -window.scrollY+historiqueScroll })
     setTimeout(function(){ 
       currentSection.style.transform = 'translateX(0px)';
 
@@ -304,9 +151,84 @@ function changeSection(event) {
   },10);
   
   oldNav = currentNav;
+  oldSection = currentSection;
+  historique.push([currentSection.id,saveScroll])
+  lst_historique.innerHTML = "<li class='li_historique' value='"+(historique.length-1)+"'>" + currentSection.id +"</li>" + lst_historique.innerHTML;
+  console.log(historique)
+}
+lst_historique.addEventListener("click", function(event) {
+  console.log(event.target.innerHTML,event.target.value)
+});
+changeSection.apply(null,[null,home])
 
+search.addEventListener("focus", function(event) {
+  console.log(search.value)
+  if(search.value==""){
+    search.value = "\/";
+  }
+  document.addEventListener("keydown", goTo);
+});
+search.addEventListener("blur", function(event) {
+  if(search.value=="\/"){
+    search.value = "";
+  }
+  document.removeEventListener("keydown", goTo);
+});
+
+function goTo(event) {
+  request = search.value.toLowerCase().split("/");
+  request = request.filter(function(f) { return f !== '' })
+  if (event.key === "Enter") {
+    event.preventDefault();
+    if(route[0].includes(request[0])){
+      if(request.length == 1){
+        changeSection.apply(null,[null,document.getElementById(request[0])])
+      }
+      console.log(route[0].indexOf(request[0]))
+      switch (route[0].indexOf(request[0])) {
+        case 1:
+          if(request.length == 2 && route[1].includes(request[1])){
+            // changeSection.apply(null,[null,document.getElementById(request[0])])
+            changeDetails.apply(null,[null,request[1]])
+          }
+          break;
+      
+        default:
+          break;
+      }
+      
+    }
+    console.log("ok",request,request.length);
+  }
 }
 
+btn_historique.addEventListener("click", function(event) {
+  if(lst_historique.classList.contains('hide')){
+    lst_historique.classList.add('show');
+    lst_historique.classList.remove('hide');
+    lst_historique.style.opacity = 0;
+    lst_historique.focus();
+    window.setTimeout(function(){
+      lst_historique.style.opacity = 1;
+    },20);
+  }else{
+    lst_historique.style.opacity = 0;
+    window.setTimeout(function(){
+      lst_historique.classList.remove('show');
+      lst_historique.classList.add('hide');
+
+    },200);
+  }
+});
+document.addEventListener('click', (event) => {
+  if (!lst_historique.contains(event.target) && !btn_historique.contains(event.target) && lst_historique.classList.contains('show')) {
+    lst_historique.style.opacity = 0;
+    window.setTimeout(function(){
+      lst_historique.classList.remove('show');
+      lst_historique.classList.add('hide');
+    },200);
+  }
+});
 
 // btn_tools
 
@@ -354,29 +276,37 @@ function changeTools(event) {
   },20);
 }
 
-  // hobbies_aparition = true;
-  // contact_aparition = true;
-  // homeDisplay=false;
-  // projets.style.display="block"
-  // window.location= "index.html#projets";
-  // envoyer_mail.addEventListener("click", sendMail());
-  // function sendMail() {
-    
-  // }
 btn_details = document.querySelectorAll('.button_detail');
 btn_details.forEach(element => {
   element.addEventListener("click", changeDetails);
 });
-
-function changeDetails(event) {
-  console.log(event)
-  // projets_detail.style.display = "block";
-  // projets.style.display = "none";
+sections = document.querySelectorAll('section');
+function changeDetails(event, elem) {
+  currentSection = projets;
+  currentNav = nav_projets;
+  currentNav.style.paddingBottom = "1px";
+  currentNav.classList.remove('not_current');
+  if(oldNav != currentNav){
+    oldNav.style.paddingBottom = "0";
+    oldNav.classList.add('not_current');
+  }
+  oldNav=nav_projets;
+  
+  sections.forEach(element => {
+    if(element.classList.contains('show')){
+      element.classList.remove('show');
+      element.classList.add('hide');
+    }
+  });
+  if(event){
+    adresse = event.target.value;
+  }else{
+    adresse = elem;
+  }
   projets_detail.classList.remove("hide")
   projets_detail.style.opacity = 0;
   projets_detail.classList.add("show")
   projets.classList.add('hide')
-
 
   // Création de l'objet XMLHttpRequest
   let xhttp = new XMLHttpRequest();
@@ -388,17 +318,19 @@ function changeDetails(event) {
       document.getElementById("projets_detail").innerHTML = this.responseText;
     }
   };
-  xhttp.open("GET", "html/projet/"+event.target.value+".html", true);
+  xhttp.open("GET", "html/projet/"+adresse+".html", true);
 
   // Envoi de la requête
   xhttp.send();
+  historique.push(currentSection.id+"/"+adresse)
+  lst_historique.innerHTML ="<li class='li_historique'>" + currentSection.id+"/"+adresse +"</li>" +lst_historique.innerHTML;
+
   window.setTimeout(function(){
 
     projets_detail.style.opacity = 1;
     projets.style.opacity = 0;
     window.setTimeout(function(){
         projets.classList.remove('show')
-        projets.style.display = "none";
     },400);
 
   },50);
