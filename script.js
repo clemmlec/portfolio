@@ -86,17 +86,19 @@ route = [
 ];
 
 historique = [];
-
+currentHistorique = 0;
 nav_home.addEventListener("click", changeSection);
 nav_projets.addEventListener("click", changeSection);
 nav_formations.addEventListener("click", changeSection);
 nav_hobbies.addEventListener("click", changeSection);
 nav_contact.addEventListener("click", changeSection);
 
-function changeSection(event, elem) {
+// Change section
+function changeSection(event, elem, hist) {
   if(event){
     currentSection = document.getElementById(document.getElementById(event.target.id).id.split("-")[1]);
     currentNav = event.target;
+    hist = true;
   }else{
     currentSection = elem;
     // console.log("nav-"+elem.id)
@@ -152,56 +154,136 @@ function changeSection(event, elem) {
   
   oldNav = currentNav;
   oldSection = currentSection;
-  historique.push([currentSection.id,saveScroll])
-  lst_historique.innerHTML = "<li class='li_historique' value='"+(historique.length-1)+"'>" + currentSection.id +"</li>" + lst_historique.innerHTML;
-  console.log(historique)
-}
-lst_historique.addEventListener("click", function(event) {
-  console.log(event.target.innerHTML,event.target.value)
-});
-changeSection.apply(null,[null,home])
+  if(hist){
+    li_hist = document.querySelectorAll('.li_historique');
+    btn_suivant.classList.add('not_current')
+    btn_precedent.classList.remove('not_current')
 
+    if (li_hist[currentHistorique]) {
+      li_hist[currentHistorique].style.color = "white";
+    }
+    historique.push([currentSection.id,saveScroll])
+    lst_historique.innerHTML = "<li class='li_historique' value='"+(historique.length-1)+"'>/" + currentSection.id +"</li>" + lst_historique.innerHTML;
+    currentHistorique = 0;
+    // console.log(currentHistorique , " current historique")
+  }
+  // console.log(historique)
+}
+
+changeSection.apply(null,[null,home,true])
+
+// Search barre
 search.addEventListener("focus", function(event) {
   console.log(search.value)
   if(search.value==""){
     search.value = "\/";
   }
-  document.addEventListener("keydown", goTo);
+  document.addEventListener("keydown", enterSearch);
 });
 search.addEventListener("blur", function(event) {
   if(search.value=="\/"){
     search.value = "";
   }
-  document.removeEventListener("keydown", goTo);
+  document.removeEventListener("keydown", enterSearch);
 });
-
-function goTo(event) {
-  request = search.value.toLowerCase().split("/");
-  request = request.filter(function(f) { return f !== '' })
+function enterSearch(event) {
+  // console.log(event.target.value, 'eventttttttt')
+  
   if (event.key === "Enter") {
     event.preventDefault();
-    if(route[0].includes(request[0])){
-      if(request.length == 1){
-        changeSection.apply(null,[null,document.getElementById(request[0])])
-      }
-      console.log(route[0].indexOf(request[0]))
-      switch (route[0].indexOf(request[0])) {
-        case 1:
-          if(request.length == 2 && route[1].includes(request[1])){
-            // changeSection.apply(null,[null,document.getElementById(request[0])])
-            changeDetails.apply(null,[null,request[1]])
-          }
-          break;
-      
-        default:
-          break;
-      }
-      
-    }
-    console.log("ok",request,request.length);
+    goToRoute(event.target.value, true)
+    // console.log("ok",request,request.length);
   }
 }
 
+function goToRoute(adresse, hist) {
+  console.log(adresse + " adresse")
+  request = adresse.toLowerCase().split("/");
+  request = request.filter(function(f) { return f !== '' })
+  if(route[0].includes(request[0])){
+    if(request.length == 1){
+      changeSection.apply(null,[null,document.getElementById(request[0]),hist])
+    }
+    // console.log(route[0].indexOf(request[0]))
+    switch (route[0].indexOf(request[0])) {
+      case 1:
+        if(request.length == 2 && route[1].includes(request[1])){
+          // changeSection.apply(null,[null,document.getElementById(request[0])])
+          changeDetails.apply(null,[null,request[1],hist])
+        }
+      break;
+    
+      default:
+      break;
+    }
+  }
+}
+
+
+lst_historique.addEventListener("click", function(event) {
+  console.log(event.target)
+  if(event.target.tagName == "UL"){return;}
+  goToRoute(event.target.innerHTML)
+  li_hist = document.querySelectorAll('.li_historique');
+  // console.log(currentHistorique, li_hist[currentHistorique].innerHTML, event.target.value,-(event.target.value - historique.length-1)-2)
+  li_hist[currentHistorique].style.color = "white";
+  event.target.style.color = "#00fe08";
+  currentHistorique = -(event.target.value - historique.length-1)-2;
+  if(currentHistorique == 0){
+    btn_suivant.classList.add('not_current')
+  }else{
+    btn_suivant.classList.remove('not_current')
+  }
+  if(currentHistorique == li_hist.length - 1){
+    btn_precedent.classList.add('not_current')
+  }else{
+    btn_precedent.classList.remove('not_current')
+  }
+  // console.log(event.target.innerHTML,event.target.value, "okkkkkk")
+});
+
+btn_precedent.addEventListener("click", function(event) {
+  
+  li_hist = document.querySelectorAll('.li_historique');
+  if(currentHistorique == 0){
+    btn_suivant.classList.remove('not_current')
+  }
+  if (currentHistorique < li_hist.length - 1) {
+    li_hist[currentHistorique].style.color = "white";
+    currentHistorique++;
+    console.log(historique[li_hist[currentHistorique].value][0])
+    goToRoute(historique[li_hist[currentHistorique].value][0])
+    console.log(historique)
+    li_hist[currentHistorique].style.color = "#00fe08";
+    if(currentHistorique == li_hist.length - 1){
+      btn_precedent.classList.add('not_current')
+    }
+  }
+  
+});
+
+btn_suivant.addEventListener("click", function(event) {
+  
+  li_hist = document.querySelectorAll('.li_historique');
+  if(currentHistorique == li_hist.length - 1){
+    btn_precedent.classList.remove('not_current')
+  }
+  if (currentHistorique > 0) {
+    li_hist[currentHistorique].style.color = "white";
+    currentHistorique--;
+    console.log(historique[li_hist[currentHistorique].value][0])
+    goToRoute(historique[li_hist[currentHistorique].value][0])
+    console.log(historique)
+    li_hist[currentHistorique].style.color = "#00fe08";
+    if(currentHistorique == 0){
+      btn_suivant.classList.add('not_current')
+    }
+  }
+  
+});
+
+
+// Historique
 btn_historique.addEventListener("click", function(event) {
   if(lst_historique.classList.contains('hide')){
     lst_historique.classList.add('show');
@@ -220,6 +302,8 @@ btn_historique.addEventListener("click", function(event) {
     },200);
   }
 });
+
+// close 
 document.addEventListener('click', (event) => {
   if (!lst_historique.contains(event.target) && !btn_historique.contains(event.target) && lst_historique.classList.contains('show')) {
     lst_historique.style.opacity = 0;
@@ -280,8 +364,9 @@ btn_details = document.querySelectorAll('.button_detail');
 btn_details.forEach(element => {
   element.addEventListener("click", changeDetails);
 });
+
 sections = document.querySelectorAll('section');
-function changeDetails(event, elem) {
+function changeDetails(event, elem, hist) {
   currentSection = projets;
   currentNav = nav_projets;
   currentNav.style.paddingBottom = "1px";
@@ -322,8 +407,20 @@ function changeDetails(event, elem) {
 
   // Envoi de la requête
   xhttp.send();
-  historique.push(currentSection.id+"/"+adresse)
-  lst_historique.innerHTML ="<li class='li_historique'>" + currentSection.id+"/"+adresse +"</li>" +lst_historique.innerHTML;
+ 
+  if(hist){
+    // console.log(currentSection.id+"/"+adresse)
+    btn_suivant.classList.add('not_current')
+    btn_precedent.classList.remove('not_current')
+
+    li_hist = document.querySelectorAll('.li_historique');
+    if (li_hist[currentHistorique]) {
+      li_hist[currentHistorique].style.color = "white";
+    }
+    historique.push([currentSection.id+"/"+adresse])
+    lst_historique.innerHTML ="<li class='li_historique' value='"+(historique.length-1)+"'>/" + currentSection.id+"/"+adresse +"</li>" +lst_historique.innerHTML;  
+    currentHistorique = 0;
+  }
 
   window.setTimeout(function(){
 

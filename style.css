@@ -136,6 +136,9 @@ button{
     overflow-y: scroll;
     cursor: pointer;
 }
+.li_historique:first-of-type{
+    color: #00fe08;
+}
 #search{
     all: unset;
     border-radius: 5px;
@@ -144,6 +147,7 @@ button{
     position: relative;
     top: -5px;
     max-width: 60vw;
+    width: 100%;
     color: #DADAE7;
 }
 #nav_general{
