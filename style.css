@@ -97,7 +97,7 @@ button{
 .button{
     display: grid;
     margin: auto;
-    border: #A5A6F6 2px solid;
+    border: #08af0d 2px solid;
     padding: 10px 20px 10px 20px;
     border-radius: 50px;
     margin-top: 40px;
@@ -230,6 +230,15 @@ ul{
 .m_10{
     margin: 10px 25px 10px 25px;
 }
+.p_10{
+    padding: 10px 25px 10px 25px;
+}
+.p_50{
+    padding: 20px 40px 40px 40px;
+}
+.mt_0{
+    margin-top: 0 !important;
+}
 .bg_purple{
     background-color: #A5A6F6;
     background-color: #202124;
@@ -269,6 +278,10 @@ ul{
 }
 .bg_black{
     background-color: #000000;
+    color: white !important;
+}
+.bg_blackAlpha{
+    background-color: #00000093;
     color: white !important;
 }
 .t_white{
@@ -359,6 +372,7 @@ section{
 .lien_contact{
     position: relative;
     display: block;
+    border-radius: 5px;
     padding: 10px;
     padding-left: 95px;
     width: max-content;
@@ -366,6 +380,8 @@ section{
     /* padding-left: 30px; */
     /* margin: auto; */
     background-color: #b1b0c066;
+}
+#contact_home >.lien_contact{
     width: 40%;
 }
 
@@ -540,11 +556,30 @@ section{
     /* background-color: #787676ca; */
     border-radius: 5px 5px 0 0;
     padding-bottom: 15px;
-    padding-left: 20px;
+    padding-left: 50px;
+    padding-right: 10px;
     padding-top: 10px;
     margin-bottom: 0;
     margin-top: 0;
     
+}
+.pdf{
+    margin: auto;
+    max-width: 100%;
+    width: 900px;
+}
+.texte{
+    margin: auto;
+    max-width: 90%;
+    width: 900px;
+    background-color: #000000b4;
+    padding: 30px;
+    border-radius: 5px;
+    color: white;
+    max-height: 80vh;
+    overflow-y: scroll;
+    min-height: 683px ;
+
 }
 #projets_detail{
     position: absolute;
@@ -576,14 +611,41 @@ section{
     display: block;
     height: max-content;
 }
+.card_detail{
+    width: 400px;
+    max-width: 90vh;
+    display: block;
+    height: max-content;
+}
+.t_card{
+    top: -48px !important;
+    left: -45px !important;
+}
+.p_card{
+    margin-top: 5px !important;
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+}
 .card_70{
     width: 70vw;
+    max-width: 700px;
     display: block;
+    padding-bottom: 0;
 }
 .contact_fin{
     margin: auto;
-    width: 49%;
-    min-width: 270px;
+    width: 100%;
+}
+.mt_50{
+    margin-top: 40px !important;
+}
+.p_footer{
+    margin-left: 2px;
+    padding: 20px;
+}
+.p_contact_fin{
+    margin: auto;
+    width: fit-content;
 }
 .t_center{
     text-align: center;
@@ -822,7 +884,7 @@ section{
 }
 .img_hobbies{
     position: relative;
-    top: -68px;
+    top: -70px;
     z-index: 0;
     border-radius: 5px 0 0 5px;
     width: 100%;
@@ -882,6 +944,7 @@ section{
         display: grid;
         grid-template-columns: 10% 90%;
     }
+
 }
 @media all and (max-width: 1101px) {
     #home .flex_home:nth-child(2) { order: 2;}
@@ -899,10 +962,7 @@ section{
         width: 90vw;
         display: block;
     }
-    .contact_fin{
-        width: 90vw;
-    
-    }
+ 
     .gridR2{
         display: grid;
         grid-template-rows: 1fr 1fr;

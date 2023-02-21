@@ -81,7 +81,9 @@ route = [
   "contact"],
   [
     "fedhubs",
-    "devin"
+    "devin",
+    "apimages",
+    "saveworld",
   ]
 ];
 
@@ -398,5 +400,18 @@ function requetteXhttp(adresse) {
   // Envoi de la requête
   xhttp.send();
 }
-// changeSection.apply(null,[null,projets,true])
-// changeDetails(event, "devin") 
+changeSection.apply(null,[null,contact,true])
+// changeDetails(event, "saveworld") 
+
+// const url = 'https://api.github.com/repos/clemmlec/dev_in/contents/README.md';
+
+// fetch(url)
+// .then(response => response.json())
+// .then(data => {
+//     const markdownContent = atob(data.content); // décode le contenu en base64
+//     const htmlContent = marked.parse(markdownContent);
+//     // Ajoute le contenu HTML à un élément sur la page
+//     const contentElement = document.getElementById('markdown-content');
+//     contentElement.innerHTML = htmlContent;
+// })
+// .catch(error => console.error(error));
