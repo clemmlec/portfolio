@@ -66,11 +66,34 @@ hobbies_aparition = false;
 currentBackground =  "bg_purple";
 oldNav = nav_home;
 oldSection = home;
+// console.log(navigator)
+// console.log(navigator.userAgent)
 
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  // L'utilisateur préfère le mode sombre
+}
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+  // L'utilisateur préfère le mode clair
+  /* Récupérer l'objet pJS */
+  var pJS = window.pJSDom[0].pJS;
+  console.log(pJS)
+  console.log(pJS.particles.color)
+  pJS.particles.color.rgb =  { r: 6, g: 15, b: 156 } 
+  pJS.particles.line_linked.color_rgb_line = { r: 6, g: 15, b: 156 }
+  pJS.particles.line_linked.color = "#000000"
+  pJS.particles.shape.stroke = { width: 1, color: "#000000" }
+/* Changer la couleur des polygones en rouge */
+// pJS.particles.prototype.setFillColor.call(pJS, {
+//   r: 255, // Rouge
+//   g: 0, // Vert
+//   b: 0 // Bleu
+// });
+  // document.documentElement.style.setProperty('--bg-color', 'blue');
+}
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
   mobile = true;
-  site.classList.toggle("bg_purple");
-  site.classList.toggle("bg_purpleDark");
+  // site.classList.toggle("bg_purple");
+  // site.classList.toggle("bg_purpleDark");
 }else{ mobile = false}
 
 route = [
@@ -400,7 +423,9 @@ function requetteXhttp(adresse) {
   // Envoi de la requête
   xhttp.send();
 }
-changeSection.apply(null,[null,contact,true])
+
+
+// changeSection.apply(null,[null,contact,true])
 // changeDetails(event, "saveworld") 
 
 // const url = 'https://api.github.com/repos/clemmlec/dev_in/contents/README.md';
