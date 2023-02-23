@@ -34,9 +34,6 @@ const swiper = new Swiper('.swiper', {
   },
 });
 
-// Responcive nav onglet
-// adaptNavGeneral();
-
 // function adaptNavGeneral(){
 //   document.getElementById('titre-projets').style.left = ((document.getElementById('nav-projets').offsetLeft - 20) + "px");
 //   document.getElementById('titre-formation').style.left = ((document.getElementById('nav-formations').offsetLeft - 20) + "px");
@@ -47,14 +44,6 @@ const swiper = new Swiper('.swiper', {
 // window.onresize = function(){
 //   adaptNavGeneral();
 // }
-
-
-// Scroll
-
-// titre_projets = document.getElementById('titre-projets');
-// titre_formations = document.getElementById('titre-formation');
-// titre_hobbies = document.getElementById('titre-hobbies');
-// titre_contact = document.getElementById('titre-contact');
 
 nav_home = document.getElementById('nav-home');
 nav_projets = document.getElementById('nav-projets');
@@ -69,27 +58,27 @@ oldSection = home;
 // console.log(navigator)
 // console.log(navigator.userAgent)
 
+// L'utilisateur préfère le mode sombre
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-  // L'utilisateur préfère le mode sombre
+  light = false;
 }
+// console.log(window.matchMedia('(prefers-color-scheme: light)'))
+// L'utilisateur préfère le mode clair
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-  // L'utilisateur préfère le mode clair
-  /* Récupérer l'objet pJS */
+  light = true;
   var pJS = window.pJSDom[0].pJS;
-  console.log(pJS)
-  console.log(pJS.particles.color)
+  // console.log(pJS)
+  // console.log(pJS.particles.color)
   pJS.particles.color.rgb =  { r: 6, g: 15, b: 156 } 
   pJS.particles.line_linked.color_rgb_line = { r: 6, g: 15, b: 156 }
   pJS.particles.line_linked.color = "#000000"
   pJS.particles.shape.stroke = { width: 1, color: "#000000" }
-/* Changer la couleur des polygones en rouge */
-// pJS.particles.prototype.setFillColor.call(pJS, {
-//   r: 255, // Rouge
-//   g: 0, // Vert
-//   b: 0 // Bleu
-// });
+
+  // Pour changer propriété CSS
   // document.documentElement.style.setProperty('--bg-color', 'blue');
 }
+
+// L'utilisateur est sur mobile
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
   mobile = true;
   // site.classList.toggle("bg_purple");
@@ -155,7 +144,7 @@ function changeSection(event, elem, hist) {
     addHistorique()
   }
 }
-
+// Hide section
 function hide(section,transform) {
   section.style.opacity = 0;
   section.classList.remove("show")
@@ -163,7 +152,7 @@ function hide(section,transform) {
   section.classList.remove('showFlex');
   section.style.transform = transform;
 }
-
+// Switch nav
 function switchNav(oldNav,currentNav) {
   currentNav.style.paddingBottom = "1px";
   currentNav.classList.remove('not_current');
@@ -172,7 +161,7 @@ function switchNav(oldNav,currentNav) {
     oldNav.classList.add('not_current');
   }
 }
-
+// Show section
 function show(currentSection,transform) {
   currentSection.style.opacity = 0;
   currentSection.style.transform = transform;
@@ -210,6 +199,7 @@ function enterSearch(event) {
   }
 }
 
+// Go To Route
 function goToRoute(adresse, hist) {
   request = adresse.toLowerCase().split("/");
   request = request.filter(function(f) { return f !== '' })
@@ -232,13 +222,19 @@ function goToRoute(adresse, hist) {
   }
 }
 
+main_color = "white";
+primary = "#08af0d";
+if(light){
+  main_color = "black";
+  primary = "#3c3fde";
+}
 function addHistorique(adresse) {
   li_hist = document.querySelectorAll('.li_historique');
   btn_suivant.classList.add('not_current')
   btn_precedent.classList.remove('not_current')
 
   if (li_hist[currentHistorique]) {
-    li_hist[currentHistorique].style.color = "white";
+    li_hist[currentHistorique].style.color = main_color;
   }
   historique.push([currentSection.id+(adresse?adresse:''),saveScroll])
   lst_historique.innerHTML = "<li class='li_historique' value='"+(historique.length-1)+"'>/" + currentSection.id + (adresse?adresse:'')+"</li>" + lst_historique.innerHTML;
@@ -247,13 +243,14 @@ function addHistorique(adresse) {
 
 // Historique
 lst_historique.addEventListener("click", function(event) {
+
   console.log(event.target)
   if(event.target.tagName == "UL"){return;}
   goToRoute(event.target.innerHTML)
   li_hist = document.querySelectorAll('.li_historique');
   // console.log(currentHistorique, li_hist[currentHistorique].innerHTML, event.target.value,-(event.target.value - historique.length-1)-2)
-  li_hist[currentHistorique].style.color = "white";
-  event.target.style.color = "#00fe08";
+  li_hist[currentHistorique].style.color = main_color;
+  event.target.style.color = primary;
   currentHistorique = -(event.target.value - historique.length-1)-2;
   if(currentHistorique == 0){
     btn_suivant.classList.add('not_current')
@@ -267,7 +264,7 @@ lst_historique.addEventListener("click", function(event) {
   }
   // console.log(event.target.innerHTML,event.target.value, "okkkkkk")
 });
-
+// <-
 btn_precedent.addEventListener("click", function(event) {
   
   li_hist = document.querySelectorAll('.li_historique');
@@ -275,19 +272,19 @@ btn_precedent.addEventListener("click", function(event) {
     btn_suivant.classList.remove('not_current')
   }
   if (currentHistorique < li_hist.length - 1) {
-    li_hist[currentHistorique].style.color = "white";
+    li_hist[currentHistorique].style.color = main_color;
     currentHistorique++;
-    console.log(historique[li_hist[currentHistorique].value][0])
+    // console.log(historique[li_hist[currentHistorique].value][0])
     goToRoute(historique[li_hist[currentHistorique].value][0])
-    console.log(historique)
-    li_hist[currentHistorique].style.color = "#00fe08";
+    // console.log(historique)
+    li_hist[currentHistorique].style.color = primary;
     if(currentHistorique == li_hist.length - 1){
       btn_precedent.classList.add('not_current')
     }
   }
   
 });
-
+// ->
 btn_suivant.addEventListener("click", function(event) {
   
   li_hist = document.querySelectorAll('.li_historique');
@@ -295,24 +292,22 @@ btn_suivant.addEventListener("click", function(event) {
     btn_precedent.classList.remove('not_current')
   }
   if (currentHistorique > 0) {
-    li_hist[currentHistorique].style.color = "white";
+    li_hist[currentHistorique].style.color = main_color;
     currentHistorique--;
-    console.log(historique[li_hist[currentHistorique].value][0])
+    // console.log(historique[li_hist[currentHistorique].value][0])
     goToRoute(historique[li_hist[currentHistorique].value][0])
-    console.log(historique)
-    li_hist[currentHistorique].style.color = "#00fe08";
+    // console.log(historique)
+    li_hist[currentHistorique].style.color = primary;
     if(currentHistorique == 0){
       btn_suivant.classList.add('not_current')
     }
   }
   
 });
-
+// btn list historique
 btn_historique.addEventListener("click", function(event) {
   if(lst_historique.classList.contains('hide')){
-    lst_historique.classList.add('show');
-    lst_historique.classList.remove('hide');
-    lst_historique.style.opacity = 0;
+    show(lst_historique)
     lst_historique.focus();
     window.setTimeout(function(){
       lst_historique.style.opacity = 1;
@@ -344,7 +339,6 @@ p_tools = document.querySelectorAll('.p_tools');
 btn_tools.forEach(element => {
   element.addEventListener("click", changeTools);
 });
-
 height = tool.offsetHeight;
 contact_home.style.height = height + "px";
 old_elem = p1;
@@ -374,12 +368,13 @@ function changeTools(event) {
 
 }
 
+// details
 btn_details = document.querySelectorAll('.button_detail');
 btn_details.forEach(element => {
   element.addEventListener("click", changeDetails);
 });
-
 sections = document.querySelectorAll('section');
+// change section details
 function changeDetails(event, elem, hist) {
 
   if(event){
@@ -407,6 +402,7 @@ function changeDetails(event, elem, hist) {
   },50);
 }
 
+// requette Xhttp
 function requetteXhttp(adresse) {
   // Création de l'objet XMLHttpRequest
   let xhttp = new XMLHttpRequest();
