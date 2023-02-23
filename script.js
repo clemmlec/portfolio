@@ -244,7 +244,7 @@ function addHistorique(adresse) {
 // Historique
 lst_historique.addEventListener("click", function(event) {
 
-  console.log(event.target)
+  // console.log(event.target)
   if(event.target.tagName == "UL"){return;}
   goToRoute(event.target.innerHTML)
   li_hist = document.querySelectorAll('.li_historique');
@@ -264,7 +264,7 @@ lst_historique.addEventListener("click", function(event) {
   }
   // console.log(event.target.innerHTML,event.target.value, "okkkkkk")
 });
-// <-
+// <- page précedente
 btn_precedent.addEventListener("click", function(event) {
   
   li_hist = document.querySelectorAll('.li_historique');
@@ -284,7 +284,7 @@ btn_precedent.addEventListener("click", function(event) {
   }
   
 });
-// ->
+// -> page suivante
 btn_suivant.addEventListener("click", function(event) {
   
   li_hist = document.querySelectorAll('.li_historique');
@@ -342,6 +342,7 @@ btn_tools.forEach(element => {
 height = tool.offsetHeight;
 contact_home.style.height = height + "px";
 old_elem = p1;
+
 function changeTools(event) {
   width = tool.offsetWidth + "px";
   current_tool = document.getElementById(event.target.value);
