@@ -77,7 +77,12 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matc
   // Pour changer propriété CSS
   // document.documentElement.style.setProperty('--bg-color', 'blue');
 }
-
+main_color = "white";
+primary = "#08af0d";
+if(light){
+  main_color = "black";
+  primary = "#3c3fde";
+}
 // L'utilisateur est sur mobile
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
   mobile = true;
@@ -98,7 +103,8 @@ route = [
     "saveworld",
   ]
 ];
-
+widowLoad = true;
+foo =0;
 historique = [];
 currentHistorique = 0;
 nav_home.addEventListener("click", changeSection);
@@ -106,7 +112,8 @@ nav_projets.addEventListener("click", changeSection);
 nav_formations.addEventListener("click", changeSection);
 nav_hobbies.addEventListener("click", changeSection);
 nav_contact.addEventListener("click", changeSection);
-
+// Premiere lettre ne majuscule
+function strUcFirst(a){return (a+'').charAt(0).toUpperCase()+a.substr(1);}
 // Change section
 function changeSection(event, elem, hist) {
   if(event){
@@ -138,11 +145,14 @@ function changeSection(event, elem, hist) {
   },10);
   
   oldNav = currentNav;
-  oldSection = currentSection;
-
+  document.title = strUcFirst(currentSection.id) +" | Clem-web";
+  document.querySelector('meta[name="description"]').setAttribute("content", "_desc");
+  
   if(hist){
     addHistorique()
   }
+  oldSection = currentSection;
+
 }
 // Hide section
 function hide(section,transform) {
@@ -173,8 +183,55 @@ function show(currentSection,transform) {
   }
 }
 
-changeSection.apply(null,[null,home,true])
 
+console.log(window.location.href.split('#')[1])
+locations = window.location.href.split('#')[1];
+if(locations != undefined){
+  console.log('shit')
+  changeSection.apply(null,[null,document.getElementById(locations),true])
+}else{
+  changeSection.apply(null,[null,home,true])
+}
+
+
+window.onpopstate = function(event) {
+  console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
+  locations = window.location.href.split('#')[1]+(window.location.href.split('#')[2]?'/'+window.location.href.split('#')[2]:'');
+  console.log(history.state)
+  if (event.state !== null) {
+    // Le changement provient de l'historique
+    console.log("Code à exécuter pour une navigation dans l'historique'", event)
+    console.log(event.state.foo,li_hist.length)
+    goToRoute(locations,false)
+    li_hist = document.querySelectorAll('.li_historique');
+    li_hist[-(history.state.foo - historique.length-1)-2].style.color = primary;
+    li_hist[-(foo - historique.length-1)-2].style.color = main_color;
+    // console.table(li_hist[currentHistorique])
+    if(history.state.foo == li_hist.length-1 ){
+      btn_suivant.classList.add('not_current')
+    }else{
+      btn_suivant.classList.remove('not_current')
+    }
+    if(history.state.foo == 0 ){
+      btn_precedent.classList.add('not_current')
+    }else{
+      btn_precedent.classList.remove('not_current')
+    }
+    foo = event.state.foo;
+
+  } else {
+    console.log('bien par la barre de search')
+    widowLoad = true;
+    goToRoute(locations,true)
+
+  }
+};
+// window.addEventListener('hashchange', (event) => {
+//   console.log(window.onpopstate)
+//   console.log(event.type)
+//   locations = window.location.href.split('#')[1];
+//   changeSection.apply(null,[null,document.getElementById(locations),false])
+// }, false);
 // Search barre
 search.addEventListener("focus", function(event) {
   // console.log(search.value)
@@ -222,23 +279,32 @@ function goToRoute(adresse, hist) {
   }
 }
 
-main_color = "white";
-primary = "#08af0d";
-if(light){
-  main_color = "black";
-  primary = "#3c3fde";
-}
+
 function addHistorique(adresse) {
   li_hist = document.querySelectorAll('.li_historique');
   btn_suivant.classList.add('not_current')
   btn_precedent.classList.remove('not_current')
+  li_hist.forEach(element => {
+    element.style.color = main_color;
+    if (element.value > foo) {
+        console.log(element.value)
+        element.remove()
+        historique.splice(foo+1,historique.length-1)
 
-  if (li_hist[currentHistorique]) {
-    li_hist[currentHistorique].style.color = main_color;
-  }
-  historique.push([currentSection.id+(adresse?adresse:''),saveScroll])
-  lst_historique.innerHTML = "<li class='li_historique' value='"+(historique.length-1)+"'>/" + currentSection.id + (adresse?adresse:'')+"</li>" + lst_historique.innerHTML;
+    }
+  });
+  historique.push([currentSection.id+(adresse?'/'+adresse:''),saveScroll])
+  lst_historique.innerHTML = "<li class='li_historique' value='"+(historique.length-1)+"'>/" + currentSection.id + (adresse?'/'+adresse:'')+"</li>" + lst_historique.innerHTML;
   currentHistorique = 0;
+  foo = (historique.length-1);
+  var stateObj = { foo: (historique.length-1)};
+
+  if(!widowLoad){
+    history.pushState(stateObj,"", "index.html#"+currentSection.id+(adresse?'#'+adresse:''));
+  }else{
+    history.replaceState(stateObj,"", "index.html#"+currentSection.id+(adresse?'#'+adresse:''));
+  }
+  widowLoad = false;
 }
 
 // Historique
@@ -246,64 +312,23 @@ lst_historique.addEventListener("click", function(event) {
 
   // console.log(event.target)
   if(event.target.tagName == "UL"){return;}
-  goToRoute(event.target.innerHTML)
-  li_hist = document.querySelectorAll('.li_historique');
-  // console.log(currentHistorique, li_hist[currentHistorique].innerHTML, event.target.value,-(event.target.value - historique.length-1)-2)
-  li_hist[currentHistorique].style.color = main_color;
-  event.target.style.color = primary;
-  currentHistorique = -(event.target.value - historique.length-1)-2;
-  if(currentHistorique == 0){
-    btn_suivant.classList.add('not_current')
-  }else{
-    btn_suivant.classList.remove('not_current')
-  }
-  if(currentHistorique == li_hist.length - 1){
-    btn_precedent.classList.add('not_current')
-  }else{
-    btn_precedent.classList.remove('not_current')
-  }
-  // console.log(event.target.innerHTML,event.target.value, "okkkkkk")
+  x = foo - event.target.value
+  window.history.go(-x); 
+
 });
 // <- page précedente
-btn_precedent.addEventListener("click", function(event) {
-  
-  li_hist = document.querySelectorAll('.li_historique');
-  if(currentHistorique == 0){
-    btn_suivant.classList.remove('not_current')
-  }
-  if (currentHistorique < li_hist.length - 1) {
-    li_hist[currentHistorique].style.color = main_color;
-    currentHistorique++;
-    // console.log(historique[li_hist[currentHistorique].value][0])
-    goToRoute(historique[li_hist[currentHistorique].value][0])
-    // console.log(historique)
-    li_hist[currentHistorique].style.color = primary;
-    if(currentHistorique == li_hist.length - 1){
-      btn_precedent.classList.add('not_current')
-    }
-  }
-  
-});
+btn_precedent.addEventListener("click", pagePrecedente);
 // -> page suivante
-btn_suivant.addEventListener("click", function(event) {
-  
-  li_hist = document.querySelectorAll('.li_historique');
-  if(currentHistorique == li_hist.length - 1){
-    btn_precedent.classList.remove('not_current')
+btn_suivant.addEventListener("click", pageSuivante);
+function pagePrecedente() {
+  if (currentHistorique < li_hist.length - 1) {
+  window.history.go(-1); 
+
   }
-  if (currentHistorique > 0) {
-    li_hist[currentHistorique].style.color = main_color;
-    currentHistorique--;
-    // console.log(historique[li_hist[currentHistorique].value][0])
-    goToRoute(historique[li_hist[currentHistorique].value][0])
-    // console.log(historique)
-    li_hist[currentHistorique].style.color = primary;
-    if(currentHistorique == 0){
-      btn_suivant.classList.add('not_current')
-    }
-  }
-  
-});
+}
+function pageSuivante(){
+  window.history.go(1); 
+}
 // btn list historique
 btn_historique.addEventListener("click", function(event) {
   if(lst_historique.classList.contains('hide')){
@@ -391,7 +416,7 @@ function changeDetails(event, elem, hist) {
   requetteXhttp(adresse)
  
   if(hist){
-    addHistorique("/"+adresse)
+    addHistorique(adresse)
   }
 
   window.setTimeout(function(){
