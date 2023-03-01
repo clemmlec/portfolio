@@ -124,7 +124,6 @@ function changeSection(event, elem, hist) {
     currentSection = elem;
     currentNav = document.getElementById("nav-"+elem.id);
   }
-
   historiqueScroll = 0;
 
   hide(projets_detail);
@@ -152,6 +151,7 @@ function changeSection(event, elem, hist) {
     addHistorique()
   }
   oldSection = currentSection;
+  search.value = "/"+window.location.href.split('#')[1];
 
 }
 // Hide section
@@ -184,10 +184,10 @@ function show(currentSection,transform) {
 }
 
 
-console.log(window.location.href.split('#')[1])
+// console.log(window.location.href.split('#')[1])
 locations = window.location.href.split('#')[1];
 if(locations != undefined){
-  console.log('shit')
+  // console.log('shit')
   changeSection.apply(null,[null,document.getElementById(locations),true])
 }else{
   changeSection.apply(null,[null,home,true])
@@ -195,13 +195,13 @@ if(locations != undefined){
 
 
 window.onpopstate = function(event) {
-  console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
+  // console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
   locations = window.location.href.split('#')[1]+(window.location.href.split('#')[2]?'/'+window.location.href.split('#')[2]:'');
-  console.log(history.state)
+  // console.log(history.state)
   if (event.state !== null) {
     // Le changement provient de l'historique
-    console.log("Code à exécuter pour une navigation dans l'historique'", event)
-    console.log(event.state.foo,li_hist.length)
+    // console.log("Code à exécuter pour une navigation dans l'historique'", event)
+    // console.log(event.state.foo,li_hist.length)
     goToRoute(locations,false)
     li_hist = document.querySelectorAll('.li_historique');
     li_hist[-(history.state.foo - historique.length-1)-2].style.color = primary;
@@ -220,7 +220,7 @@ window.onpopstate = function(event) {
     foo = event.state.foo;
 
   } else {
-    console.log('bien par la barre de search')
+    // console.log('bien par la barre de search')
     widowLoad = true;
     goToRoute(locations,true)
 
@@ -235,9 +235,7 @@ window.onpopstate = function(event) {
 // Search barre
 search.addEventListener("focus", function(event) {
   // console.log(search.value)
-  if(search.value==""){
-    search.value = "\/";
-  }
+  search.value = "\/";
   document.addEventListener("keydown", enterSearch);
 });
 search.addEventListener("blur", function(event) {
@@ -287,7 +285,7 @@ function addHistorique(adresse) {
   li_hist.forEach(element => {
     element.style.color = main_color;
     if (element.value > foo) {
-        console.log(element.value)
+        // console.log(element.value)
         element.remove()
         historique.splice(foo+1,historique.length-1)
 
@@ -418,13 +416,10 @@ function changeDetails(event, elem, hist) {
   if(hist){
     addHistorique(adresse)
   }
+  search.value = "/"+window.location.href.split('#')[1]+"/"+window.location.href.split('#')[2];
 
   window.setTimeout(function(){
-
     projets_detail.style.opacity = 1;
-    window.setTimeout(function(){
-    },400);
-
   },50);
 }
 
