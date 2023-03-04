@@ -180,6 +180,8 @@ function show(currentSection,transform) {
   currentSection.classList.remove('hide');
   if(  currentSection.classList.contains('flex')){
     currentSection.classList.add('showFlex');
+  }else if(currentSection.classList.contains('grid')){
+    currentSection.classList.add('showGrid');
   }else{
     currentSection.classList.add('show');
   }
@@ -491,13 +493,17 @@ function quitWindow(){
 }
 
 function openWindow() {
-  show(nav_search)
-  show(nav_general)
+  show(nav_search, 'translateX(50px)')
+  show(nav_general, 'translateX(50px)')
   show(currentSection)
   goToRoute(locations, false)
   show(footer)
   show(paddingNavGeneral)
   hide(bureau)
+  setTimeout(function(){ 
+    nav_search.style.transform = 'translateX(0px)';
+    nav_general.style.transform = 'translateX(0px)';
+  }, 50);
 }
 
 // requette Xhttp

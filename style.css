@@ -140,7 +140,7 @@ li{
     top: 0;
     z-index: 5;
     width: 100vw;
-    display: grid;
+    /* display: grid; */
     grid-template-columns: 0.5fr 4fr;
 }
 #btns_historique{
@@ -189,7 +189,6 @@ li{
     padding-bottom: 1px;
 }
 #nav_detail{
-    display: flex;
     margin: auto;
     justify-content: center;
     position: fixed;
@@ -685,6 +684,12 @@ li{
     opacity: 1;
     transform: translateX(0px);
     display: flex;
+    transition: .9s ease opacity,.9s ease transform;
+}
+.showGrid{
+    opacity: 1;
+    transform: translateX(0px);
+    display: grid;
     transition: .9s ease opacity,.9s ease transform;
 }
 .hide{
