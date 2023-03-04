@@ -55,6 +55,7 @@ hobbies_aparition = false;
 currentBackground =  "bg_purple";
 oldNav = nav_home;
 oldSection = home;
+current_projets_detail = "";
 // console.log(navigator)
 // console.log(navigator.userAgent)
 
@@ -128,6 +129,7 @@ function changeSection(event, elem, hist) {
 
   hide(projets_detail);
   hide(oldSection,'translate(+200px)');
+  hide(nav_detail)
 
   switchNav(oldNav,currentNav);
   show(currentSection,'translateX(50px)')
@@ -176,19 +178,26 @@ function show(currentSection,transform) {
   currentSection.style.opacity = 0;
   currentSection.style.transform = transform;
   currentSection.classList.remove('hide');
-  if(  currentSection.id == 'home'){
+  if(  currentSection.classList.contains('flex')){
     currentSection.classList.add('showFlex');
   }else{
     currentSection.classList.add('show');
   }
+  window.setTimeout(function(){
+    currentSection.style.opacity = 1;
+  },10);
 }
 
+// Pour acceder aux sous page directement
+if(window.location.href.split('#').length > 2){
+  locations = window.location.href.split('#')[1] + "/" +  window.location.href.split('#')[2];
+  homeDetail = window.location.href.split('#')[2]
+}else if(window.location.href.split('#').length > 1){
+  locations = window.location.href.split('#')[1] ;
+}
 
-// console.log(window.location.href.split('#')[1])
-locations = window.location.href.split('#')[1];
 if(locations != undefined){
-  // console.log('shit')
-  changeSection.apply(null,[null,document.getElementById(locations),true])
+  goToRoute(locations, true)
 }else{
   changeSection.apply(null,[null,home,true])
 }
@@ -319,9 +328,8 @@ btn_precedent.addEventListener("click", pagePrecedente);
 // -> page suivante
 btn_suivant.addEventListener("click", pageSuivante);
 function pagePrecedente() {
-  if (currentHistorique < li_hist.length - 1) {
+  if (li_hist.length > 0 && foo != 0) {
   window.history.go(-1); 
-
   }
 }
 function pageSuivante(){
@@ -397,10 +405,8 @@ btn_details = document.querySelectorAll('.button_detail');
 btn_details.forEach(element => {
   element.addEventListener("click", changeDetails);
 });
-sections = document.querySelectorAll('section');
 // change section details
 function changeDetails(event, elem, hist) {
-
   if(event){
     adresse = event.target.value;
     hist = true;
@@ -408,11 +414,28 @@ function changeDetails(event, elem, hist) {
     adresse = elem;
   }
 
+
+  if(current_projets_detail != ""){
+    
+    current_projets_detail = document.getElementById(current_projets_detail)
+    
+    hide(current_projets_detail)
+  }
+
   show(projets_detail)
   hide(projets)
+  show(nav_detail)
+  nav_detail.style.opacity =1;
 
-  requetteXhttp(adresse)
- 
+  if (!document.getElementById(adresse)) {
+    requetteXhttp(adresse)
+  }else{
+    show(document.getElementById(adresse))
+    window.setTimeout(function(){
+      document.getElementById(adresse).style.opacity = 1;
+    },50);
+  }
+  
   if(hist){
     addHistorique(adresse)
   }
@@ -420,7 +443,61 @@ function changeDetails(event, elem, hist) {
 
   window.setTimeout(function(){
     projets_detail.style.opacity = 1;
+    current_projets_detail = adresse;
+    // console.log(current_projets_detail)
+    // console.log(route[1].indexOf(current_projets_detail) , route[1].length)
+    // console.log(route[1].indexOf("devin") , route[1].length)
+    if(route[1].indexOf(current_projets_detail) < route[1].length-1){
+      btn_suivant_detail.value = route[1][route[1].indexOf(current_projets_detail)+1]
+      // console.log(btn_precedent_detail.value)
+    }else{
+      btn_suivant_detail.value = route[1][0]
+    }
+    if(route[1].indexOf(current_projets_detail) > 0){
+      btn_precedent_detail.value = route[1][route[1].indexOf(current_projets_detail)-1]
+      // console.log(btn_precedent_detail.value)
+    }else{
+      btn_precedent_detail.value = route[1][route[1].length-1]
+    }
   },50);
+
+}
+
+btn_precedent_detail.addEventListener("click", changeDetails);
+btn_suivant_detail.addEventListener("click", changeDetails);
+btn_quit_detail.addEventListener("click", quitDetails);
+btn_quit.addEventListener("click", quitWindow);
+portfolio.addEventListener("click", openWindow);
+function quitDetails(){
+  changeSection.apply(null,[null,projets,true])
+}
+
+function quitWindow(){
+  if(window.location.href.split('#').length > 2){
+    locations = window.location.href.split('#')[1] + "/" +  window.location.href.split('#')[2];
+    hide(document.getElementById(window.location.href.split('#')[2]))
+    hide(nav_detail)
+  }else if(window.location.href.split('#').length > 1){
+    locations = window.location.href.split('#')[1] ;
+  }
+  hide(nav_search)
+  hide(nav_general)
+  hide(currentSection)
+  hide(footer)
+  hide(paddingNavGeneral)
+  show(bureau)
+
+  // bureau.style.opacity =1;
+}
+
+function openWindow() {
+  show(nav_search)
+  show(nav_general)
+  show(currentSection)
+  goToRoute(locations, false)
+  show(footer)
+  show(paddingNavGeneral)
+  hide(bureau)
 }
 
 // requette Xhttp
@@ -432,7 +509,7 @@ function requetteXhttp(adresse) {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       // Le contenu HTML a été chargé avec succès
-      document.getElementById("projets_detail").innerHTML = this.responseText;
+      document.getElementById("projets_detail").innerHTML += this.responseText;
     }
   };
   xhttp.open("GET", "html/projet/"+adresse+".html", true);

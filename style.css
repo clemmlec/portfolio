@@ -1,6 +1,7 @@
 :root {
     --main-bg-color: #202124;
     --secondary-bg-color: #36363a;
+    --mainAlpha-bg-color: #202124e9;
     --tertiary-bg-color: #242323;
     --main-color: white;
     --green-color: #08af0d;
@@ -14,6 +15,7 @@
     :root {
         --main-bg-color: #dadae7;
         --secondary-bg-color:rgb(199, 196, 196);
+        --mainAlpha-bg-color: #dadae7f0;
         --tertiary-bg-color: #d6d3d3;
         --main-color: rgb(2, 2, 2);
         --green-color: #3c3fde;
@@ -121,6 +123,13 @@ li{
     position: absolute;
     right: 20px;
 }
+#bureau{
+    position: absolute;
+    top: 10px;
+    width: 100vw;
+    justify-content: center;
+    display: flex;
+}
 #home{
     min-height: 80vh;
     margin: auto;
@@ -179,6 +188,21 @@ li{
     opacity: 1;
     padding-bottom: 1px;
 }
+#nav_detail{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    position: fixed;
+    top: 70px;
+    width: 100vw;
+    background-color: var(--mainAlpha-bg-color);
+}
+#nav_detail > .btn{
+   margin: 20px;
+}
+.projets_details{
+    padding-top: 40px !important;
+}
 .button{
     display: grid;
     margin: auto;
@@ -218,7 +242,7 @@ li{
 .inline_flex{
     display: flex;
     flex-wrap: wrap;
-    margin: 50px auto 20px auto;
+    margin: 30px auto 20px auto;
 }
 .no_wrap{
     flex-wrap: nowrap !important;
@@ -477,16 +501,16 @@ li{
     margin: auto;
 }
 .icone_bureau{
-    width: 70px;
+    width: 90px;
     text-align: center;
     display: inline-block;
-    margin: 10px;
+    margin: 1px 10px 20px 1px;
 }
 .icone{
     position: relative;
     z-index: 2;
 }
-.icone_bureau > svg{
+.icone_bureau > svg, .icone_bureau > img{
     position: relative;
     z-index: 3;
     width: 40px;
@@ -497,6 +521,7 @@ li{
     z-index: 3;
     bottom: -5px;
     cursor: pointer;
+    display: block;
 }
 .icone::before{
     cursor: pointer;
@@ -504,7 +529,7 @@ li{
     position: absolute;
     z-index: 2;
     top: -12px;
-    left: 5px;
+    left: 15px;
     width: 60px;
     height: 60px;
     border-radius: 50px;
@@ -588,7 +613,7 @@ li{
     height: max-content;
 }
 .t_card{
-    top: -48px !important;
+    top: -40px !important;
     left: -45px !important;
 }
 .p_card{
