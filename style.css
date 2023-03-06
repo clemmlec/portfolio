@@ -134,6 +134,11 @@ li{
     justify-content: center;
     /* display: flex; */
 }
+#bureau_detail{
+    margin: auto;
+    height: 90vh;
+    /* display: flex; */
+}
 #home{
     min-height: 80vh;
     margin: auto;
@@ -506,7 +511,10 @@ li{
     box-shadow: var(--box-shadow-section);
 
 }
-
+.a_tool{
+    position: relative;
+    top: 20px;
+}
 .btn_tools{
     position: relative;
     z-index: 2;
@@ -963,6 +971,105 @@ li{
     padding-left: 60px !important;
     width: 60%;
 }
+#calculette{
+    margin: auto;
+    height: 60svh;
+    height: max-content;
+    min-height: 400px;
+    max-width: 450px;
+    display: grid;
+    position: relative;
+    z-index: 2;
+    width: 80vw;
+    background-color: var(--main-bg-color);
+    padding: 20px;
+    border-radius: 5px;
+    grid-template-areas: 
+    "a a a a"
+    "b b b b";
+    box-shadow: var(--box-shadow-section);
+}
+.logo_calcul{
+    width: 30px;
+}
+.titre_app{
+    display: grid;
+    grid-template-columns: 0.5fr 8fr 0.5fr;
+    position: absolute;
+    text-align: center;
+    z-index: 1;
+    box-shadow: var(--box-shadow-section);
+    top: -47px;
+    width: 80vw;
+    max-width: 450px;
+    left: -0px;
+    border-radius: 5px 5px 0 0;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+#calculette > #input {
+    grid-area: a;
+    text-align: right;
+    padding-right: 10px;
+    background-color: var(--secondary-bg-color);
+    font-size: 4em;
+    margin: 0;
+    overflow-x: scroll;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    height: 75px;
+    border-radius: 5px;
+    box-shadow: var(--box-shadow-section);
+}
+#calculette > .button_caclulette {
+    grid-area: b;
+    background-color: #b6b0b000;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    max-height: initial;
+    display: grid;
+
+    grid-template-areas: 
+    "b b b b"
+    "b b b b"
+    "b b b b"
+    "b b b b";
+}
+#calculette > .button_caclulette > button{
+    border-radius: 5px;
+    /* min-width: 100px; */
+    box-shadow: var(--box-shadow-section);
+    border: none;
+    font-size: 2em;
+    width: 90%;
+    margin: 5px;
+    padding: auto;
+    height: 10svh;
+    min-height: 50px;
+    opacity: 0.8;
+    text-align: center;
+}
+#calculette > .button_caclulette > button:hover{
+    opacity: 1;
+}
+#calculette > .button_caclulette > button:active{
+    box-shadow: var(--box-shadow-section);
+    transform: translateY(2px);
+}
+.red{
+    background-color: rgb(225, 94, 94);
+}
+.orange{
+    background-color: rgb(230, 170, 58);
+}
+.green{
+    background-color:var(--green-color);
+}
 @media all and (min-width: 1371px) {
     #tool{
         width: 60vw;
@@ -988,6 +1095,10 @@ li{
     }
 }
 @media all and (max-width: 861px) {
+    #calculette{
+       margin-top: 90px;
+      
+    }
     .card_70{
         width: 90vw;
         display: block;
@@ -1037,6 +1148,7 @@ li{
 
     #tool{
         max-width: 90vw;
+        height: 300px;
     }
     .icone::before{
        border-radius: 5px;

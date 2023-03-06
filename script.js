@@ -52,6 +52,7 @@ nav_hobbies = document.getElementById('nav-hobbies');
 nav_contact = document.getElementById('nav-contact');
 contact_aparition = false;
 hobbies_aparition = false;
+currentSection = home;
 currentBackground =  "bg_purple";
 oldNav = nav_home;
 oldSection = home;
@@ -203,7 +204,9 @@ if(window.location.href.split('#').length > 2){
 if(locations != ""){
   goToRoute(locations, true)
 }else{
-  goToRoute("home", true)
+  // goToRoute("home", true)
+  quitWindow()
+  chargeApp('calculette')
 }
 
 
@@ -358,16 +361,24 @@ btn_historique.addEventListener("click", function(event) {
   }
 });
 
-// close 
-// document.addEventListener('click', (event) => {
-//   if (!lst_historique.contains(event.target) && !btn_historique.contains(event.target) && lst_historique.classList.contains('show')) {
-//     lst_historique.style.opacity = 0;
-//     window.setTimeout(function(){
-//       lst_historique.classList.remove('show');
-//       lst_historique.classList.add('hide');
-//     },200);
-//   }
-// });
+// close
+document.addEventListener('click', (event) => {
+  if (!lst_historique.contains(event.target) && !btn_historique.contains(event.target) && lst_historique.classList.contains('show')) {
+    lst_historique.style.opacity = 0;
+    window.setTimeout(function(){
+      lst_historique.classList.remove('show');
+      lst_historique.classList.add('hide');
+    },200);
+  }
+  if(document.getElementById('calculette')){
+    if(!calculette.contains(event.target)){
+      document.removeEventListener("keydown", clavierCalculette);
+    }else{
+      document.addEventListener("keydown", clavierCalculette);
+    }
+  }
+});
+
 btn_liens = document.querySelectorAll('.lien_contact');
 btn_liens.forEach(element => {
   element.addEventListener("click", goToAdress);
@@ -418,6 +429,39 @@ function changeTools(event) {
 
 }
 
+// app
+button_app = document.querySelectorAll('.button_app');
+button_app.forEach(element => {
+  element.addEventListener("click", chargeApp);
+});
+
+function chargeApp(event) {
+  if(event.target){
+    app = event.target.value
+    if(event.target.type != "submit"){
+      app = event.target.parentNode.value
+    }
+  }else{
+    app = event
+  }
+  
+  currentApp = app
+  if (!document.getElementById(app)) {
+    requetteXhttp(app,"bureau")
+    setTimeout(() => {
+      var e = document.createElement('script');
+      e.src = app+'.js';
+      document.head.insertBefore(e, document.head.childNodes[document.head.childNodes.length - 1].nextSibling);
+    }, 2050);
+    
+  }else{
+    show(document.getElementById(app))
+    window.setTimeout(function(){
+      document.getElementById(app).style.opacity = 1;
+    },50);
+  }
+}
+
 // details
 btn_details = document.querySelectorAll('.button_detail');
 btn_details.forEach(element => {
@@ -432,7 +476,6 @@ function changeDetails(event, elem, hist) {
     adresse = elem;
   }
 
-
   if(current_projets_detail != ""){
     
     current_projets_detail = document.getElementById(current_projets_detail)
@@ -446,7 +489,7 @@ function changeDetails(event, elem, hist) {
   nav_detail.style.opacity =1;
 
   if (!document.getElementById(adresse)) {
-    requetteXhttp(adresse)
+    requetteXhttp(adresse,projets.id)
   }else{
     show(document.getElementById(adresse))
     window.setTimeout(function(){
@@ -504,6 +547,7 @@ function quitWindow(){
   hide(footer)
   hide(paddingNavGeneral)
   show(bureau)
+  show(bureau_detail)
 
   // bureau.style.opacity =1;
 }
@@ -516,6 +560,7 @@ function openWindow() {
   show(footer)
   show(paddingNavGeneral)
   hide(bureau)
+  hide(bureau_detail)
   setTimeout(function(){ 
     nav_search.style.transform = 'translateX(0px)';
     nav_general.style.transform = 'translateX(0px)';
@@ -523,7 +568,7 @@ function openWindow() {
 }
 
 // requette Xhttp
-function requetteXhttp(adresse) {
+function requetteXhttp(adresse,emplacement) {
   // Création de l'objet XMLHttpRequest
   let xhttp = new XMLHttpRequest();
 
@@ -531,10 +576,10 @@ function requetteXhttp(adresse) {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       // Le contenu HTML a été chargé avec succès
-      document.getElementById("projets_detail").innerHTML += this.responseText;
+      document.getElementById(emplacement+"_detail").innerHTML += this.responseText;
     }
   };
-  xhttp.open("GET", "html/projet/"+adresse+".html", true);
+  xhttp.open("GET", "html/"+emplacement+"/"+adresse+".html", true);
 
   // Envoi de la requête
   xhttp.send();
@@ -556,3 +601,158 @@ function requetteXhttp(adresse) {
 //     contentElement.innerHTML = htmlContent;
 // })
 // .catch(error => console.error(error));
+
+// lastEntry = "number";
+// console.log('calculette chagreé')
+// result.onclick = function() {
+//     console.log('oodfbdfbdfb')
+//     if(lastEntry == "number" && input.innerHTML != ""){
+//         valeur.value += input.innerHTML;
+//         console.log(valeur.value)
+//         resultat = eval(valeur.value);
+//         input.innerHTML = resultat;
+//         valeur.value=resultat;
+//         lastEntry = "result"
+//     }
+// };
+// clear.onclick = function() {
+//     valeur.value = "0+";
+//     resultat = "0+";
+//     input.innerHTML = "";
+// };
+// suppr.onclick = function() {
+//     if(lastEntry == "number" || lastEntry == "result"){
+//         input.innerHTML = input.innerHTML.slice(0,-1);
+//         lastEntry = "number"
+//     }
+// };
+// carre.onclick = function(){
+//     if(lastEntry == "number" || lastEntry == "result"){
+//         resultat= eval( valeur.value + input.innerHTML*input.innerHTML)
+//         input.innerHTML = resultat;
+//         valeur.value = resultat;
+//         lastEntry = "result";
+//     }
+// };
+// pourcent.onclick = function(){
+//     if(lastEntry == "number"){
+//         input.innerHTML += this.innerHTML;
+//         x = valeur.value.slice(0,-1);
+//         y = valeur.value.slice(-1);
+
+//         resultat = eval(x + y + (x*input.innerHTML.slice(0,-1)/100))
+
+//         input.innerHTML = resultat;
+//         valeur.value = resultat;
+//         lastEntry = "result"
+//     }
+// };
+// virgule.onclick = function() {
+//     if(lastEntry == "number" && input.innerHTML.indexOf(".") == -1){
+//         input.innerHTML += ".";
+//     }
+// };
+// let elements = document.querySelectorAll('.btnNombre');
+// for (let i = 0; i < elements.length; i++) {
+//     elements[i].onclick = function() {
+//         if(lastEntry == "number"){
+//             input.innerHTML += this.innerHTML;
+//         }else if(lastEntry == "result"){
+//             input.innerHTML = this.innerHTML;
+//             valeur.value = 0;
+//             resultat = 0;
+//             lastEntry = "number"
+//         }else{
+//             input.innerHTML = this.innerHTML;
+//             lastEntry = "number"
+//         }
+//     }
+// }
+// let calcul = document.querySelectorAll('.btnCalcul');
+// for (let i = 0; i < calcul.length; i++) {
+//     calcul[i].onclick = function() {
+//         if(lastEntry == "number"){
+//             valeur.value += input.innerHTML;
+//             resultat = eval(valeur.value);
+//             input.innerHTML = resultat;
+//             valeur.value=resultat;
+//             valeur.value += this.value;
+//             lastEntry = "calcul"
+//         }else if(lastEntry == "result"){
+//             valeur.value += this.value;
+//             lastEntry = "calcul"
+//         }else{
+//             valeur.value = valeur.value.slice(0,-1);
+//             valeur.value += this.value;
+//             // console.log(valeur.value)
+//         }
+
+//         // console.log(resultat)
+//     }
+// }
+// document.addEventListener("keydown", function(event) {
+//     switch (event.key) {
+//         case "1":
+//             document.getElementById("1").click();
+//         break;
+//         case "2":
+//             document.getElementById("2").click();
+//         break;
+//         case "3":
+//             document.getElementById("3").click();
+//         break;
+//         case "4":
+//             document.getElementById("4").click();
+//         break;
+//         case "5":
+//             document.getElementById("5").click();
+//         break;
+//         case "6":
+//             document.getElementById("6").click();
+//         break;
+//         case "7":
+//             document.getElementById("7").click();
+//         break;
+//         case "8":
+//             document.getElementById("8").click();
+//         break;
+//         case "9":
+//             document.getElementById("9").click();
+//         break;
+//         case "0":
+//             document.getElementById("0").click();
+//         break;
+//         case "+":
+//             document.getElementById("plus").click();
+//         break;
+//         case "-":
+//             document.getElementById("moins").click();
+//         break;
+//         case "/":
+//             document.getElementById("divise").click();
+//         break;
+//         case "*":
+//             document.getElementById("multiplie").click();
+//         break;
+//         case "Enter":
+//             document.getElementById("result").click();
+//         break;
+//         case "Backspace":
+//             document.getElementById("suppr").click();
+//         break;
+//         case ".":
+//             document.getElementById("virgule").click();
+//         break;
+//         case "%":
+//             document.getElementById("pourcent").click();
+//         break;
+//         case "Delete":
+//             document.getElementById("clear").click();
+//         break;
+//         case "²":
+//             document.getElementById("carre").click();
+//         break;
+//         default:
+//         break;
+//     }
+// });
