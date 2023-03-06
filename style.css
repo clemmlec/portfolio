@@ -6,17 +6,21 @@
     --main-color: white;
     --green-color: #08af0d;
     --muted-color:#DADAE7;
+    --black--alpha: #00000093;
     --box-shadow-color:  rgba(111, 111, 112, 0.684);
-    --box-shadow-color-2:   rgba(111, 111, 112, 0.684);
+    --box-shadow-color-2:   rgba(111, 111, 112, 0.348);
     --box-shadow-onglets: inset 2px 2px 2px var(--box-shadow-color);
     --box-shadow-section:  var(--box-shadow-color-2) 3px 3px 3px, inset 2px 2px 2px var(--box-shadow-color);
+    --box-shadow-section-color:  var(--green-color) 3px 3px 3px, inset 2px 2px 2px var(--green-color);
+    --box-shadow-btn-color: inset var(--green-color) 3px 3px 3px,  inset -3px -3px 3px var(--green-color);
 }
 @media (prefers-color-scheme: light) {
     :root {
-        --main-bg-color: #dadae7;
-        --secondary-bg-color:rgb(199, 196, 196);
+        --main-bg-color: #f9f9fb;
+        --secondary-bg-color:#e5e5e5;
         --mainAlpha-bg-color: #dadae7f0;
-        --tertiary-bg-color: #d6d3d3;
+        --tertiary-bg-color: #ededed;
+        --black--alpha: #ffffff93;
         --main-color: rgb(2, 2, 2);
         --green-color: #3c3fde;
         --muted-color:rgb(54, 54, 54);
@@ -128,7 +132,7 @@ li{
     top: 10px;
     width: 100vw;
     justify-content: center;
-    display: flex;
+    /* display: flex; */
 }
 #home{
     min-height: 80vh;
@@ -175,6 +179,9 @@ li{
     width: 100%;
     color: var(--muted-color);
 }
+#search:focus{
+    box-shadow: var(--box-shadow-section-color);
+}
 #nav_general{
     padding: 20px 10px 1px 10px;
     position: fixed;
@@ -199,6 +206,9 @@ li{
 #nav_detail > .btn{
    margin: 20px;
 }
+#contact{
+    min-height: 80vh;
+}
 .projets_details{
     padding-top: 40px !important;
 }
@@ -210,6 +220,15 @@ li{
     border-radius: 50px;
     margin-top: 40px;
 }
+.button:focus{
+    box-shadow: var(--box-shadow-btn-color);
+}
+.lien_contact:focus{
+    box-shadow: var(--box-shadow-btn-color);
+}
+.icone_bureau:focus{
+    box-shadow: var(--box-shadow-btn-color);
+}
 .btn{
     width: 20px;
     height: 20px;
@@ -220,6 +239,9 @@ li{
     margin-left: 5px;
     padding: 5px;
     border-radius: 5px;
+}
+.btn:focus{
+    box-shadow: var(--box-shadow-btn-color);
 }
 .margin_auto{
     margin: auto;
@@ -269,6 +291,10 @@ li{
     margin-left: 5px !important;
     margin-right: 5px !important;
 }
+.m_auto{
+    margin: auto 0 auto 0 !important;
+    width: 100%;
+}
 .l45{
     left: -45px !important;
 }
@@ -314,7 +340,7 @@ li{
     color: var(--main-color) !important;
 }
 .bg_blackAlpha{
-    background-color: #00000093;
+    background-color:var(--black--alpha);
     color: var(--main-color) !important;
 }
 .t_white{
@@ -359,7 +385,7 @@ li{
     position: relative;
     width: 20vw;
     color: var(--main-color);
-    height: fit-content;
+    height: 250px;
     min-width: 300px;
     min-height: 200px;
     margin: 20px auto;
@@ -446,7 +472,8 @@ li{
     width: 60vw;
     margin: auto;
     color: var(--main-color);
-    text-shadow: 0 0 100px var(--green-color);
+    /* text-shadow: 0 0 50px var(--secondary-bg-color); */
+    background-color:  var(--main-bg-color);
 }
 .presentation > p{
     margin: auto 0 !important;
@@ -469,7 +496,7 @@ li{
     z-index: 3;
     color: var(--main-color);
     margin: 20px auto;
-    width: auto;
+    width: 700px;
     max-width: 700px;
     display: grid;
     grid-template-rows: 0.3fr 2fr;
@@ -477,7 +504,9 @@ li{
     border-radius: 5px;
     text-align: center;
     box-shadow: var(--box-shadow-section);
+
 }
+
 .btn_tools{
     position: relative;
     z-index: 2;
@@ -486,6 +515,10 @@ li{
     height: 100%;
     top: 2px;
 }
+.p_tools > a {
+    all: unset;
+}
+
 .btn_tool{
     text-align: center;
     border-radius: 5px 5px 0 0;
@@ -494,13 +527,24 @@ li{
 .btn_tool:focus{
     text-align: center;
     border-radius: 5px 5px 0 0; 
-    color: #066b0bef !important;
+    color: var(--green-color) !important;
 }
 .div_tools{
     margin: auto;
+    width: 100%;
+}
+.ulNoStyle > ul > li{
+    text-align: left;
+    list-style-type: none;
+    padding: 5px;
+}
+.ulNoStyle > ul {
+    margin: auto;
+    padding: 0;
 }
 .icone_bureau{
     width: 90px;
+    height: 90px;
     text-align: center;
     display: inline-block;
     margin: 1px 10px 20px 1px;
@@ -532,8 +576,8 @@ li{
     width: 60px;
     height: 60px;
     border-radius: 50px;
-    background-color:#061232;
-    box-shadow: #303030bf 1px 1px 2px;
+    background-color:var(--secondary-bg-color);
+    box-shadow: var(--box-shadow-section);
 }
 .flex_projet{
     display: flex;
@@ -566,15 +610,15 @@ li{
 }
 .texte{
     margin: auto;
-    max-width: 85vh;
+    max-width: 85vw;
     width: 900px;
     background-color: #000000b4;
     padding: 30px;
     border-radius: 5px;
     color: var(--main-color);
-    max-height: 100%;
     overflow-y: scroll;
-    min-height: 683px ;
+    height: 70vh ;
+    min-height: 600px;
 }
 #projets_detail{
     position: absolute;
@@ -627,8 +671,21 @@ li{
     padding-bottom: 0;
 }
 .contact_fin{
+    all:unset;
     margin: auto;
-    width: 100%;
+    box-shadow: var(--box-shadow-section);
+    width: 95%;
+    padding: 10px;
+}
+#email{
+    all: unset;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 95%;
+    box-shadow: var(--box-shadow-section);
+}
+.contact_fin:focus , #email:focus{
+    box-shadow: var(--box-shadow-section-color);
 }
 .p_footer{
     margin-left: 2px;
@@ -637,6 +694,7 @@ li{
 .p_contact_fin{
     margin: auto;
     width: fit-content;
+    padding: 10px;
 }
 .t_center{
     text-align: center;
@@ -871,7 +929,7 @@ li{
     padding-top: 15px;
     padding-bottom: 15px;
     border-radius: 5px 0 0 0;
-    background-color: #00000094;
+    background-color:var(--black--alpha);
     color: var(--main-color);
 }
 .p_hobbies{
@@ -892,6 +950,11 @@ li{
     margin-bottom: 1px;
 }
 .gridR2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: 16px !important;
+}
+.grid2{
     display: grid;
     grid-template-columns: 1fr 1fr;
     font-size: 16px !important;
@@ -1065,7 +1128,9 @@ li{
     .onglet_formation{
         left: 90px;
     }
-    
+    .p_contact_fin {
+        padding-bottom: 100px;
+    }
 }
 
 @media all and (max-width: 601px) {

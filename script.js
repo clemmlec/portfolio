@@ -196,12 +196,14 @@ if(window.location.href.split('#').length > 2){
   homeDetail = window.location.href.split('#')[2]
 }else if(window.location.href.split('#').length > 1){
   locations = window.location.href.split('#')[1] ;
+}else{
+  locations = ""
 }
 
-if(locations != undefined){
+if(locations != ""){
   goToRoute(locations, true)
 }else{
-  changeSection.apply(null,[null,home,true])
+  goToRoute("home", true)
 }
 
 
@@ -339,6 +341,7 @@ function pageSuivante(){
 }
 // btn list historique
 btn_historique.addEventListener("click", function(event) {
+  console.log(event)
   if(lst_historique.classList.contains('hide')){
     show(lst_historique)
     lst_historique.focus();
@@ -365,19 +368,32 @@ btn_historique.addEventListener("click", function(event) {
 //     },200);
 //   }
 // });
+btn_liens = document.querySelectorAll('.lien_contact');
+btn_liens.forEach(element => {
+  element.addEventListener("click", goToAdress);
+});
 
+function goToAdress(event) {
+  if(event.clientX == 0){
+    if(event.target.children[1].target == "_blank"){
+      window.open(event.target.children[1].href);
+    }else{
+      window.location.href=event.target.children[1].href
+    }
+  }
+}
 // btn_tools
 btn_tools = document.querySelectorAll('.btn_tool');
 p_tools = document.querySelectorAll('.p_tools');
 btn_tools.forEach(element => {
   element.addEventListener("click", changeTools);
 });
-height = tool.offsetHeight;
-contact_home.style.height = height + "px";
+// height = tool.offsetHeight;
+// contact_home.style.height = height + "px";
 old_elem = p1;
 
 function changeTools(event) {
-  width = tool.offsetWidth + "px";
+  // width = tool.offsetWidth + "px";
   current_tool = document.getElementById(event.target.value);
 
   btn_tools.forEach(element => {
@@ -387,7 +403,7 @@ function changeTools(event) {
   hide(old_elem)
   show(current_tool)
 
-  current_tool.parentNode.parentNode.style.width = width;
+  // current_tool.parentNode.parentNode.style.width = width;
   
   window.setTimeout(function(){
     old_elem.style.opacity = 0;
