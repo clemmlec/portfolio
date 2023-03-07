@@ -166,3 +166,5 @@ close_calculette.addEventListener("click", function(event) {
     hide(calculette)
     document.removeEventListener("keydown", clavierCalculette);
 });
+
+calculetteCharger = true

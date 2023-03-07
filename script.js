@@ -56,7 +56,10 @@ currentSection = home;
 currentBackground =  "bg_purple";
 oldNav = nav_home;
 oldSection = home;
+currentApp = "";
 current_projets_detail = "";
+calculetteCharger = false
+
 // console.log(navigator)
 // console.log(navigator.userAgent)
 
@@ -205,8 +208,10 @@ if(locations != ""){
   goToRoute(locations, true)
 }else{
   // goToRoute("home", true)
-  quitWindow()
-  chargeApp('calculette')
+  // quitWindow()
+  // setTimeout(() => {
+  //   chargeApp('meteo')
+  // }, 1800);
 }
 
 
@@ -370,7 +375,7 @@ document.addEventListener('click', (event) => {
       lst_historique.classList.add('hide');
     },200);
   }
-  if(document.getElementById('calculette')){
+  if(document.getElementById('calculette') && calculetteCharger){
     if(!calculette.contains(event.target)){
       document.removeEventListener("keydown", clavierCalculette);
     }else{
@@ -435,6 +440,16 @@ button_app.forEach(element => {
   element.addEventListener("click", chargeApp);
 });
 
+function chargeBureauApp(app){
+    requetteXhttp(app,"bureau")
+    setTimeout(() => {
+      var e = document.createElement('script');
+      e.src = app+'.js';
+      document.body.appendChild(e);
+    }, 2050);
+    console.log( ' on charge une app ' + app)
+}
+
 function chargeApp(event) {
   if(event.target){
     app = event.target.value
@@ -444,22 +459,19 @@ function chargeApp(event) {
   }else{
     app = event
   }
+  console.log(app,event,event.target)
   
-  currentApp = app
-  if (!document.getElementById(app)) {
-    requetteXhttp(app,"bureau")
-    setTimeout(() => {
-      var e = document.createElement('script');
-      e.src = app+'.js';
-      document.head.insertBefore(e, document.head.childNodes[document.head.childNodes.length - 1].nextSibling);
-    }, 2050);
-    
-  }else{
-    show(document.getElementById(app))
-    window.setTimeout(function(){
-      document.getElementById(app).style.opacity = 1;
-    },50);
+  if(currentApp != ""){
+    hide(document.getElementById(currentApp))
   }
+  currentApp = app
+
+  show(document.getElementById(app))
+  window.setTimeout(function(){
+    document.getElementById(app).style.opacity = 1;
+    
+  },50);
+  
 }
 
 // details
@@ -529,10 +541,12 @@ btn_suivant_detail.addEventListener("click", changeDetails);
 btn_quit_detail.addEventListener("click", quitDetails);
 btn_quit.addEventListener("click", quitWindow);
 portfolio.addEventListener("click", openWindow);
+
 function quitDetails(){
   changeSection.apply(null,[null,projets,true])
 }
 
+//  Bureau / Web
 function quitWindow(){
   if(window.location.href.split('#').length > 2){
     locations = window.location.href.split('#')[1] + "/" +  window.location.href.split('#')[2];
@@ -548,7 +562,10 @@ function quitWindow(){
   hide(paddingNavGeneral)
   show(bureau)
   show(bureau_detail)
-
+if(!document.getElementById('calculette')){
+  chargeBureauApp('calculette')
+  chargeBureauApp('meteo')
+}
   // bureau.style.opacity =1;
 }
 
@@ -601,158 +618,3 @@ function requetteXhttp(adresse,emplacement) {
 //     contentElement.innerHTML = htmlContent;
 // })
 // .catch(error => console.error(error));
-
-// lastEntry = "number";
-// console.log('calculette chagreé')
-// result.onclick = function() {
-//     console.log('oodfbdfbdfb')
-//     if(lastEntry == "number" && input.innerHTML != ""){
-//         valeur.value += input.innerHTML;
-//         console.log(valeur.value)
-//         resultat = eval(valeur.value);
-//         input.innerHTML = resultat;
-//         valeur.value=resultat;
-//         lastEntry = "result"
-//     }
-// };
-// clear.onclick = function() {
-//     valeur.value = "0+";
-//     resultat = "0+";
-//     input.innerHTML = "";
-// };
-// suppr.onclick = function() {
-//     if(lastEntry == "number" || lastEntry == "result"){
-//         input.innerHTML = input.innerHTML.slice(0,-1);
-//         lastEntry = "number"
-//     }
-// };
-// carre.onclick = function(){
-//     if(lastEntry == "number" || lastEntry == "result"){
-//         resultat= eval( valeur.value + input.innerHTML*input.innerHTML)
-//         input.innerHTML = resultat;
-//         valeur.value = resultat;
-//         lastEntry = "result";
-//     }
-// };
-// pourcent.onclick = function(){
-//     if(lastEntry == "number"){
-//         input.innerHTML += this.innerHTML;
-//         x = valeur.value.slice(0,-1);
-//         y = valeur.value.slice(-1);
-
-//         resultat = eval(x + y + (x*input.innerHTML.slice(0,-1)/100))
-
-//         input.innerHTML = resultat;
-//         valeur.value = resultat;
-//         lastEntry = "result"
-//     }
-// };
-// virgule.onclick = function() {
-//     if(lastEntry == "number" && input.innerHTML.indexOf(".") == -1){
-//         input.innerHTML += ".";
-//     }
-// };
-// let elements = document.querySelectorAll('.btnNombre');
-// for (let i = 0; i < elements.length; i++) {
-//     elements[i].onclick = function() {
-//         if(lastEntry == "number"){
-//             input.innerHTML += this.innerHTML;
-//         }else if(lastEntry == "result"){
-//             input.innerHTML = this.innerHTML;
-//             valeur.value = 0;
-//             resultat = 0;
-//             lastEntry = "number"
-//         }else{
-//             input.innerHTML = this.innerHTML;
-//             lastEntry = "number"
-//         }
-//     }
-// }
-// let calcul = document.querySelectorAll('.btnCalcul');
-// for (let i = 0; i < calcul.length; i++) {
-//     calcul[i].onclick = function() {
-//         if(lastEntry == "number"){
-//             valeur.value += input.innerHTML;
-//             resultat = eval(valeur.value);
-//             input.innerHTML = resultat;
-//             valeur.value=resultat;
-//             valeur.value += this.value;
-//             lastEntry = "calcul"
-//         }else if(lastEntry == "result"){
-//             valeur.value += this.value;
-//             lastEntry = "calcul"
-//         }else{
-//             valeur.value = valeur.value.slice(0,-1);
-//             valeur.value += this.value;
-//             // console.log(valeur.value)
-//         }
-
-//         // console.log(resultat)
-//     }
-// }
-// document.addEventListener("keydown", function(event) {
-//     switch (event.key) {
-//         case "1":
-//             document.getElementById("1").click();
-//         break;
-//         case "2":
-//             document.getElementById("2").click();
-//         break;
-//         case "3":
-//             document.getElementById("3").click();
-//         break;
-//         case "4":
-//             document.getElementById("4").click();
-//         break;
-//         case "5":
-//             document.getElementById("5").click();
-//         break;
-//         case "6":
-//             document.getElementById("6").click();
-//         break;
-//         case "7":
-//             document.getElementById("7").click();
-//         break;
-//         case "8":
-//             document.getElementById("8").click();
-//         break;
-//         case "9":
-//             document.getElementById("9").click();
-//         break;
-//         case "0":
-//             document.getElementById("0").click();
-//         break;
-//         case "+":
-//             document.getElementById("plus").click();
-//         break;
-//         case "-":
-//             document.getElementById("moins").click();
-//         break;
-//         case "/":
-//             document.getElementById("divise").click();
-//         break;
-//         case "*":
-//             document.getElementById("multiplie").click();
-//         break;
-//         case "Enter":
-//             document.getElementById("result").click();
-//         break;
-//         case "Backspace":
-//             document.getElementById("suppr").click();
-//         break;
-//         case ".":
-//             document.getElementById("virgule").click();
-//         break;
-//         case "%":
-//             document.getElementById("pourcent").click();
-//         break;
-//         case "Delete":
-//             document.getElementById("clear").click();
-//         break;
-//         case "²":
-//             document.getElementById("carre").click();
-//         break;
-//         default:
-//         break;
-//     }
-// });
