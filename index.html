@@ -13,7 +13,7 @@
     <meta name="description" content="page d'accueil ">
     <link rel="shortcut icon" type="image/png" href="asset/favicon.png"/>
     <title>Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
@@ -70,10 +70,8 @@
         <div id="paddingNavGeneral" class="bg_purple"></div>
 
     </header>
-
     <main id="" class="bg_purple">
         <div id="particles-js"></div>
-
         <!-- Home -->
         <section id="home" class="inline_flex hide flex">
             <!-- Photo profil -->
@@ -696,10 +694,10 @@
             </div>
         </section>
 
+        <div id="alert" class="hide"></div>
+
         <!-- Projets détails -->
-        <div id="projets_detail">
-            
-        </div>
+        <div id="projets_detail"></div>
         <nav id="nav_detail" class="hide flex">
             <button id="btn_precedent_detail" class="btn"><-</button>
             <button id="btn_quit_detail" class="btn"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>XState</title><path d="M15.891 0h6.023l-6.085 10.563c-1.853-3.305-1.822-7.32.062-10.563zm6.055 23.999L8.078.001H2.055l6.919 12.015L2.055 24h6.023L12 17.236 15.892 24z"/></svg></button>
@@ -727,8 +725,7 @@
                 <span class="nom_icone">Météo</span> 
             </button>
         </div>
-        <div id="bureau_detail" class="hide flex">
-        </div>
+        <div id="bureau_detail" class="hide flex"></div>
     </main>
 
     <footer id="footer" class="bg_purpleDark">
@@ -738,8 +735,8 @@
         </span>
     </footer>
 </body>
-<script src="particles.min.js"></script>
-<script src="app.js"></script>
-<script src="script.js"></script>
+<script src="js/particles.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/script.js"></script>
 <!-- <script src="calculette.js"></script> -->
 </html>

@@ -383,6 +383,9 @@ document.addEventListener('click', (event) => {
       document.addEventListener("keydown", clavierCalculette);
     }
   }
+  if(document.getElementById('alert').classList.contains("show")){
+    hide(document.getElementById('alert'))
+  }
 });
 
 btn_liens = document.querySelectorAll('.lien_contact');
@@ -445,7 +448,7 @@ function chargeBureauApp(app){
     requetteXhttp(app,"bureau")
     setTimeout(() => {
       var e = document.createElement('script');
-      e.src = app+'.js';
+      e.src = "js/"+app+'.js';
       document.body.appendChild(e);
     }, 2050);
     console.log( ' on charge une app ' + app)
@@ -499,7 +502,7 @@ function changeDetails(event, elem, hist) {
   hide(projets)
   show(nav_detail)
   nav_detail.style.opacity =1;
-  console.log(document.getElementById(adresse))
+  // console.log(document.getElementById(adresse))
 
   if (!document.getElementById(adresse)) {
     requetteXhttp(adresse,projets.id)
@@ -603,6 +606,35 @@ function requetteXhttp(adresse,emplacement) {
   xhttp.send();
 }
 
+envoyer_mail.addEventListener("click", function() {
+  var xhr = new XMLHttpRequest();
+  var url = "php/mail.php";
+  emails = email.value;
+  message = contact_fin.value;
+  var params = "email=" + emails + "&message=" + message;
+
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      // alert(xhr.responseText);
+      email.value = ""
+      contact_fin.value = ""
+      if(xhr.responseText == "Votre message c'est bien envoyé"){
+        document.getElementById('alert').classList.add('success')
+        document.getElementById('alert').classList.remove('danger')
+      }else{
+        document.getElementById('alert').classList.remove('success')
+        document.getElementById('alert').classList.add('danger')
+      }
+      document.getElementById('alert').innerHTML = xhr.responseText
+      show(document.getElementById('alert'))
+    }
+  };
+
+  xhr.send(params);
+});
 
 // changeSection.apply(null,[null,contact,true])
 // changeDetails(event, "saveworld") 
