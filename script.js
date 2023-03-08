@@ -102,6 +102,7 @@ route = [
   "hobbies",
   "contact"],
   [
+    "portfolio",
     "fedhubs",
     "devin",
     "apimages",
@@ -207,7 +208,7 @@ if(window.location.href.split('#').length > 2){
 if(locations != ""){
   goToRoute(locations, true)
 }else{
-  // goToRoute("home", true)
+  goToRoute("home", true)
   // quitWindow()
   // setTimeout(() => {
   //   chargeApp('meteo')
@@ -459,7 +460,6 @@ function chargeApp(event) {
   }else{
     app = event
   }
-  console.log(app,event,event.target)
   
   if(currentApp != ""){
     hide(document.getElementById(currentApp))
@@ -499,6 +499,7 @@ function changeDetails(event, elem, hist) {
   hide(projets)
   show(nav_detail)
   nav_detail.style.opacity =1;
+  console.log(document.getElementById(adresse))
 
   if (!document.getElementById(adresse)) {
     requetteXhttp(adresse,projets.id)
@@ -540,7 +541,7 @@ btn_precedent_detail.addEventListener("click", changeDetails);
 btn_suivant_detail.addEventListener("click", changeDetails);
 btn_quit_detail.addEventListener("click", quitDetails);
 btn_quit.addEventListener("click", quitWindow);
-portfolio.addEventListener("click", openWindow);
+clem_web.addEventListener("click", openWindow);
 
 function quitDetails(){
   changeSection.apply(null,[null,projets,true])
@@ -588,7 +589,7 @@ function openWindow() {
 function requetteXhttp(adresse,emplacement) {
   // Création de l'objet XMLHttpRequest
   let xhttp = new XMLHttpRequest();
-
+  // console.log('chargment de ' + adresse + ' dans ' + emplacement)
   // Configuration de la requête
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {

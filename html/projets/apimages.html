@@ -35,9 +35,11 @@
             </div>
         </div>
         <div class="texte">
-            <p>Site conçu avec le framework Symfony sous forme d'API.</p>
-            <p>L'idée est de permettre d'ajouter des images temporaires pendant le developpement d'un site.</p>
-            <p>Il suffit d'appeler l'url dans le source d'une balise image pour avoir une image aléaotire suivant la categorie choisi. </p> 
+            <h1 class="center">API d'images aléatoire</h1>
+            <p class="w_7">L'idée est venu est développent des sites et en cherchant des images de subsitutions en attendant les vrais assets.</p>
+            <p class="w_7 mt_50">Pour ce faire j'ai utilisé <a target="_blank" href="https://symfony.com/">Symfony</a>. En tant qu'administrateur on peux mettre en base de données des images avec un tag pour l'identifier. Ensuite les utilisateur on juste à mettre la route API dans leur balise img pour récuperer une images souhaité.</p>
+            <p class="w_7 mt_50">En utilisant la route www.api_images/photo/animal, l'API renvera aléatoirement une image parmis celle qui ont le tag animal. Le navigateur renverra ensuite cette même image pour les autres appel à cette même url.</p>
+            <p class="w_7 mt_50">Pour avoir des images différente il faudra alors appeler la route www.api_images/photo/animal/{id}, qui renverra une image unique et qui permettra d'avoir de différentes images sur le site en développement.</p>
         </div>
     </div>
 </body>
