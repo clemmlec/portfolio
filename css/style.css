@@ -1013,6 +1013,7 @@ li{
 }
 #calculette{
     margin: auto;
+    margin-top: 50px;
     height: 60svh;
     height: max-content;
     min-height: 400px;
@@ -1038,7 +1039,7 @@ li{
     text-align: center;
     z-index: 1;
     box-shadow: var(--box-shadow-section);
-    top: -47px;
+    top: -41px;
     width: 80vw;
     max-width: 450px;
     left: -0px;
@@ -1111,6 +1112,7 @@ li{
     transform: translate(-50%, 0%); 
     z-index: 2;
     width: 80vw;
+    top: 90px;
     background-color: var(--main-bg-color);
     padding: 20px;
     border-radius: 5px;
@@ -1176,7 +1178,7 @@ li{
     }
 }
 @media all and (max-width: 861px) {
-    #calculette, #meteo{
+    #calculette{
        margin-top: 90px;
     }
     .card_70{
