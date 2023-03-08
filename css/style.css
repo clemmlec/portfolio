@@ -22,9 +22,9 @@
     :root {
         --main-bg-color: #f9f9fb;
         --secondary-bg-color:#e5e5e5;
-        --mainAlpha-bg-color: #dadae7f0;
+        --mainAlpha-bg-color: #f2f2f3f0;
         --tertiary-bg-color: #ededed;
-        --black--alpha: #ffffff93;
+        --black--alpha: #ffffffc2;
         --main-color: rgb(2, 2, 2);
         --green-color: #3c3fde;
         --green-color-visited: #1e2085;
@@ -663,7 +663,7 @@ li{
     margin: auto;
     max-width: 85vw;
     width: 900px;
-    background-color: #000000b4;
+    background-color: var(--black--alpha);
     padding: 30px;
     border-radius: 5px;
     color: var(--main-color);
