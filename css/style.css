@@ -65,7 +65,7 @@ nav ul li {
     transition: .5s ease border-color, .5s ease color;
     cursor: pointer;
 }
-nav ul li:focus{
+nav ul li:focus-visible{
     color: var(--green-color) !important ;
     border: solid 1px var(--green-color);
     box-shadow: unset;
@@ -214,7 +214,7 @@ li{
     width: 100%;
     color: var(--muted-color);
 }
-#search:focus{
+#search:focus-visible{
     box-shadow: var(--box-shadow-section-color);
 }
 #nav_general{
@@ -255,13 +255,13 @@ li{
     border-radius: 50px;
     margin-top: 40px;
 }
-.button:focus{
+.button:focus-visible{
     box-shadow: var(--box-shadow-btn-color);
 }
-.lien_contact:focus{
+.lien_contact:focus-visible{
     box-shadow: var(--box-shadow-btn-color);
 }
-.icone_bureau:focus{
+.icone_bureau:focus-visible{
     box-shadow: var(--box-shadow-btn-color);
 }
 .btn{
@@ -275,9 +275,12 @@ li{
     padding: 5px;
     border-radius: 5px;
 }
-.btn:focus{
+.btn:focus-visible{
     box-shadow: var(--box-shadow-btn-color);
 }
+/* .btn:active{
+    box-shadow: none;
+} */
 .w_7{
     max-width: 700px;
     margin: auto;
@@ -572,7 +575,7 @@ li{
     border-radius: 5px 5px 0 0;
     box-shadow: var(--box-shadow-onglets);
 }
-.btn_tool:focus{
+.btn_tool:focus-visible{
     text-align: center;
     border-radius: 5px 5px 0 0; 
     color: var(--green-color) !important;
@@ -732,7 +735,7 @@ li{
     width: 95%;
     box-shadow: var(--box-shadow-section);
 }
-.contact_fin:focus , #email:focus{
+.contact_fin:focus-visible , #email:focus-visible{
     box-shadow: var(--box-shadow-section-color);
 }
 .p_footer{
@@ -778,7 +781,7 @@ li{
 }
 .swiper-button-next, .swiper-button-prev {
     top: 80% !important;
-    color: #4649e6 !important;
+    color: var(--green-color) !important;
 }
 .show{
     opacity: 1;
@@ -790,7 +793,7 @@ li{
     opacity: 1;
     transform: translateX(0px);
     display: flex;
-    transition: .9s ease opacity,.9s ease transform;
+    transition: 1.9s ease opacity,.9s ease transform;
 }
 .showGrid{
     opacity: 1;
@@ -1013,7 +1016,7 @@ li{
 }
 #calculette{
     margin: auto;
-    margin-top: 50px;
+    /* margin-top: 50px; */
     height: 60svh;
     height: max-content;
     min-height: 400px;
@@ -1199,10 +1202,12 @@ li{
     .photo_hobbie{
         max-height: 300px;
         height: auto;
+        width: 100%;
     }
     .p_hobbies{
         display: flex;
         grid-template-columns: unset;
+        max-width: 450px;
     }
     nav ul li {
         font-size: 15px;

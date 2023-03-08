@@ -450,7 +450,7 @@ function chargeBureauApp(app){
       var e = document.createElement('script');
       e.src = "js/"+app+'.js';
       document.body.appendChild(e);
-    }, 2050);
+    }, 250);
     console.log( ' on charge une app ' + app)
 }
 
@@ -506,6 +506,10 @@ function changeDetails(event, elem, hist) {
 
   if (!document.getElementById(adresse)) {
     requetteXhttp(adresse,projets.id)
+    window.setTimeout(function(){
+      document.getElementById(adresse).style.opacity = 1;
+      show(document.getElementById(adresse))
+    },150);
   }else{
     show(document.getElementById(adresse))
     window.setTimeout(function(){
