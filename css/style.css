@@ -805,6 +805,12 @@ li{
     display: grid;
     transition: 1.5s ease opacity,1.5s ease transform;
 }
+.showContents{
+    opacity: 1;
+    transform: translateX(0px);
+    display: contents;
+    transition: 1.5s ease opacity,1.5s ease transform;
+}
 .hide{
     display: none;
     opacity: 0;

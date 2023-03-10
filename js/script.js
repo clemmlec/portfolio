@@ -140,6 +140,12 @@ function changeSection(event, elem, hist) {
     hist = false
   }else{
     hide(oldSection,'translate(+200px)');
+    show(document.getElementById('particles-js'))
+    if (currentSection.classList.contains('bg_purple')) {
+      setTimeout(() => {
+        hide(document.getElementById('particles-js'))
+      }, 900);
+    }
   }
  
   switchNav(oldNav,currentNav);
@@ -153,12 +159,7 @@ function changeSection(event, elem, hist) {
   saveScroll = window.scrollY;
 
   window.setTimeout(function(){
-    currentSection.style.opacity = 1;
-    // currentSection.style.transform = 'translateX(-20px)';
     window.scrollBy( { top : -window.scrollY+historiqueScroll })
-    setTimeout(function(){ 
-      currentSection.style.transform = 'translateX(0px)';
-    }, 50);
   },10);
   
   oldNav = currentNav;
@@ -179,7 +180,7 @@ function hide(section,transform) {
   section.classList.add("hide")
   section.classList.remove('showFlex');
   section.style.transform = transform;
-  console.log('HIDE ===> ' ,section)
+  // console.log('HIDE ===> ' ,section)
 }
 // Switch nav
 function switchNav(oldNav,currentNav) {
@@ -199,13 +200,16 @@ function show(currentSection,transform) {
     currentSection.classList.add('showFlex');
   }else if(currentSection.classList.contains('grid')){
     currentSection.classList.add('showGrid');
+  }else if(currentSection.classList.contains('contents')){
+    currentSection.classList.add('showContents')
   }else{
     currentSection.classList.add('show');
   }
   window.setTimeout(function(){
     currentSection.style.opacity = 1;
+    currentSection.style.transform = 'translateX(0px)';
   },10);
-  console.log("show ===> ",currentSection)
+  // console.log("show ===> ",currentSection)
 }
 
 // Pour acceder aux sous page directement
@@ -510,6 +514,11 @@ function changeDetails(event, elem, hist) {
   show(nav_detail)
   nav_detail.style.opacity =1;
 
+  show(document.getElementById('particles-js'))
+  setTimeout(() => {
+    hide(document.getElementById('particles-js'))
+  }, 900);
+
   if (!document.getElementById(adresse)) {
     requetteXhttp(adresse,projets.id)
     
@@ -568,6 +577,7 @@ function quitWindow(){
   hide(paddingNavGeneral)
   show(bureau)
   show(bureau_detail)
+  show(document.getElementById('particles-js'))
 if(!document.getElementById('calculette')){
   chargeBureauApp('calculette')
   chargeBureauApp('meteo')
