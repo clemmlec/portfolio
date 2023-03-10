@@ -73,7 +73,6 @@ nav ul li:focus-visible{
 }
 section{
     position: relative;
-    display: none;
     padding-bottom: 100px !important;
     padding-top: 20px !important;
     margin-bottom: 0 !important;
@@ -792,19 +791,19 @@ li{
     opacity: 1;
     transform: translateX(0px);
     display: block;
-    transition: .9s ease opacity,.9s ease transform;
+    transition: 1.5s ease opacity,1.5s ease transform;
 }
 .showFlex{
     opacity: 1;
     transform: translateX(0px);
     display: flex;
-    transition: 1.9s ease opacity,.9s ease transform;
+    transition: 1.5s ease opacity,1.5s ease transform;
 }
 .showGrid{
     opacity: 1;
     transform: translateX(0px);
     display: grid;
-    transition: .9s ease opacity,.9s ease transform;
+    transition: 1.5s ease opacity,1.5s ease transform;
 }
 .hide{
     display: none;

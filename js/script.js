@@ -132,22 +132,33 @@ function changeSection(event, elem, hist) {
   }
   historiqueScroll = 0;
 
+
   hide(projets_detail);
-  hide(oldSection,'translate(+200px)');
   hide(nav_detail)
 
+  if(oldSection == currentSection){
+    hist = false
+  }else{
+    hide(oldSection,'translate(+200px)');
+  }
+ 
   switchNav(oldNav,currentNav);
-  show(currentSection,'translateX(50px)')
 
+  if(!document.getElementById('formation') && currentSection.id == "formations"){
+    requetteXhttp("formation","formation")
+  }
+
+  show(currentSection,'translateX(50px)')
+  
   saveScroll = window.scrollY;
 
   window.setTimeout(function(){
     currentSection.style.opacity = 1;
-    currentSection.style.transform = 'translateX(-20px)';
+    // currentSection.style.transform = 'translateX(-20px)';
     window.scrollBy( { top : -window.scrollY+historiqueScroll })
     setTimeout(function(){ 
       currentSection.style.transform = 'translateX(0px)';
-    }, 550);
+    }, 50);
   },10);
   
   oldNav = currentNav;
@@ -168,6 +179,7 @@ function hide(section,transform) {
   section.classList.add("hide")
   section.classList.remove('showFlex');
   section.style.transform = transform;
+  console.log('HIDE ===> ' ,section)
 }
 // Switch nav
 function switchNav(oldNav,currentNav) {
@@ -193,6 +205,7 @@ function show(currentSection,transform) {
   window.setTimeout(function(){
     currentSection.style.opacity = 1;
   },10);
+  console.log("show ===> ",currentSection)
 }
 
 // Pour acceder aux sous page directement
@@ -496,7 +509,6 @@ function changeDetails(event, elem, hist) {
   hide(projets)
   show(nav_detail)
   nav_detail.style.opacity =1;
-  // console.log(document.getElementById(adresse))
 
   if (!document.getElementById(adresse)) {
     requetteXhttp(adresse,projets.id)
@@ -516,18 +528,13 @@ function changeDetails(event, elem, hist) {
   window.setTimeout(function(){
     projets_detail.style.opacity = 1;
     current_projets_detail = adresse;
-    // console.log(current_projets_detail)
-    // console.log(route[1].indexOf(current_projets_detail) , route[1].length)
-    // console.log(route[1].indexOf("devin") , route[1].length)
     if(route[1].indexOf(current_projets_detail) < route[1].length-1){
       btn_suivant_detail.value = route[1][route[1].indexOf(current_projets_detail)+1]
-      // console.log(btn_precedent_detail.value)
     }else{
       btn_suivant_detail.value = route[1][0]
     }
     if(route[1].indexOf(current_projets_detail) > 0){
       btn_precedent_detail.value = route[1][route[1].indexOf(current_projets_detail)-1]
-      // console.log(btn_precedent_detail.value)
     }else{
       btn_precedent_detail.value = route[1][route[1].length-1]
     }
@@ -608,6 +615,12 @@ function requetteXhttp(adresse,emplacement) {
             e.src = "js/"+adresse+'.js';
             document.body.appendChild(e);
           
+          break;
+        case "formation":
+          
+          document.getElementById(adresse).style.opacity = 1;
+          show(document.getElementById(adresse))
+          console.log('on est la ')
           break;
         default:
           break;
