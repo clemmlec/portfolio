@@ -5,20 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Open Graph meta (Facebook, Linkedin) -->
-    <meta property="og:title" content="Clément Canale" />
-    <meta property="og:type" content="website" />
-    <meta property="og:description" content="Portfolio" />
-    <meta property="author" content="Clément Canale" />
-    <meta property="og:image" content="https://www.cllc.ovh/asset/favicon.png"/>
-    <meta name="description" content="page d'accueil ">
-    <link rel="shortcut icon" type="image/png" href="asset/favicon.png"/>
+    <meta property="og:title" content="Clément Canale">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Portfolio">
+    <meta property="author" content="Clément Canale">
+    <meta property="og:image" content="https://www.cllc.ovh/asset/favicon.png">
+    <meta name="description" content="page d'accueil">
+    <link rel="shortcut icon" type="image/png" href="asset/favicon.png">
     <meta name="twitter:card" content="summary_large_image">
     <title>Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
-        />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script> -->
 
@@ -28,13 +25,16 @@
 </head>
 <body id="site" class="bg_purple">
 
+
+
+
     <header>
         <!-- Logo Search Historique -->
         <div id="nav_search" class="bg_purpleDark showGrid grid">
             <!-- Logo -->
-            <img src="asset/favicon.png" width="20px" alt="logo clem-web">
+            <img src="asset/favicon.png" class="w_20" alt="logo clem-web">
             <!-- Search -->
-            <form action="">
+            <form>
                 <input id="search" list="list_historique" type="search" placeholder="Aller à la section ..."  tabindex="3">
                 <datalist id="list_historique">
                     <option value="/projets">
@@ -52,8 +52,8 @@
             <!-- Historique -->
             <div id="btns_historique" class="margin_auto">
                 <button id="btn_historique" class="btn" tabindex="3"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Yelp</title><path d="M20.16 12.594l-4.995 1.433c-.96.276-1.74-.8-1.176-1.63l2.905-4.308a1.072 1.072 0 0 1 1.596-.206 9.194 9.194 0 0 1 2.364 3.252 1.073 1.073 0 0 1-.686 1.459zm-5.025 3.152l4.942 1.606a1.072 1.072 0 0 1 .636 1.48 9.316 9.316 0 0 1-2.47 3.169 1.073 1.073 0 0 1-1.592-.26l-2.76-4.409c-.528-.847.288-1.894 1.236-1.584zm-4.796-4.368L5.454 2.916a1.072 1.072 0 0 1 .466-1.5A14.973 14.973 0 0 1 11.184.003a1.07 1.07 0 0 1 1.153 1.068v9.768c0 1.096-1.45 1.483-1.998.535zm-.857 4.17L4.44 16.806a1.073 1.073 0 0 1-1.324-.92 9.218 9.218 0 0 1 .43-3.997 1.07 1.07 0 0 1 1.485-.62l4.668 2.279c.9.438.763 1.76-.207 2zm.886 1.477c.669-.744 1.901-.246 1.866.752l-.19 5.188a1.073 1.073 0 0 1-1.247 1.02 9.314 9.314 0 0 1-3.722-1.502 1.072 1.072 0 0 1-.187-1.6l3.477-3.864z"/></svg></button>
-                <button id="btn_precedent" class="btn" tabindex="3"><-</button>
-                <button id="btn_suivant" class="btn not_current" tabindex="3">-></button>
+                <button id="btn_precedent" class="btn" tabindex="3">&larr;</button>
+                <button id="btn_suivant" class="btn not_current" tabindex="3">&rarr;</button>
                 <button id="btn_quit" class="btn" tabindex="3"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>XState</title><path d="M15.891 0h6.023l-6.085 10.563c-1.853-3.305-1.822-7.32.062-10.563zm6.055 23.999L8.078.001H2.055l6.919 12.015L2.055 24h6.023L12 17.236 15.892 24z"/></svg></button>
             </div>
             <ul id="lst_historique" class="hide"></ul>
@@ -71,7 +71,7 @@
         <div id="paddingNavGeneral" class="bg_purple"></div>
 
     </header>
-    <main id="" class="bg_purple">
+    <main class="bg_purple">
         <div id="particles-js"></div>
         <!-- Home -->
         <section id="home" class="inline_flex hide flex">
@@ -90,26 +90,26 @@
             <div id="contact_home" class="flex_home bg_purple home_index">
                 <h2 id="titre_contact_home" class="center bg_purple">Contact</h2>
                 <!-- Linkedin -->
-                <button class="lien_contact" tabindex="1">
+                <div class="lien_contact" tabindex="1">
                     <div class="icone_left bg_black borderL">
                         <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                     </div>
                     <a target="_blank" href="https://www.linkedin.com/in/clement-canale-314126186/">Clément Canale</a>
-                </button>
+                </div>
                 <!-- GitHub -->
-                <button class="lien_contact"  tabindex="1">
+                <div class="lien_contact"  tabindex="1">
                     <div class="icone_left bg_black borderL">
                         <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
                     </div>
                     <a target="_blank" href="https://github.com/clemmlec">Clemmlec</a>
-                </button>
+                </div>
                 <!-- Mail -->
-                <button class="lien_contact"  tabindex="1">
+                <div class="lien_contact"  tabindex="1">
                     <div class="icone_left bg_black borderL">
                         <img src="asset/logo/10127.png" alt="logo mail">
                     </div>
                     <a href="#contact">Mail</a>
-                </button>
+                </div>
             </div>
             <!-- Tools -->
             <div id="tool" class="fex_home home_index bg_purple">
@@ -393,13 +393,13 @@
                         <!-- Stack -->
                         <div class="m_10 stack_form">
                             <h4>Stack</h4>
-                            <img src="https://img.shields.io/badge/Code-Twig-brightgreen?style=flat&color=AFC97E" />
-                            <img src="https://img.shields.io/badge/Code-Php-blueviolet?style=flat&logo=php&color=787CB5" />
-                            <img src="https://img.shields.io/badge/Code-MySQL-blueviolet?style=flat&logo=MySQL&color=4479A1" />
-                            <img src="https://img.shields.io/badge/Framework-Symphony-blueviolet?style=flat&logo=symfony&color=000000" />
-                            <img src="https://img.shields.io/badge/Framework-Vue.js-blueviolet?style=flat&logo=vue.js&color=4FC08D" />
-                            <img src="https://img.shields.io/badge/Tools-Postman-blueviolet?style=flat&logo=postman&color=FF6C37" />
-                            <img src="https://img.shields.io/badge/Tools-Notion-blueviolet?style=flat&logo=notion&color=000000" />
+                            <img src="https://img.shields.io/badge/Code-Twig-brightgreen?style=flat&color=AFC97E" alt="Twig">
+                            <img src="https://img.shields.io/badge/Code-Php-blueviolet?style=flat&logo=php&color=787CB5" alt="Php">
+                            <img src="https://img.shields.io/badge/Code-MySQL-blueviolet?style=flat&logo=MySQL&color=4479A1" alt="MySQL">
+                            <img src="https://img.shields.io/badge/Framework-Symphony-blueviolet?style=flat&logo=symfony&color=000000" alt="Symphony">
+                            <img src="https://img.shields.io/badge/Framework-Vue.js-blueviolet?style=flat&logo=vue.js&color=4FC08D" alt="Vue.js">
+                            <img src="https://img.shields.io/badge/Tools-Postman-blueviolet?style=flat&logo=postman&color=FF6C37" alt="Postman">
+                            <img src="https://img.shields.io/badge/Tools-Notion-blueviolet?style=flat&logo=notion&color=000000" alt="Notion">
 
                         </div>
                     </div>
@@ -427,13 +427,13 @@
                         <!-- Stack -->
                         <div class="m_10 stack_form">
                             <h4>Stack</h4>
-                            <img src="https://img.shields.io/badge/Code-HTML-blueviolet?style=flat&logo=html&color=E34F26" />
-                            <img src="https://img.shields.io/badge/Code-CSS-blueviolet?style=flat&logo=css3&color=1572B6" />
-                            <img src="https://img.shields.io/badge/Code-Javascipt-blueviolet?style=flat&logo=javascript&color=yellow" />
-                            <img src="https://img.shields.io/badge/Tools-Photoshop-blueviolet?style=flat&logo=adobephotoshop&color=31A8FF" />
-                            <img src="https://img.shields.io/badge/Tools-Figma-blueviolet?style=flat&logo=figma&color=c7b9ff&logoColor=c7b9ff" />
-                            <img src="https://img.shields.io/badge/Tools-Canva-blueviolet?style=flat&logo=canva&color=00C4CC" />
-                            <img src="https://img.shields.io/badge/Tools-Notion-blueviolet?style=flat&logo=notion&color=000000" />
+                            <img src="https://img.shields.io/badge/Code-HTML-blueviolet?style=flat&logo=html&color=E34F26" alt="HTML">
+                            <img src="https://img.shields.io/badge/Code-CSS-blueviolet?style=flat&logo=css3&color=1572B6" alt="CSS">
+                            <img src="https://img.shields.io/badge/Code-Javascipt-blueviolet?style=flat&logo=javascript&color=yellow" alt="Javascipt">
+                            <img src="https://img.shields.io/badge/Tools-Photoshop-blueviolet?style=flat&logo=adobephotoshop&color=31A8FF" alt="Photoshop">
+                            <img src="https://img.shields.io/badge/Tools-Figma-blueviolet?style=flat&logo=figma&color=c7b9ff&logoColor=c7b9ff" alt="Figma">
+                            <img src="https://img.shields.io/badge/Tools-Canva-blueviolet?style=flat&logo=canva&color=00C4CC" alt="Canva">
+                            <img src="https://img.shields.io/badge/Tools-Notion-blueviolet?style=flat&logo=notion&color=000000" alt="Notion">
                         </div>
                     </div>
                 </div>
@@ -460,9 +460,9 @@
                         <!-- Stack -->
                         <div class="m_10 stack_form">
                             <h4>Stack</h4>
-                            <img src="https://img.shields.io/badge/Code-Javascipt-blueviolet?style=flat&logo=javascript&color=yellow" />
-                            <img src="https://img.shields.io/badge/Code-HTML-blueviolet?style=flat&logo=html&color=E34F26" />
-                            <img src="https://img.shields.io/badge/Code-CSS-blueviolet?style=flat&logo=css3&color=1572B6" />
+                            <img src="https://img.shields.io/badge/Code-Javascipt-blueviolet?style=flat&logo=javascript&color=yellow" alt="Javascipt">
+                            <img src="https://img.shields.io/badge/Code-HTML-blueviolet?style=flat&logo=html&color=E34F26" alt="HTML">
+                            <img src="https://img.shields.io/badge/Code-CSS-blueviolet?style=flat&logo=css3&color=1572B6" alt="CSS">
                         </div>
                     </div>
                 </div>
@@ -489,9 +489,9 @@
                         <!-- Stack -->
                         <div class="m_10 stack_form">
                             <h4>Stack</h4>
-                            <img src="https://img.shields.io/badge/Code-Lua-blueviolet?style=flat&logo=lua&color=2C2D72" />
-                            <img src="https://img.shields.io/badge/Framework-Love2d-blueviolet?style=flat&color=25aae1" />
-                            <img src="https://img.shields.io/badge/Code-JSON-blueviolet?style=flat&logo=JSON&color=000000" />
+                            <img src="https://img.shields.io/badge/Code-Lua-blueviolet?style=flat&logo=lua&color=2C2D72" alt="Lua">
+                            <img src="https://img.shields.io/badge/Framework-Love2d-blueviolet?style=flat&color=25aae1" alt="Love2d">
+                            <img src="https://img.shields.io/badge/Code-JSON-blueviolet?style=flat&logo=JSON&color=000000" alt="JSON">
     
                         </div>
                     </div>
@@ -677,19 +677,19 @@
                     <!-- Footer -->
                     <div class="gridR2 p_footer bg_blackAlpha">
                         <!-- Linkedin -->
-                        <button class="lien_contact" tabindex="1">
+                        <div class="lien_contact" tabindex="1">
                             <div class="icone_left bg_black borderL">
                                 <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                             </div>
                             <a target="_blank" href="https://www.linkedin.com/in/clement-canale-314126186/">Clément Canale</a>
-                        </button>
+                        </div>
                         <!-- GitHub -->
-                        <button class="lien_contact" tabindex="1">
+                        <div class="lien_contact" tabindex="1">
                             <div class="icone_left bg_black borderL">
                                 <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
                             </div>
                             <a target="_blank" href="https://github.com/clemmlec">Clemmlec</a>
-                        </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -701,31 +701,31 @@
         <!-- Projets détails -->
         <div id="projets_detail"></div>
         <nav id="nav_detail" class="hide flex">
-            <button id="btn_precedent_detail" class="btn"><-</button>
+            <button id="btn_precedent_detail" class="btn">&larr;</button>
             <button id="btn_quit_detail" class="btn"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>XState</title><path d="M15.891 0h6.023l-6.085 10.563c-1.853-3.305-1.822-7.32.062-10.563zm6.055 23.999L8.078.001H2.055l6.919 12.015L2.055 24h6.023L12 17.236 15.892 24z"/></svg></button>
-            <button id="btn_suivant_detail" class="btn">-></button>
+            <button id="btn_suivant_detail" class="btn">&rarr;</button>
         </nav>
 
         <!-- bureau -->
         <div id="bureau" class="hide flex">
             <!-- Portfolio -->
-            <button id="clem_web" class="icone_bureau" title="allez sur le site" tabindex="1">
+            <div id="clem_web" class="icone_bureau" title="allez sur le site" tabindex="1">
                 <div class="icone php"></div>
                 <img src="asset/favicon.png" alt="icone clem-web">
                 <span class="nom_icone">Portfolio</span> 
-            </button>
+            </div>
             <!-- Calculette -->
-            <button class="icone_bureau button_app" value="calculette">
+            <div class="icone_bureau button_app" value="calculette">
                 <div class="icone"></div>
                 <img src="asset/bureau/calculette.jpg" alt="icone calculette">
                 <span class="nom_icone">Calculette</span> 
-            </button>
+            </div>
             <!-- Météo -->
-            <button class="icone_bureau button_app" value="meteo">
+            <div class="icone_bureau button_app" value="meteo">
                 <div class="icone"></div>
                 <img src="asset/bureau/calculette.jpg" alt="icone calculette">
                 <span class="nom_icone">Météo</span> 
-            </button>
+            </div>
         </div>
         <div id="bureau_detail" class="hide flex"></div>
     </main>
@@ -736,9 +736,9 @@
             <svg width="13px" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         </span>
     </footer>
+    <script src="js/particles.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/script.js"></script>
 </body>
-<script src="js/particles.min.js"></script>
-<script src="js/app.js"></script>
-<script src="js/script.js"></script>
 <!-- <script src="calculette.js"></script> -->
 </html>
