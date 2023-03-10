@@ -446,19 +446,15 @@ button_app.forEach(element => {
 
 function chargeBureauApp(app){
     requetteXhttp(app,"bureau")
-    setTimeout(() => {
-      var e = document.createElement('script');
-      e.src = "js/"+app+'.js';
-      document.body.appendChild(e);
-    }, 250);
+    
     console.log( ' on charge une app ' + app)
 }
 
 function chargeApp(event) {
   if(event.target){
-    app = event.target.value
-    if(event.target.type != "submit"){
-      app = event.target.parentNode.value
+    app = event.target.title
+    if(event.target.localName != "div" || event.target.classList.contains('icone')){
+      app = event.target.parentNode.title
     }
   }else{
     app = event
@@ -468,13 +464,11 @@ function chargeApp(event) {
     hide(document.getElementById(currentApp))
   }
   currentApp = app
-
+  // console.log(app,event.target, event.target.title)
   show(document.getElementById(app))
   window.setTimeout(function(){
     document.getElementById(app).style.opacity = 1;
-    
   },50);
-  
 }
 
 // details
@@ -506,10 +500,7 @@ function changeDetails(event, elem, hist) {
 
   if (!document.getElementById(adresse)) {
     requetteXhttp(adresse,projets.id)
-    window.setTimeout(function(){
-      document.getElementById(adresse).style.opacity = 1;
-      show(document.getElementById(adresse))
-    },150);
+    
   }else{
     show(document.getElementById(adresse))
     window.setTimeout(function(){
@@ -602,6 +593,26 @@ function requetteXhttp(adresse,emplacement) {
     if (this.readyState == 4 && this.status == 200) {
       // Le contenu HTML a été chargé avec succès
       document.getElementById(emplacement+"_detail").innerHTML += this.responseText;
+
+      switch (emplacement) {
+        case "projets":
+          
+            document.getElementById(adresse).style.opacity = 1;
+            show(document.getElementById(adresse))
+          
+          break;
+        
+        case "bureau":
+          
+            var e = document.createElement('script');
+            e.src = "js/"+adresse+'.js';
+            document.body.appendChild(e);
+          
+          break;
+        default:
+          break;
+      }
+      
     }
   };
   xhttp.open("GET", "html/"+emplacement+"/"+adresse+".html", true);
