@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <head>
-    <script>
+    <!-- <script>
         // Premiere lettre ne majuscule
         function strUcFirst(a){return (a+'').charAt(0).toUpperCase()+a.substr(1);}
         title = strUcFirst(window.location.href.split('#')[1])
@@ -20,20 +20,20 @@
 
         // Ajouter la nouvelle balise meta à l'en-tête de la page
         header.appendChild(metaOGTitle);
-    </script>
+    </script> -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Open Graph meta (Facebook, Linkedin) -->
-    <!-- <meta property="og:title" content="Clément Canale"> -->
+    <meta property="og:title" content="Clem-Web">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Portfolio">
+    <meta property="og:description" content="Portfolio de Clément Canale, développeur web Fullstack [ Javascript | PHP ]">
     <meta property="author" content="Clément Canale">
     <meta property="og:image" content="https://www.cllc.ovh/asset/favicon.png">
-    <meta name="description" content="page d'accueil">
+    <meta name="description" content="Portfolio de Clément Canale, développeur web Fullstack [ Javascript | PHP ]">
     <link rel="shortcut icon" type="image/png" href="asset/favicon.png">
     <meta name="twitter:card" content="summary_large_image">
-    <!-- <title></title> -->
+    <title>Clem-Web</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
@@ -68,10 +68,10 @@
             </form>
             <!-- Historique -->
             <div id="btns_historique" class="margin_auto">
-                <button id="btn_historique" class="btn" tabindex="3"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Yelp</title><path d="M20.16 12.594l-4.995 1.433c-.96.276-1.74-.8-1.176-1.63l2.905-4.308a1.072 1.072 0 0 1 1.596-.206 9.194 9.194 0 0 1 2.364 3.252 1.073 1.073 0 0 1-.686 1.459zm-5.025 3.152l4.942 1.606a1.072 1.072 0 0 1 .636 1.48 9.316 9.316 0 0 1-2.47 3.169 1.073 1.073 0 0 1-1.592-.26l-2.76-4.409c-.528-.847.288-1.894 1.236-1.584zm-4.796-4.368L5.454 2.916a1.072 1.072 0 0 1 .466-1.5A14.973 14.973 0 0 1 11.184.003a1.07 1.07 0 0 1 1.153 1.068v9.768c0 1.096-1.45 1.483-1.998.535zm-.857 4.17L4.44 16.806a1.073 1.073 0 0 1-1.324-.92 9.218 9.218 0 0 1 .43-3.997 1.07 1.07 0 0 1 1.485-.62l4.668 2.279c.9.438.763 1.76-.207 2zm.886 1.477c.669-.744 1.901-.246 1.866.752l-.19 5.188a1.073 1.073 0 0 1-1.247 1.02 9.314 9.314 0 0 1-3.722-1.502 1.072 1.072 0 0 1-.187-1.6l3.477-3.864z"/></svg></button>
-                <button id="btn_precedent" class="btn" tabindex="3">&larr;</button>
-                <button id="btn_suivant" class="btn not_current" tabindex="3">&rarr;</button>
-                <button id="btn_quit" class="btn" tabindex="3"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>XState</title><path d="M15.891 0h6.023l-6.085 10.563c-1.853-3.305-1.822-7.32.062-10.563zm6.055 23.999L8.078.001H2.055l6.919 12.015L2.055 24h6.023L12 17.236 15.892 24z"/></svg></button>
+                <button id="btn_historique" class="btn" tabindex="3"><img src="asset/svg/historique.svg" alt="historique"></button>
+                <button id="btn_precedent" class="btn" tabindex="3"><img src="asset/svg/precedent.svg" alt="précedent"></button>
+                <button id="btn_suivant" class="btn not_current" tabindex="3"><img src="asset/svg/suivant.svg" alt="suivant"></button>
+                <button id="btn_quit" class="btn" tabindex="3"><img src="asset/svg/quit.svg" alt="quitter"></button>
             </div>
             <ul id="lst_historique" class="hide"></ul>
         </div>
@@ -290,7 +290,7 @@
                     <!-- titre -->
                     <div class="content_card">
                         <h3 class="bg_purple titre_projet"><img class="logo" src="asset/favicon.png" alt="logo de Clement Canale">Portfolio</h3>
-                        <img class="img_pLaceHorlder" src="asset/favicon.png" alt="logo de Clement Canale">
+                        <img class="img_pLaceHorlder" src="asset/projets/portfolio.png" alt="Présentation de Clem-Web">
                         <p>
                             
                             Portfolio réalisé en HTML et vanilla JS. Pour ce projet j'ai réalisé un site s'inspirant des framework single page application.
@@ -307,7 +307,7 @@
                     <!-- titre -->
                     <div class="content_card">
                         <h3 class="bg_purple titre_projet"><img class="logo" src="asset/projets/fed.png" alt="logo de Fedhubs">Fedhubs</h3>
-                        <img class="img_pLaceHorlder bg_white" src="asset/projets/fed.png" alt="logo de Fedhubs">
+                        <img class="img_pLaceHorlder" src="asset/projets/fedhubs.png" alt="Présentation de Fedhubs">
                         <p>
                             L'application pour retrouver les bars et restaurants qui ont une démarche écoresponsable, organisant des événements sociaux culturels.
                         </p>
@@ -339,7 +339,7 @@
                     <!-- Titre -->
                     <div class="content_card">
                         <h3 class="titre_projet bg_purple"><img class="logo" src="asset/projets/logo_photo.png" alt="logo d'API Images">API Images</h3>
-                        <img class="img_pLaceHorlder" src="asset/projets/logo_photo.png" alt="logo d'API Images">
+                        <img class="img_pLaceHorlder" src="asset/projets/apiimage.png" alt="Présentation d'API Images">
                         <p>Site conçu avec le framework Symfony sous forme d'API.
                             L'idée est de permettre d'ajouter des images temporaires pendant le développement d'un site.
                         </p>
@@ -592,9 +592,9 @@
         <!-- Projets détails -->
         <div id="projets_detail"></div>
         <nav id="nav_detail" class="hide flex">
-            <button id="btn_precedent_detail" class="btn">&larr;</button>
-            <button id="btn_quit_detail" class="btn"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>XState</title><path d="M15.891 0h6.023l-6.085 10.563c-1.853-3.305-1.822-7.32.062-10.563zm6.055 23.999L8.078.001H2.055l6.919 12.015L2.055 24h6.023L12 17.236 15.892 24z"/></svg></button>
-            <button id="btn_suivant_detail" class="btn">&rarr;</button>
+            <button id="btn_precedent_detail" class="btn"><img src="asset/svg/precedent.svg" alt="précedent"></button>
+            <button id="btn_quit_detail" class="btn"><img src="asset/svg/quit.svg" alt="quitter"></button>
+            <button id="btn_suivant_detail" class="btn"><img src="asset/svg/suivant.svg" alt="suivant"></button>
         </nav>
 
         <!-- bureau -->
@@ -608,13 +608,13 @@
             <!-- Calculette -->
             <div class="icone_bureau button_app" title="calculette">
                 <div class="icone"></div>
-                <img src="asset/bureau/calculette.jpg" alt="icone calculette">
+                <img src="asset/bureau/calculette.png" alt="icone calculette">
                 <span class="nom_icone">Calculette</span> 
             </div>
             <!-- Météo -->
             <div class="icone_bureau button_app" title="meteo">
                 <div class="icone"></div>
-                <img src="asset/bureau/calculette.jpg" alt="icone calculette">
+                <img src="asset/bureau/meteo.png" alt="icone calculette">
                 <span class="nom_icone">Météo</span> 
             </div>
         </div>

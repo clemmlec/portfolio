@@ -103,7 +103,8 @@ nav_formations.addEventListener("click", changeSection);
 nav_hobbies.addEventListener("click", changeSection);
 nav_contact.addEventListener("click", changeSection);
 
-
+// Premiere lettre ne majuscule
+function strUcFirst(a){return (a+'').charAt(0).toUpperCase()+a.substr(1);}
 
 // Change section
 function changeSection(event, elem, hist) {
@@ -472,7 +473,12 @@ btn_details.forEach(element => {
 function changeDetails(event, elem, hist) {
   // différence event de elem
   if(event){
-    adresse = event.target.value;
+    if (event.target.type == "submit") {
+      adresse = event.target.value
+    }else{
+      adresse = event.target.parentNode.value
+    }
+    
     hist = true;
   }else{
     adresse = elem;

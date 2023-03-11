@@ -30,7 +30,9 @@
         --green-color-visited: #1e2085;
         --muted-color:rgb(54, 54, 54);
     }
+   
 }
+
 body{
     padding: 0;
     margin: 0;
