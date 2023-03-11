@@ -1,11 +1,31 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
+    <script>
+        // Premiere lettre ne majuscule
+        function strUcFirst(a){return (a+'').charAt(0).toUpperCase()+a.substr(1);}
+        title = strUcFirst(window.location.href.split('#')[1])
+        document.title = title +" | Clem-web";
+        // console.log(title)
+        // Créer une nouvelle balise meta
+        var metaOGTitle = document.createElement('meta');
+
+        // Définir les attributs de la balise meta
+        metaOGTitle.setAttribute('property', 'og:title');
+        metaOGTitle.setAttribute('content', title+" | Clem-web");
+
+        // Sélectionner l'en-tête de la page
+        var header = document.querySelector('head');
+
+        // Ajouter la nouvelle balise meta à l'en-tête de la page
+        header.appendChild(metaOGTitle);
+    </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Open Graph meta (Facebook, Linkedin) -->
-    <meta property="og:title" content="Clément Canale">
+    <!-- <meta property="og:title" content="Clément Canale"> -->
     <meta property="og:type" content="website">
     <meta property="og:description" content="Portfolio">
     <meta property="author" content="Clément Canale">
@@ -13,7 +33,7 @@
     <meta name="description" content="page d'accueil">
     <link rel="shortcut icon" type="image/png" href="asset/favicon.png">
     <meta name="twitter:card" content="summary_large_image">
-    <title>Portfolio</title>
+    <!-- <title></title> -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
@@ -24,10 +44,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400&display=swap" rel="stylesheet">
 </head>
 <body id="site" class="bg_purple">
-
-
-
-
+    
     <header>
         <!-- Logo Search Historique -->
         <div id="nav_search" class="bg_purpleDark showGrid grid">
@@ -82,8 +99,8 @@
                 <h1 id="h1">Canale Clément <br> Développeur Web Fullstack</h1>
                 <p class="inline_flex intro"> 
                     <span>J'aime transformer des idées en réalité avec Javascript et PHP,&nbsp;</span> 
-                    <span>résoudres les bugs comme des énigmes&nbsp;</span> 
-                    <span>et découvrir ce que nous reserve l'avenir</span> 
+                    <span>résoudre les bugs comme des énigmes&nbsp;</span> 
+                    <span>et découvrir ce que nous réserve l'avenir</span> 
                 </p>
             </div>
             <!-- Contact Home -->
@@ -128,8 +145,8 @@
                             <ul>
                                 <li>✅ Code depuis 2020</li>
                                 <li>✅ Créatif</li>
-                                <li>✅ Forte adapatbilité</li>
-                                <li>✅ Bon sens relationel</li>
+                                <li>✅ Forte adaptabilité</li>
+                                <li>✅ Bon sens relationnel</li>
                             </ul>
                             <ul>
                                 <li>✅ Autonome</li>
@@ -292,7 +309,7 @@
                         <h3 class="bg_purple titre_projet"><img class="logo" src="asset/projets/fed.png" alt="logo de Fedhubs">Fedhubs</h3>
                         <img class="img_pLaceHorlder bg_white" src="asset/projets/fed.png" alt="logo de Fedhubs">
                         <p>
-                            L'application pour retrouver les bars et restaurants qui ont une démarche écoresponsable, organisants des événements sociaux culturels.
+                            L'application pour retrouver les bars et restaurants qui ont une démarche écoresponsable, organisant des événements sociaux culturels.
                         </p>
                     </div>
                     <!-- Détails -->
@@ -323,8 +340,8 @@
                     <div class="content_card">
                         <h3 class="titre_projet bg_purple"><img class="logo" src="asset/projets/logo_photo.png" alt="logo d'API Images">API Images</h3>
                         <img class="img_pLaceHorlder" src="asset/projets/logo_photo.png" alt="logo d'API Images">
-                        <p>Site conçu avesle framework Symfony sous forme d'API.
-                            L'idée est de permettre d'ajouter des images temporaires pendant le developpement d'un site.
+                        <p>Site conçu avec le framework Symfony sous forme d'API.
+                            L'idée est de permettre d'ajouter des images temporaires pendant le développement d'un site.
                         </p>
                     </div>
                     <!-- Détails -->
@@ -337,10 +354,10 @@
                 <div class="inline_flex p_projet shadow_purple bg_purple card">
                     <!-- Titre -->
                     <div class="content_card">
-                        <h3 class="titre_projet bg_purple"><img class="logo" src="asset/projets/logo_jarezsolidarites.png" alt="logo de Jarez Solidaritées">Jarez Solidaritées</h3>
+                        <h3 class="titre_projet bg_purple"><img class="logo" src="asset/projets/logo_jarezsolidarites.png" alt="logo de Jarez Solidaritées">Jarez Solidarité</h3>
                         <img class="img_pLaceHorlder" src="asset/projets/jarez.png" alt="logo de Jarez Solidaritées">
                         <p>
-                            Durant le stage de fin de formation Multimedia j'ai réalisé le site vitrine de l'ssociation Jarez Solidaritées.
+                            Durant le stage de fin de formation Multimedia j'ai réalisé le site vitrine de l'association Jarez Solidarité.
                         </p>
                     </div>
                     <!-- Détails -->
@@ -355,7 +372,7 @@
                     <div class="m_10 content_card ">
                         <h3 class="titre_projet bg_purple"><img class="logo" src="asset/projets/logo_saveworld.png" alt="logo de Save World">Save World</h3>
                         <img class="img_pLaceHorlder" src="asset/projets/logo_saveworld.png" alt="logo de Save World">
-                        <p>Save the world est un jeu vidéo d'arcade en 2D coder après 6 mois de formation à la programation en Lua avec Gamecodeur.</p>
+                        <p>Save the world est un jeu vidéo d'arcade en 2D coder après 6 mois de formation à la programmation en Lua avec Gamecodeur.</p>
                     </div>
                     <!-- Détails -->
                     <div class="m_10">
@@ -384,7 +401,7 @@
                 </div>
 
                 <div class="swip shadow_purple">
-                    <p>Après 10 années d'éxeprience dans le metier, la cuisine reste toujours une passion.</p>
+                    <p>Après 10 années d'expérience dans le métier, la cuisine reste toujours une passion.</p>
                     <!-- Slider main container -->
                     <div class="swiper">
                         <!-- Additional required wrapper -->
@@ -425,7 +442,7 @@
                     <img class="img_hobbies" src="asset/hobbies/photographie/IMG_1212.jpg" alt="fleurs de cerisiers">
                 </div>
                 <div class="swip shadow_purple">
-                    <p>Très porté sur la nature, j'aime aussi l'immortaliser.</p>
+                    <p>J'aime immortaliser les paysages naturels et urbains</p>
                     <!-- Slider main container -->
                     <div class="swiper">
                         <!-- Additional required wrapper -->
@@ -480,7 +497,7 @@
                     <img class="img_hobbies" src="asset/hobbies/bois/572.JPG" alt="plats de cuisine">
                 </div>
                 <div class="swip shadow_purple">
-                    <p>Attiré par la curiosité, j'ai créer plusieurs meubles ou objcts en bois.</p>
+                    <p>Par curiosité, j'ai créé plusieurs meubles et objets en bois.</p>
                     <!-- Slider main container -->
                     <div class="swiper">
                         <!-- Additional required wrapper -->
@@ -512,19 +529,19 @@
                 </div>
             </div>
         
-            <!-- Musique -->
+            <!-- Musique
             <div class="inline_flex p_hobbies bg_blackAlpha">
         
                 <div>
                     <h3 class="titre_hobbies">Musique</h3>
                     <svg class="" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Deezer</title><path d="M18.81 4.16v3.03H24V4.16h-5.19zM6.27 8.38v3.027h5.189V8.38h-5.19zm12.54 0v3.027H24V8.38h-5.19zM6.27 12.594v3.027h5.189v-3.027h-5.19zm6.271 0v3.027h5.19v-3.027h-5.19zm6.27 0v3.027H24v-3.027h-5.19zM0 16.81v3.029h5.19v-3.03H0zm6.27 0v3.029h5.189v-3.03h-5.19zm6.271 0v3.029h5.19v-3.03h-5.19zm6.27 0v3.029H24v-3.03h-5.19Z"/></svg>
-                    <!-- <img class="img_hobbies" src="asset/hobbies/cuisine/IMG_0016.jpg" alt="plats de cuisine"> -->
-                </div>
+                    <img class="img_hobbies" src="asset/hobbies/cuisine/IMG_0016.jpg" alt="plats de cuisine"> -->
+                <!-- </div>
                 <div class="swip shadow_purple">
                     <p>En avant première un apercu de mes titres favoris.</p>
-                    <!-- <iframe title="deezer-widget" src="https://widget.deezer.com/widget/auto/playlist/11118641424" width="100%" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media; clipboard-write"></iframe> -->
-                </div>
-            </div>
+                    <iframe title="deezer-widget" src="https://widget.deezer.com/widget/auto/playlist/11118641424" width="100%" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media; clipboard-write"></iframe> -->
+                <!-- </div> -->
+            <!-- </div> -->
         </section>
 
         <!-- Contact -->
@@ -542,7 +559,7 @@
                     </div>
                     <!-- Form -->
                     <div class="p_10 bg_purple ml_5">
-                        <input type="email" name="email" id="email" placeholder="Votre addresse mail" tabindex="1">
+                        <input type="email" name="email" id="email" placeholder="Votre adresse mail" tabindex="1">
                         <textarea class="contact_fin" name="message" id="contact_fin" cols="50" rows="10" placeholder="Votre message" tabindex="1"></textarea>
                     </div>
                     <div class="bg_purple p_50 ml_5">

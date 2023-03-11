@@ -34,17 +34,6 @@ const swiper = new Swiper('.swiper', {
   },
 });
 
-// function adaptNavGeneral(){
-//   document.getElementById('titre-projets').style.left = ((document.getElementById('nav-projets').offsetLeft - 20) + "px");
-//   document.getElementById('titre-formation').style.left = ((document.getElementById('nav-formations').offsetLeft - 20) + "px");
-//   document.getElementById('titre-hobbies').style.left = ((document.getElementById('nav-hobbies').offsetLeft - 20) + "px");
-//   document.getElementById('titre-contact').style.left = ((document.getElementById('nav-contact').offsetLeft - 20) + "px");
-// };
-
-// window.onresize = function(){
-//   adaptNavGeneral();
-// }
-
 nav_home = document.getElementById('nav-home');
 nav_projets = document.getElementById('nav-projets');
 nav_formations = document.getElementById('nav-formations');
@@ -60,39 +49,33 @@ currentApp = "";
 current_projets_detail = "";
 calculetteCharger = false
 
-// console.log(navigator)
-// console.log(navigator.userAgent)
-
 // L'utilisateur préfère le mode sombre
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
   light = false;
 }
-// console.log(window.matchMedia('(prefers-color-scheme: light)'))
 // L'utilisateur préfère le mode clair
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
   light = true;
   var pJS = window.pJSDom[0].pJS;
-  // console.log(pJS)
-  // console.log(pJS.particles.color)
   pJS.particles.color.rgb =  { r: 6, g: 15, b: 156 } 
   pJS.particles.line_linked.color_rgb_line = { r: 6, g: 15, b: 156 }
   pJS.particles.line_linked.color = "#000000"
   pJS.particles.shape.stroke = { width: 1, color: "#000000" }
 
-  // Pour changer propriété CSS
   // document.documentElement.style.setProperty('--bg-color', 'blue');
 }
+
 main_color = "white";
 primary = "#08af0d";
 if(light){
   main_color = "black";
   primary = "#3c3fde";
 }
+
 // L'utilisateur est sur mobile
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
   mobile = true;
-  // site.classList.toggle("bg_purple");
-  // site.classList.toggle("bg_purpleDark");
+  site.classList.toggle("bg_purpleDark");
 }else{ mobile = false}
 
 route = [
@@ -109,6 +92,7 @@ route = [
     "saveworld",
   ]
 ];
+
 widowLoad = true;
 foo =0;
 historique = [];
@@ -118,10 +102,12 @@ nav_projets.addEventListener("click", changeSection);
 nav_formations.addEventListener("click", changeSection);
 nav_hobbies.addEventListener("click", changeSection);
 nav_contact.addEventListener("click", changeSection);
-// Premiere lettre ne majuscule
-function strUcFirst(a){return (a+'').charAt(0).toUpperCase()+a.substr(1);}
+
+
+
 // Change section
 function changeSection(event, elem, hist) {
+  // Différencier event / elem
   if(event){
     currentSection = document.getElementById(document.getElementById(event.target.id).id.split("-")[1]);
     currentNav = event.target;
@@ -132,9 +118,9 @@ function changeSection(event, elem, hist) {
   }
   historiqueScroll = 0;
 
-
   hide(projets_detail);
   hide(nav_detail)
+
 
   if(oldSection == currentSection){
     hist = false
@@ -154,7 +140,11 @@ function changeSection(event, elem, hist) {
     requetteXhttp("formation","formation")
   }
 
+  if(widowLoad){
+  show(currentSection)
+  }else{
   show(currentSection,'translateX(50px)')
+}
   
   saveScroll = window.scrollY;
 
@@ -163,16 +153,20 @@ function changeSection(event, elem, hist) {
   },10);
   
   oldNav = currentNav;
-  document.title = strUcFirst(currentSection.id) +" | Clem-web";
   document.querySelector('meta[name="description"]').setAttribute("content", "_desc");
-  
+  document.title = strUcFirst(currentSection.id) +" | Clem-web";
+
   if(hist){
     addHistorique()
   }
   oldSection = currentSection;
   search.value = "/"+window.location.href.split('#')[1];
+  if(window.location.href.split('#')[1] == undefined){
+    search.value = "/home"
+  }
 
 }
+
 // Hide section
 function hide(section,transform) {
   section.style.opacity = 0;
@@ -207,7 +201,9 @@ function show(currentSection,transform) {
   }
   window.setTimeout(function(){
     currentSection.style.opacity = 1;
-    currentSection.style.transform = 'translateX(0px)';
+    if(!currentSection.classList.contains('grid')){
+      currentSection.style.transform = 'translateX(0px)';
+    }
   },10);
   // console.log("show ===> ",currentSection)
 }
@@ -219,33 +215,27 @@ if(window.location.href.split('#').length > 2){
 }else if(window.location.href.split('#').length > 1){
   locations = window.location.href.split('#')[1] ;
 }else{
-  locations = ""
+  locations = "home"
 }
 
-if(locations != ""){
-  goToRoute(locations, true)
-}else{
-  goToRoute("home", true)
+// charge la page 
+goToRoute(locations, true)
   // quitWindow()
   // setTimeout(() => {
   //   chargeApp('meteo')
   // }, 1800);
-}
 
 
 window.onpopstate = function(event) {
-  // console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
   locations = window.location.href.split('#')[1]+(window.location.href.split('#')[2]?'/'+window.location.href.split('#')[2]:'');
-  // console.log(history.state)
+  // Le changement provient de l'historique
   if (event.state !== null) {
-    // Le changement provient de l'historique
-    // console.log("Code à exécuter pour une navigation dans l'historique'", event)
-    // console.log(event.state.foo,li_hist.length)
     goToRoute(locations,false)
     li_hist = document.querySelectorAll('.li_historique');
     li_hist[-(history.state.foo - historique.length-1)-2].style.color = primary;
     li_hist[-(foo - historique.length-1)-2].style.color = main_color;
-    // console.table(li_hist[currentHistorique])
+
+    // gestion bouton hisorique current / not_current
     if(history.state.foo == li_hist.length-1 ){
       btn_suivant.classList.add('not_current')
     }else{
@@ -258,22 +248,16 @@ window.onpopstate = function(event) {
     }
     foo = event.state.foo;
 
-  } else {
-    // console.log('bien par la barre de search')
+  } else { // le changement viens de la barre url
+    
     widowLoad = true;
     goToRoute(locations,true)
 
   }
 };
-// window.addEventListener('hashchange', (event) => {
-//   console.log(window.onpopstate)
-//   console.log(event.type)
-//   locations = window.location.href.split('#')[1];
-//   changeSection.apply(null,[null,document.getElementById(locations),false])
-// }, false);
+
 // Search barre
 search.addEventListener("focus", function(event) {
-  // console.log(search.value)
   search.value = "\/";
   document.addEventListener("keydown", enterSearch);
 });
@@ -283,13 +267,12 @@ search.addEventListener("blur", function(event) {
   }
   document.removeEventListener("keydown", enterSearch);
 });
+
+// Enter search 
 function enterSearch(event) {
-  // console.log(event.target.value, 'eventttttttt')
-  
   if (event.key === "Enter") {
     event.preventDefault();
     goToRoute(event.target.value, true)
-    // console.log("ok",request,request.length);
   }
 }
 
@@ -316,7 +299,7 @@ function goToRoute(adresse, hist) {
   }
 }
 
-
+// Ajouter à l'hisorique 
 function addHistorique(adresse) {
   li_hist = document.querySelectorAll('.li_historique');
   btn_suivant.classList.add('not_current')
@@ -324,12 +307,12 @@ function addHistorique(adresse) {
   li_hist.forEach(element => {
     element.style.color = main_color;
     if (element.value > foo) {
-        // console.log(element.value)
         element.remove()
         historique.splice(foo+1,historique.length-1)
 
     }
   });
+
   historique.push([currentSection.id+(adresse?'/'+adresse:''),saveScroll])
   lst_historique.innerHTML = "<li class='li_historique' value='"+(historique.length-1)+"'>/" + currentSection.id + (adresse?'/'+adresse:'')+"</li>" + lst_historique.innerHTML;
   currentHistorique = 0;
@@ -337,31 +320,28 @@ function addHistorique(adresse) {
   var stateObj = { foo: (historique.length-1)};
 
   if(!widowLoad){
-    history.pushState(stateObj,"", "index.html#"+currentSection.id+(adresse?'#'+adresse:''));
+    history.pushState(stateObj,"", "#"+currentSection.id+(adresse?'#'+adresse:''));
   }else{
-    history.replaceState(stateObj,"", "index.html#"+currentSection.id+(adresse?'#'+adresse:''));
+    history.replaceState(stateObj,"", "#"+currentSection.id+(adresse?'#'+adresse:''));
   }
   widowLoad = false;
 }
 
-// Historique
+// liste Historique au click
 lst_historique.addEventListener("click", function(event) {
-
-  // console.log(event.target)
   if(event.target.tagName == "UL"){return;}
   x = foo - event.target.value
   window.history.go(-x); 
-
 });
-// <- page précedente
 btn_precedent.addEventListener("click", pagePrecedente);
-// -> page suivante
 btn_suivant.addEventListener("click", pageSuivante);
+// <- page précedente
 function pagePrecedente() {
   if (li_hist.length > 0 && foo != 0) {
   window.history.go(-1); 
   }
 }
+// -> page suivante
 function pageSuivante(){
   window.history.go(1); 
 }
@@ -419,40 +399,33 @@ function goToAdress(event) {
     }
   }
 }
+
 // btn_tools
 btn_tools = document.querySelectorAll('.btn_tool');
 p_tools = document.querySelectorAll('.p_tools');
 btn_tools.forEach(element => {
   element.addEventListener("click", changeTools);
 });
-// height = tool.offsetHeight;
-// contact_home.style.height = height + "px";
 old_elem = p1;
 
+// changement div tools
 function changeTools(event) {
-  // width = tool.offsetWidth + "px";
   current_tool = document.getElementById(event.target.value);
-
   btn_tools.forEach(element => {
     element.classList.add('not_current')
   });
-
   hide(old_elem)
   show(current_tool)
 
-  // current_tool.parentNode.parentNode.style.width = width;
-  
   window.setTimeout(function(){
     old_elem.style.opacity = 0;
     setTimeout(function(){ 
       current_tool.style.opacity = 1;
-
     }, 70);
     event.target.classList.remove("not_current")
   },20);
 
   old_elem = current_tool;
-
 }
 
 // app
@@ -461,12 +434,14 @@ button_app.forEach(element => {
   element.addEventListener("click", chargeApp);
 });
 
+// charge bureau xhttp
 function chargeBureauApp(app){
     requetteXhttp(app,"bureau")
     
     console.log( ' on charge une app ' + app)
 }
 
+// chargeApp
 function chargeApp(event) {
   if(event.target){
     app = event.target.title
@@ -495,6 +470,7 @@ btn_details.forEach(element => {
 });
 // change section details
 function changeDetails(event, elem, hist) {
+  // différence event de elem
   if(event){
     adresse = event.target.value;
     hist = true;
@@ -503,9 +479,7 @@ function changeDetails(event, elem, hist) {
   }
 
   if(current_projets_detail != ""){
-    
     current_projets_detail = document.getElementById(current_projets_detail)
-    
     hide(current_projets_detail)
   }
 
@@ -519,9 +493,14 @@ function changeDetails(event, elem, hist) {
     hide(document.getElementById('particles-js'))
   }, 900);
 
+  saveScroll = window.scrollY;
+  window.setTimeout(function(){
+    window.scrollBy( { top : -window.scrollY })
+  },10);
+
+  // chargement xhttp ou show()
   if (!document.getElementById(adresse)) {
     requetteXhttp(adresse,projets.id)
-    
   }else{
     show(document.getElementById(adresse))
     window.setTimeout(function(){
@@ -529,9 +508,8 @@ function changeDetails(event, elem, hist) {
     },50);
   }
   
-  if(hist){
-    addHistorique(adresse)
-  }
+  if(hist){ addHistorique(adresse) }
+
   search.value = "/"+window.location.href.split('#')[1]+"/"+window.location.href.split('#')[2];
 
   window.setTimeout(function(){
@@ -585,6 +563,7 @@ if(!document.getElementById('calculette')){
   // bureau.style.opacity =1;
 }
 
+// Web / bureau
 function openWindow() {
   show(nav_search, 'translateX(50px)')
   show(nav_general, 'translateX(50px)')
@@ -630,7 +609,6 @@ function requetteXhttp(adresse,emplacement) {
           
           document.getElementById(adresse).style.opacity = 1;
           show(document.getElementById(adresse))
-          console.log('on est la ')
           break;
         default:
           break;
@@ -644,6 +622,7 @@ function requetteXhttp(adresse,emplacement) {
   xhttp.send();
 }
 
+// Mail()
 envoyer_mail.addEventListener("click", function() {
   var xhr = new XMLHttpRequest();
   var url = "php/mail.php";
@@ -673,19 +652,3 @@ envoyer_mail.addEventListener("click", function() {
 
   xhr.send(params);
 });
-
-// changeSection.apply(null,[null,contact,true])
-// changeDetails(event, "saveworld") 
-
-// const url = 'https://api.github.com/repos/clemmlec/dev_in/contents/README.md';
-
-// fetch(url)
-// .then(response => response.json())
-// .then(data => {
-//     const markdownContent = atob(data.content); // décode le contenu en base64
-//     const htmlContent = marked.parse(markdownContent);
-//     // Ajoute le contenu HTML à un élément sur la page
-//     const contentElement = document.getElementById('markdown-content');
-//     contentElement.innerHTML = htmlContent;
-// })
-// .catch(error => console.error(error));
