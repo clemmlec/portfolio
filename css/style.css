@@ -247,6 +247,10 @@ li{
 #contact{
     min-height: 80vh;
 }
+.g-recaptcha{
+    display: flex;
+    justify-content: center;
+}
 .projets_details{
     padding-top: 40px !important;
 }

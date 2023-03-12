@@ -145,7 +145,7 @@ function changeSection(event, elem, hist) {
   show(currentSection)
   }else{
   show(currentSection,'translateX(50px)')
-}
+  }
   
   saveScroll = window.scrollY;
 
@@ -202,7 +202,7 @@ function show(currentSection,transform) {
   }
   window.setTimeout(function(){
     currentSection.style.opacity = 1;
-    if(!currentSection.classList.contains('grid')){
+    if(!currentSection.classList.contains('grid') && !currentSection.id == "alert"){
       currentSection.style.transform = 'translateX(0px)';
     }
   },10);
@@ -381,7 +381,7 @@ document.addEventListener('click', (event) => {
       document.addEventListener("keydown", clavierCalculette);
     }
   }
-  if(document.getElementById('alert').classList.contains("show")){
+  if(document.getElementById('alert').classList.contains("show") && !document.getElementById('contact-form').contains(event.target)){
     hide(document.getElementById('alert'))
   }
 });
@@ -630,6 +630,18 @@ function requetteXhttp(adresse,emplacement) {
 
 // Mail()
 envoyer_mail.addEventListener("click", function() {
+
+  if(grecaptcha.getResponse() == ""){
+    console.log(grecaptcha.getResponse())
+
+    document.getElementById('alert').innerHTML = "Veuillez cocher le captcha"
+    show(document.getElementById('alert'))
+    console.log(document.getElementById('alert'))
+    document.getElementById('alert').classList.remove('success')
+    document.getElementById('alert').classList.add('danger')
+    return
+  }
+  
   var xhr = new XMLHttpRequest();
   var url = "php/mail.php";
   emails = email.value;

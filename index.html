@@ -38,6 +38,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script> -->
+    <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!-- <script src="https://www.google.com/recaptcha/api.js?render=6LeNjfQkAAAAAHej-lw_NfLTH4hRYhJnpK6LvcTf"></script> -->
+    <!-- <script src="https://www.google.com/recaptcha/enterprise.js?render=6LdKCfUkAAAAADZwLeWfnVNncaOCBcBPtyh11EFP"></script> -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -558,13 +562,16 @@
                         <!-- <img class="img_pLaceHorlder" src="asset/logo/10127.png" alt="logo mail"> -->
                     </div>
                     <!-- Form -->
-                    <div class="p_10 bg_purple ml_5">
-                        <input type="email" name="email" id="email" placeholder="Votre adresse mail" tabindex="1">
-                        <textarea class="contact_fin" name="message" id="contact_fin" cols="50" rows="10" placeholder="Votre message" tabindex="1"></textarea>
-                    </div>
-                    <div class="bg_purple p_50 ml_5">
-                        <button id="envoyer_mail" class="button mt_0" tabindex="1">ENVOYER</button>
-                    </div>
+                    <form id="contact-form">
+                        <div class="p_10 bg_purple ml_5">
+                            <input type="email" name="email" id="email" placeholder="Votre adresse mail" tabindex="1">
+                            <textarea class="contact_fin" name="message" id="contact_fin" cols="50" rows="10" placeholder="Votre message" tabindex="1"></textarea>
+                        </div>
+                        <div class="g-recaptcha" data-sitekey="6LeTJPUkAAAAAOA4zLb2DisspJ8FGZvpCui84bye"></div>
+                        <div class="bg_purple p_50 ml_5">
+                            <button type="button" id="envoyer_mail" class="button mt_0" tabindex="1">ENVOYER</button>
+                        </div>
+                    </form>
                     <!-- Footer -->
                     <div class="gridR2 p_footer bg_blackAlpha">
                         <!-- Linkedin -->
