@@ -202,7 +202,7 @@ function show(currentSection,transform) {
   }
   window.setTimeout(function(){
     currentSection.style.opacity = 1;
-    if(!currentSection.classList.contains('grid') && !currentSection.id == "alert"){
+    if(transform){
       currentSection.style.transform = 'translateX(0px)';
     }
   },10);
