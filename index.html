@@ -2,25 +2,6 @@
 <html lang="fr">
 
 <head>
-    <!-- <script>
-        // Premiere lettre ne majuscule
-        function strUcFirst(a){return (a+'').charAt(0).toUpperCase()+a.substr(1);}
-        title = strUcFirst(window.location.href.split('#')[1])
-        document.title = title +" | Clem-web";
-        // console.log(title)
-        // Créer une nouvelle balise meta
-        var metaOGTitle = document.createElement('meta');
-
-        // Définir les attributs de la balise meta
-        metaOGTitle.setAttribute('property', 'og:title');
-        metaOGTitle.setAttribute('content', title+" | Clem-web");
-
-        // Sélectionner l'en-tête de la page
-        var header = document.querySelector('head');
-
-        // Ajouter la nouvelle balise meta à l'en-tête de la page
-        header.appendChild(metaOGTitle);
-    </script> -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,19 +10,16 @@
     <meta property="og:type" content="website">
     <meta property="og:description" content="Portfolio de Clément Canale, développeur web Fullstack [ Javascript | PHP ]">
     <meta property="author" content="Clément Canale">
-    <meta property="og:image" content="https://www.cllc.ovh/asset/favicon.png">
+    <meta property="og:image" content="https://www.cllc.ovh/asset/projets/portfolio.png">
+    <meta name="twitter:card" content="summary_large_image">
+
     <meta name="description" content="Portfolio de Clément Canale, développeur web Fullstack [ Javascript | PHP ]">
     <link rel="shortcut icon" type="image/png" href="asset/favicon.png">
-    <meta name="twitter:card" content="summary_large_image">
     <title>Clem-Web</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script> -->
-    <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <!-- <script src="https://www.google.com/recaptcha/api.js?render=6LeNjfQkAAAAAHej-lw_NfLTH4hRYhJnpK6LvcTf"></script> -->
-    <!-- <script src="https://www.google.com/recaptcha/enterprise.js?render=6LdKCfUkAAAAADZwLeWfnVNncaOCBcBPtyh11EFP"></script> -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -97,12 +75,15 @@
         <!-- Home -->
         <section id="home" class="inline_flex hide flex">
             <!-- Photo profil -->
-            <img loading="lazy" class="heptagone flex_home home_index" src="asset/logo1.png" alt="photo de Clément">
+            <div class="circle heptagone">
+            <img loading="lazy" class="heptagone flex_home home_index" src="asset/profil.jpg" alt="photo de Clément">
+
+            </div>
             <!-- Présentation -->
             <div class="presentation flex_home home_index">
-                <h1 id="h1">Canale Clément <br> Développeur Web Fullstack</h1>
+                <h1 id="h1">Canale Clément <br> <strong>Développeur Web Fullstack</strong></h1>
                 <p class="inline_flex intro"> 
-                    <span>J'aime transformer des idées en réalité avec Javascript et PHP,&nbsp;</span> 
+                    <span>J'aime transformer des <b>idées en réalité</b> avec Javascript et PHP,&nbsp;</span> 
                     <span>résoudre les bugs comme des énigmes&nbsp;</span> 
                     <span>et découvrir ce que nous réserve l'avenir</span> 
                 </p>
@@ -297,7 +278,7 @@
                         <img loading="lazy" class="img_pLaceHorlder" src="asset/projets/portfolio.png" alt="Présentation de Clem-Web">
                         <p>
                             
-                            Portfolio réalisé en HTML et vanilla JS. Pour ce projet j'ai réalisé un site s'inspirant des framework single page application.
+                            Portfolio réalisé en <b>HTML et vanilla JS</b>. Pour ce projet j'ai réalisé un site s'inspirant des framework <b>single page application</b>.
                         </p>
                     </div>
                     <!-- Détails -->
@@ -313,7 +294,7 @@
                         <h3 class="bg_purple titre_projet"><img class="logo" loading="lazy" src="asset/projets/fed.png" alt="logo de Fedhubs">Fedhubs</h3>
                         <img class="img_pLaceHorlder" loading="lazy" src="asset/projets/fedhubs.png" alt="Présentation de Fedhubs">
                         <p>
-                            L'application pour retrouver les bars et restaurants qui ont une démarche écoresponsable, organisant des événements sociaux culturels.
+                            L'application pour retrouver <b>les bars et restaurants</b> qui ont une <b>démarche écoresponsable</b>, organisant des événements sociaux culturels.
                         </p>
                     </div>
                     <!-- Détails -->
@@ -329,7 +310,7 @@
                         <h3 class="titre_projet bg_purple"><img class="logo" loading="lazy" src="asset/projets/logo_devin.png" alt="logo de Dev In">Dev In</h3>
                         <img class="img_pLaceHorlder" loading="lazy" src="asset/projets/placement_Dev_In.png" alt="logo de Dev In">
                         <p>
-                            Dev In est un site d'information et d'échange pour les développeurs web et présenté pour le passage du titre de développeur web FullStack. 
+                            Dev In est un <b>site d'information et d'échange</b> pour les développeurs web et présenté pour le <b>passage du titre</b> de développeur web FullStack. 
                         </p>
                     </div>
                     <!-- Détails -->
@@ -344,7 +325,7 @@
                     <div class="content_card">
                         <h3 class="titre_projet bg_purple"><img class="logo" loading="lazy" src="asset/projets/logo_photo.png" alt="logo d'API Images">API Images</h3>
                         <img class="img_pLaceHorlder" loading="lazy" src="asset/projets/apiimage.png" alt="Présentation d'API Images">
-                        <p>Site conçu avec le framework Symfony sous forme d'API.
+                        <p>Site conçu avec le <b>framework Symfony</b> sous forme d'<b>API</b>.
                             L'idée est de permettre d'ajouter des images temporaires pendant le développement d'un site.
                         </p>
                     </div>
@@ -361,7 +342,7 @@
                         <h3 class="titre_projet bg_purple"><img class="logo" loading="lazy" src="asset/projets/logo_jarezsolidarites.png" alt="logo de Jarez Solidaritées">Jarez Solidarité</h3>
                         <img class="img_pLaceHorlder" loading="lazy" src="asset/projets/jarez.png" alt="logo de Jarez Solidaritées">
                         <p>
-                            Durant le stage de fin de formation Multimedia j'ai réalisé le site vitrine de l'association Jarez Solidarité.
+                            Durant le stage de fin de formation Multimedia j'ai réalisé le <b>site vitrine</b> de l'association Jarez Solidarité.
                         </p>
                     </div>
                     <!-- Détails -->
@@ -375,8 +356,8 @@
                     <!-- Titre -->
                     <div class="content_card ">
                         <h3 class="titre_projet bg_purple"><img loading="lazy" class="logo" src="asset/projets/logo_saveworld.png" alt="logo de Save World">Save World</h3>
-                        <img class="img_pLaceHorlder" loading="lazy" src="asset/projets/logo_saveworld.png" alt="logo de Save World">
-                        <p>Save the world est un jeu vidéo d'arcade en 2D coder après 6 mois de formation à la programmation en Lua avec Gamecodeur.</p>
+                        <img class="img_pLaceHorlder" loading="lazy" src="asset/projets/saveWorld.png" alt="logo de Save World">
+                        <p>Save the world est un <b>jeu vidéo d'arcade</b> en 2D coder après 6 mois de formation à la <b>programmation en Lua</b> avec Gamecodeur.</p>
                     </div>
                     <!-- Détails -->
                     <div class="m_10">
@@ -555,7 +536,7 @@
                     <h2> N'hésitez pas à me contacter,</h2>
                     <p> je suis à votre disposition pour plus d'informations.</p>
                 </div>
-                <div class="inline_flex p_projet shadow_purple  card_70">
+                <div class="inline_flex p_projet shadow_purple mt_50 card_70">
                     <!-- titre -->
                     <div class="content_card bg_purple mt_5 ml_5">
                         <h3 class="bg_purple titre_projet l45"><img loading="lazy" class="logo" src="asset/logo/10127.png" alt="logo mail">Contact</h3>
@@ -567,7 +548,7 @@
                             <input type="email" name="email" id="email" placeholder="Votre adresse mail" tabindex="1">
                             <textarea class="contact_fin" name="message" id="contact_fin" cols="50" rows="10" placeholder="Votre message" tabindex="1"></textarea>
                         </div>
-                        <div class="g-recaptcha" data-sitekey="6LeTJPUkAAAAAOA4zLb2DisspJ8FGZvpCui84bye"></div>
+                        <div class="g-recaptcha bg_purple ml_5 p_10" data-sitekey="6LeTJPUkAAAAAOA4zLb2DisspJ8FGZvpCui84bye"></div>
                         <div class="bg_purple p_50 ml_5">
                             <button type="button" id="envoyer_mail" class="button mt_0" tabindex="1">ENVOYER</button>
                         </div>
@@ -625,7 +606,11 @@
                 <span class="nom_icone">Météo</span> 
             </div>
         </div>
-        <div id="bureau_detail" class="hide flex"></div>
+        <div id="bureau_detail" class="hide flex">
+            <div id="bureau_titre" class="m_a inline_flex presentation">
+                <h2 class="m_a">Retrouvez les <b>créations</b> de l'univers <b class="no-break">Clem-web</b></h2>
+            </div>
+        </div>
     </main>
 
     <footer id="footer" class="bg_purpleDark">

@@ -39,6 +39,8 @@ function meteoAPI(ville) {
 
 close_meteo.addEventListener("click", function(event) {
     hide(meteo)
+    show(bureau_titre)
+
 });
 
 console.log('meteo chargé')

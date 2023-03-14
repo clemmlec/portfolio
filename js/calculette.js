@@ -164,6 +164,7 @@ close_calculette.addEventListener("click", function(event) {
 
     // console.log(event.target)
     hide(calculette)
+    show(bureau_titre)
     document.removeEventListener("keydown", clavierCalculette);
 });
 

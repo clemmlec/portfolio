@@ -61,6 +61,7 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matc
   pJS.particles.line_linked.color_rgb_line = { r: 6, g: 15, b: 156 }
   pJS.particles.line_linked.color = "#000000"
   pJS.particles.shape.stroke = { width: 1, color: "#000000" }
+  pJS.particles.shape.stroke.color.rgb =  { r: 6, g: 15, b: 156 } 
 
   // document.documentElement.style.setProperty('--bg-color', 'blue');
 }
@@ -456,6 +457,7 @@ function chargeApp(event) {
   if(currentApp != ""){
     hide(document.getElementById(currentApp))
   }
+  hide(bureau_titre)
   currentApp = app
   // console.log(app,event.target, event.target.title)
   show(document.getElementById(app))
@@ -636,12 +638,12 @@ envoyer_mail.addEventListener("click", function() {
 
     document.getElementById('alert').innerHTML = "Veuillez cocher le captcha"
     show(document.getElementById('alert'))
-    console.log(document.getElementById('alert'))
     document.getElementById('alert').classList.remove('success')
     document.getElementById('alert').classList.add('danger')
     return
   }
-  
+  console.log(grecaptcha.getResponse())
+  console.log('ok')
   var xhr = new XMLHttpRequest();
   var url = "php/mail.php";
   emails = email.value;
