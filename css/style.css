@@ -441,7 +441,7 @@ li{
     background-color: var(--secondary-bg-color);
     color: #686868 !important;
     color: var(--main-color) !important;
-    opacity: 0.5;
+    opacity: 0.5 !important;
     box-shadow: var(--box-shadow-onglets-2);
     border-color: rgba(39, 123, 39, 0);
     transition: .5s ease box-shadow, .5s ease background-color, .5 ease border-color;
