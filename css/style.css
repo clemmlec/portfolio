@@ -12,7 +12,7 @@
     /* --black--alpha: #00000093; */
     --black--alpha: #36363aa9;
     --shadow-btn-color:rgba(84, 88, 95, 0.3);
-    --box-shadow-color:  rgba(111, 111, 112, 0.684);
+    --box-shadow-color:  rgba(111, 112, 111, 0.684);
     --box-shadow-color-2:   rgba(111, 111, 112, 0.348);
     --box-shadow-onglets-2: inset 2px 2px 2px var(--box-shadow-color);
     --box-shadow-btn-2: inset 2px 2px 2px var(--box-shadow-color),5px 5px 9px var(--shadow-btn-color);
@@ -266,11 +266,13 @@ li{
 #nav_general{
     padding: 20px 10px 1px 10px;
     position: fixed;
-    top: 25px;
+    top: 26px;
     z-index: 4;
     width: 100vw;
+    margin-top: 2px !important;
     color: var(--green-color);
     box-shadow: inset 0 0px 1px var(--green-color);
+    min-height: 18px;
 }
 #nav-home{
     opacity: 1;
@@ -372,7 +374,7 @@ li{
 .inline_flex{
     display: flex;
     flex-wrap: wrap;
-    margin: 30px auto 20px auto;
+    margin: 30px auto 40px auto;
 }
 .no_wrap{
     flex-wrap: nowrap !important;
@@ -391,7 +393,7 @@ li{
     margin-top: 0 !important;
 }
 .mt_50{
-    margin-top: 40px !important;
+    margin-top: 50px !important;
 }
 .mt_5{
     margin-top: 5px !important;
@@ -438,7 +440,8 @@ li{
 .not_current{
     background-color: var(--secondary-bg-color);
     color: #686868 !important;
-    opacity: 0.6;
+    color: var(--main-color) !important;
+    opacity: 0.5;
     box-shadow: var(--box-shadow-onglets-2);
     border-color: rgba(39, 123, 39, 0);
     transition: .5s ease box-shadow, .5s ease background-color, .5 ease border-color;
@@ -597,6 +600,7 @@ li{
     background-color:  var(--main-bg-color);
     padding: 20px;
     box-shadow: var(--box-shadow-section);
+    box-shadow: -5px -5px 9px var(--box-shadow-color), 5px 5px 9px var(--box-shadow-color-2);
     border-radius: 5px;
 }
 .presentation > p{
@@ -721,7 +725,7 @@ li{
 .titre_projet{
     position: relative;
     box-shadow: var(--box-shadow-onglets);
-    top: -42px;
+    top: -40px;
     min-width: 40%;
     left: -40px;
     width: fit-content;
@@ -761,11 +765,13 @@ li{
     margin: auto;
     max-width: 85vw;
     width: 900px;
-    background-color: var(--black--alpha);
+    background-color: var(--main-bg-color);
     padding: 30px;
-    border-radius: 5px;
+    border-radius: 15px;
     color: var(--main-color);
     overflow-y: scroll;
+    box-shadow: var(--box-shadow-section);
+    box-shadow: -5px -5px 9px var(--box-shadow-color), 5px 5px 9px var(--box-shadow-color-2);
     /* height: 70vh ; */
     min-height: 600px;
     word-break: break-word;
@@ -1059,6 +1065,7 @@ li{
     left: 0;
     padding-top: 5px;
     border-radius: 5px 5px 0 0;
+    max-height: 30px;
 }
 .t_right{
     left: 60px !important;
@@ -1093,7 +1100,7 @@ li{
 }
 .p_hobbies{
     display: grid;
-    grid-template-columns: 15% 85%;
+    grid-template-columns: 17% 83%;
     border-radius: 5px;
 }
 .photo_hobbie{
@@ -1278,7 +1285,7 @@ li{
     }
     .p_hobbies{
         display: grid;
-        grid-template-columns: 10% 90%;
+        grid-template-columns: 12% 88%;
     }
     .texte{
         max-height: 70vh;
@@ -1331,11 +1338,16 @@ li{
         margin-left: 0px;
         margin-right: 0px;
     }
+    nav ul{
+        max-width: 90vw;
+        display: inline-flex;
+    }
     #search{
         max-width: 40vw;
     }
     #nav_general{
-        padding: 20px 10px 0px 10px;
+        padding: 20px 10px 0px 5px;
+        font-size: 0.8em;
     }
     #paddingNavGeneral{
         top: 62px;

@@ -368,7 +368,7 @@ btn_historique.addEventListener("click", function(event) {
 
 // close
 document.addEventListener('click', (event) => {
-  if (!lst_historique.contains(event.target) && !btn_historique.contains(event.target) && lst_historique.classList.contains('show')) {
+  if (!lst_historique.contains(event.target) && !btn_historique.parentNode.contains(event.target) && lst_historique.classList.contains('show')) {
     lst_historique.style.opacity = 0;
     window.setTimeout(function(){
       lst_historique.classList.remove('show');
