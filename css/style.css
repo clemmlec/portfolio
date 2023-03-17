@@ -191,17 +191,20 @@ li{
 .laravel{fill: #FF2D20;}
 .vue{fill: #4FC08D;}
 
-#paddingNavGeneral{
-    position: fixed;
-    top: 77px;
-    height: 10px;
-    z-index: 2;
-    width: 100vw;
-}
-
 #icone_footer{
     position: absolute;
-    right: 20px;
+    right: 35px;
+}
+#mentions_detail{
+    position: fixed;
+    top: 80px;
+    padding: 40px;
+    justify-content: center;
+    left: 50%;
+    transform: translate(-50%,0);
+}
+footer > button:hover{
+    color: var(--green-color);
 }
 #bureau{
     position: absolute;
@@ -382,6 +385,9 @@ li{
 }
 .m_10{
     margin: 10px 25px 10px 25px;
+}
+.p_0{
+    padding: 0 !important;
 }
 .p_10{
     padding: 10px 25px 10px 25px;
@@ -775,6 +781,22 @@ li{
     /* height: 70vh ; */
     min-height: 600px;
     word-break: break-word;
+}
+/* .w_7 > h2::before, .p_50 > h2::before{
+    box-shadow: inset 5px -5px 5px var(--green-color);
+    content: "";
+    position: relative;
+    
+    border-radius: 50%;
+    padding: 10px;
+} */
+/* .w_7 > h3, .p_50 > h3{
+    box-shadow:  3px 3px 5px var(--green-color) !important;
+    width: max-content;
+    padding: 5px;
+} */
+.legale{
+    height: 75vh !important;
 }
 #projets_detail{
     position: absolute;
@@ -1173,6 +1195,23 @@ li{
     margin-bottom: 0;
     margin-top: 0;
 }
+.titre_mention{
+    display: grid;
+    grid-template-columns: 0.5fr 8fr 0.5fr;
+    text-align: center;
+    z-index: 1;
+    box-shadow: var(--box-shadow-section-2);
+    position: sticky;
+    top:0px;
+    left: -2px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    margin-bottom: 0;
+    margin-top: 0;
+  
+}
 #calculette > #input {
     grid-area: a;
     text-align: right;
@@ -1348,9 +1387,6 @@ li{
     #nav_general{
         padding: 20px 10px 0px 5px;
         font-size: 0.8em;
-    }
-    #paddingNavGeneral{
-        top: 62px;
     }
     #bureau_titre{
         text-align: center;

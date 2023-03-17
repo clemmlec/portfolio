@@ -122,7 +122,9 @@ function changeSection(event, elem, hist) {
 
   hide(projets_detail);
   hide(nav_detail)
-
+  if(mentions_detail.classList.contains('show')){
+    hide(mentions_detail)
+  }
 
   if(oldSection == currentSection){
     hist = false
@@ -490,7 +492,9 @@ function changeDetails(event, elem, hist) {
     current_projets_detail = document.getElementById(current_projets_detail)
     hide(current_projets_detail)
   }
-
+  if(mentions_detail.classList.contains('show')){
+    hide(mentions_detail)
+  }
   show(projets_detail)
   hide(projets)
   show(nav_detail)
@@ -559,11 +563,12 @@ function quitWindow(){
   hide(nav_search)
   hide(nav_general)
   hide(currentSection)
+  hide(mentions_detail)
   hide(footer)
-  hide(paddingNavGeneral)
   show(bureau)
   show(bureau_detail)
   show(document.getElementById('particles-js'))
+  main_site.classList.remove('bg_purple')
 if(!document.getElementById('calculette')){
   chargeBureauApp('calculette')
   chargeBureauApp('meteo')
@@ -578,9 +583,9 @@ function openWindow() {
   show(currentSection)
   goToRoute(locations, false)
   show(footer)
-  show(paddingNavGeneral)
   hide(bureau)
   hide(bureau_detail)
+  main_site.classList.add('bg_purple')
   setTimeout(function(){ 
     nav_search.style.transform = 'translateX(0px)';
     nav_general.style.transform = 'translateX(0px)';
@@ -671,4 +676,12 @@ envoyer_mail.addEventListener("click", function() {
   };
 
   xhr.send(params);
+});
+
+close_mentions.addEventListener("click", function(event) {
+  hide(mentions_detail)
+});
+
+mentions.addEventListener("click", function(event) {
+  show(mentions_detail)
 });
