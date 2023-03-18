@@ -6,17 +6,17 @@
     --main-color: white;
     --green-color: #08af0d;
     --green-color-visited: #46a249;
+    --green-color-deg: #0707079e;
     --green-color-alpha: #2f4b30;
     --red-color-alpha: #4d2c2c;
     --muted-color:#DADAE7;
-    /* --black--alpha: #00000093; */
     --black--alpha: #36363aa9;
     --shadow-btn-color:rgba(84, 88, 95, 0.3);
     --box-shadow-color:  rgba(111, 112, 111, 0.684);
     --box-shadow-color-2:   rgba(111, 111, 112, 0.348);
     --box-shadow-onglets-2: inset 2px 2px 2px var(--box-shadow-color);
     --box-shadow-btn-2: inset 2px 2px 2px var(--box-shadow-color),5px 5px 9px var(--shadow-btn-color);
-    --box-shadow-btn-3: inset -2px -2px 2px var(--shadow-btn-color), inset -2px -2px 2px var(--box-shadow-color);
+    --box-shadow-btn-3: inset 3px 3px 2px var(--box-shadow-color),  2px 2px 9px var(--shadow-btn-color);
     --box-shadow-onglets: inset 2px 2px 2px var(--box-shadow-color), inset -2px 2px 2px var(--box-shadow-color);
     --box-shadow-section:  var(--box-shadow-color-2) 3px 3px 5px, inset 2px 2px 2px var(--box-shadow-color);
     --box-shadow-section-2:  var(--box-shadow-color-2) -3px -3px 5px, inset -2px -2px 2px var(--box-shadow-color);
@@ -38,11 +38,10 @@
         --main-color: rgb(2, 2, 2);
         --green-color: #3c3fde;
         --green-color-alpha: #3c3fde7c;
+        --green-color-deg: #3c3fde1b;
         --green-color-visited: #1e2085;
         --muted-color:rgb(54, 54, 54);
-
     }
-   
 }
 .circle{
     display: flex;
@@ -118,12 +117,8 @@ nav ul li:focus-visible{
 }
 section{
     position: relative;
-    padding-bottom: 100px !important;
-    padding-top: 20px !important;
-    margin-bottom: 0 !important;
-}
-section{
     padding: 20px;
+    margin-bottom: 0 !important;
 }
 button{
     all: unset;
@@ -178,7 +173,6 @@ canvas{
     z-index: 0;
 }
 li{
-    /* list-style-type: '- '; */
     list-style-type: circle;
 }
 .js{fill: #F7DF1E;}
@@ -197,7 +191,7 @@ li{
 }
 #mentions_detail{
     position: fixed;
-    top: 80px;
+    top: 56px;
     padding: 40px;
     justify-content: center;
     left: 50%;
@@ -211,12 +205,10 @@ footer > button:hover{
     top: 10px;
     width: 100vw;
     justify-content: center;
-    /* display: flex; */
 }
 #bureau_detail{
     margin: auto;
     height: 80vh;
-    /* display: flex; */
 }
 #home{
     min-height: 80vh;
@@ -228,7 +220,6 @@ footer > button:hover{
     top: 0;
     z-index: 5;
     width: 100vw;
-    /* display: grid; */
     grid-template-columns: 0.5fr 4fr;
 }
 #btns_historique{
@@ -337,22 +328,23 @@ footer > button:hover{
     border-radius: 5px;
     text-align: center;
     font-size: 1.5em;
+    transition: .5s ease transform, .5s ease box-shadow;
+
 }
 .btn:hover{
     transform: translateY(-2px);
+    transition: .5s ease transform;
     cursor: pointer;
 }
-.btn:focus{
+.btn:active{
     transform: translateY(0px);
     box-shadow: var(--box-shadow-btn-3);
+    transition: .5s ease transform,.5s ease box-shadow;
     cursor: pointer;
 }
 .btn:focus-visible{
     box-shadow: var(--box-shadow-btn-color);
 }
-/* .btn:active{
-    box-shadow: none;
-} */
 .w_7{
     max-width: 700px;
     margin: auto;
@@ -424,9 +416,16 @@ footer > button:hover{
 .w_20{
     width: 20px;
 }
-.bg_purple{
-    background-color: #A5A6F6;
+.bg_primary{
     background-color: var(--main-bg-color);
+    transition: .5s ease background-color;
+}
+.bg_primary_degrader{
+    background: linear-gradient(to left top , transparent 5%,var(--main-bg-color) 50%);
+    transition: .5s ease background-color;
+}
+.bg_primary_secondary{
+    background: linear-gradient(to left top ,  var(--green-color-deg) 20%, var(--main-bg-color) 60%);
     transition: .5s ease background-color;
 }
 .bg_gray{
@@ -452,8 +451,7 @@ footer > button:hover{
     border-color: rgba(39, 123, 39, 0);
     transition: .5s ease box-shadow, .5s ease background-color, .5 ease border-color;
 }
-.bg_purpleDark{
-    background-color: #252777 !important;
+.bg_secondary{
     background-color: var(--secondary-bg-color) !important;
 }
 .bg_jarez{
@@ -494,10 +492,6 @@ footer > button:hover{
     top: 8px;
 }
 .heptagone{
-    /* clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
-    clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%); */
-    /* clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); */
     border-radius: 100%;
     box-shadow: 2px 2px 5px rgba(125, 126, 125, 0.274);
     width: 20vw;
@@ -537,7 +531,7 @@ footer > button:hover{
     left: 0;
     height: 28px;
     border-radius: 5px 5px 0 0;
-    background-color:#99999982;
+    background-color: var(--secondary-bg-color);
     width: 100%;
     content: "";
 }
@@ -602,8 +596,6 @@ footer > button:hover{
     width: 60vw;
     margin: auto;
     color: var(--main-color);
-    /* text-shadow: 0 0 50px var(--secondary-bg-color); */
-    background-color:  var(--main-bg-color);
     padding: 20px;
     box-shadow: var(--box-shadow-section);
     box-shadow: -5px -5px 9px var(--box-shadow-color), 5px 5px 9px var(--box-shadow-color-2);
@@ -778,25 +770,12 @@ footer > button:hover{
     overflow-y: scroll;
     box-shadow: var(--box-shadow-section);
     box-shadow: -5px -5px 9px var(--box-shadow-color), 5px 5px 9px var(--box-shadow-color-2);
-    /* height: 70vh ; */
     min-height: 600px;
     word-break: break-word;
 }
-/* .w_7 > h2::before, .p_50 > h2::before{
-    box-shadow: inset 5px -5px 5px var(--green-color);
-    content: "";
-    position: relative;
-    
-    border-radius: 50%;
-    padding: 10px;
-} */
-/* .w_7 > h3, .p_50 > h3{
-    box-shadow:  3px 3px 5px var(--green-color) !important;
-    width: max-content;
-    padding: 5px;
-} */
 .legale{
     height: 75vh !important;
+    min-height: min-content;
 }
 #projets_detail{
     position: absolute;
@@ -955,7 +934,7 @@ footer > button:hover{
     width: 6px;
     background-color: var(--main-color);
     top: -100px;
-    bottom: -100px;
+    bottom: 0px;
     left: 50%;
     margin-left: -3px;
     z-index: -1;
@@ -1109,6 +1088,32 @@ footer > button:hover{
     object-fit: cover;
     opacity: 0.8;
 }
+#hobbies_detail{
+    position: fixed;
+    top: 138px;
+    bottom: 30px;
+    left: 10px;
+    right: 10px;
+    background-color: var(--black--alpha);
+    box-shadow: 18px 18px 20px var(--main-bg-color), -18px -18px 20px var(--main-bg-color);
+    box-shadow: inset 18px 18px 50px var(--main-bg-color), inset  -18px -18px 50px var(--main-bg-color);
+    z-index: 3;
+    justify-content: center;
+}
+#hobbies_detail > img{
+    max-width: 100%;
+    object-fit: contain;
+}
+.agrandir{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    fill: var(--green-color);
+    cursor: pointer;
+}
+.agrandir:hover{
+    width: 25px;
+}
 .titre_hobbies{
     position: relative;
     z-index: 2;
@@ -1124,6 +1129,32 @@ footer > button:hover{
     display: grid;
     grid-template-columns: 17% 83%;
     border-radius: 5px;
+}
+.grid4{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 100%;
+    padding-bottom: 50px;
+    padding-top: 20px;
+    position: relative;
+    z-index: 3;
+}
+.card4{
+    padding: 50px;
+    border-radius: 5px;
+    box-shadow: var(--box-shadow-section-2);
+    text-align: center;
+    margin: 5px;
+    width: 10vw;
+    justify-self: center;
+    cursor: pointer;
+    background: linear-gradient(to right bottom ,  var(--green-color-deg) 20%, var(--main-bg-color) 60%);
+    transition: .5s ease box-shadow;
+}
+.card4:hover{
+    box-shadow: var(--box-shadow-section);
+    color: var(--green-color) !important;
+    background: linear-gradient(to left top ,  var(--green-color-deg) 20%, var(--main-bg-color) 60%);
+    transition: .5s ease box-shadow;
 }
 .photo_hobbie{
     height: 271px;
@@ -1165,6 +1196,7 @@ footer > button:hover{
     z-index: 2;
     width: 80vw;
     background-color: var(--main-bg-color);
+    
     padding: 20px;
     border-radius: 5px;
     grid-template-areas: 
@@ -1200,10 +1232,11 @@ footer > button:hover{
     grid-template-columns: 0.5fr 8fr 0.5fr;
     text-align: center;
     z-index: 1;
-    box-shadow: var(--box-shadow-section-2);
+    box-shadow:  var(--box-shadow-color-2) -3px -3px 150px,  -2px -2px 120px var(--box-shadow-color);;
     position: sticky;
     top:0px;
     left: -2px;
+    border-radius: 5px 5px 0 0;
     padding-bottom: 5px;
     padding-left: 20px;
     padding-right: 20px;
@@ -1243,7 +1276,6 @@ footer > button:hover{
 }
 #calculette > .button_caclulette > button{
     border-radius: 5px;
-    /* min-width: 100px; */
     box-shadow: var(--box-shadow-section);
     border: none;
     font-size: 2em;
@@ -1344,8 +1376,19 @@ footer > button:hover{
 
 }
 @media all and (max-width: 861px) {
+    .card4{
+        padding: 30px;
+        font-size: 15px;
+    }
     #calculette{
        margin-top: 90px;
+    }
+    #mentions_detail{
+        top: 42px;
+        width: 100vw;
+    }
+    .legale{
+        max-width: 95vw !important;
     }
     .card_70{
         width: 90vw;
@@ -1373,7 +1416,7 @@ footer > button:hover{
         max-width: 450px;
     }
     nav ul li {
-        font-size: 15px;
+        font-size: 16px;
         margin-left: 0px;
         margin-right: 0px;
     }
@@ -1506,6 +1549,10 @@ footer > button:hover{
 }
 
 @media all and (max-width: 601px) {
+    .card4{
+        padding: 10px;
+        width: max-content;
+    }
     #contact_home{
         width: 90vw;
         margin-top: 20px;
