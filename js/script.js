@@ -42,7 +42,7 @@ nav_contact = document.getElementById('nav-contact');
 contact_aparition = false;
 hobbies_aparition = false;
 currentSection = home;
-currentBackground =  "bg_purple";
+currentBackground =  "bg_primary";
 oldNav = nav_home;
 oldSection = home;
 currentApp = "";
@@ -76,7 +76,7 @@ if(light){
 // L'utilisateur est sur mobile
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
   mobile = true;
-  site.classList.toggle("bg_purpleDark");
+  site.classList.toggle("bg_secondary");
 }else{ mobile = false}
 
 route = [
@@ -93,6 +93,38 @@ route = [
     "saveworld",
   ]
 ];
+
+photo =[]
+photo["cuisine"]=[
+    "IMG_0059_big.jpg",
+    "IMG_0393_big.jpg",
+    "IMG_1246_big.jpg",
+    "IMG_1447_big.jpg",
+    "IMG_2480_big.jpg",
+    "IMG_0016_big.jpg"
+]
+photo["photographie"] = [
+    "IMG_0550_big.jpg",
+    "003_big.jpg",
+    "IMG_0743_big.jpg",
+    "IMG_0941_big.jpg",
+    "IMG_0021_big.jpg",
+    "IMG_0568_big.jpg",
+    "IMG_0975_big.jpg",
+    "IMG_1123_big.jpg",
+    "IMG_1388_big.jpg",
+    "001_big.jpg",
+    "IMG_1212_big.jpg"
+]
+photo["bois"] = [
+    "Photo-0004k_big.jpg",
+    "IMG_0332_big.jpg",
+    "IMG_1232_big.jpg",
+    "IMG_1900_big.jpg",
+    "IMG_0108_big.jpg",
+    "572_big.jpg"
+]
+
 
 widowLoad = true;
 foo =0;
@@ -119,9 +151,11 @@ function changeSection(event, elem, hist) {
     currentNav = document.getElementById("nav-"+elem.id);
   }
   historiqueScroll = 0;
-
+  show(allezA)
   hide(projets_detail);
   hide(nav_detail)
+  hide(hobbies_detail)
+  hobbies.style.filter = "blur(0px)"
   if(mentions_detail.classList.contains('show')){
     hide(mentions_detail)
   }
@@ -129,15 +163,18 @@ function changeSection(event, elem, hist) {
   if(oldSection == currentSection){
     hist = false
   }else{
+    show(document.getElementById('card_'+oldSection.id))
     hide(oldSection,'translate(+200px)');
     show(document.getElementById('particles-js'))
-    if (currentSection.classList.contains('bg_purple')) {
+    if (currentSection.classList.contains('bg_primary')) {
       setTimeout(() => {
         hide(document.getElementById('particles-js'))
       }, 900);
     }
   }
  
+  hide(document.getElementById('card_'+currentSection.id))
+
   switchNav(oldNav,currentNav);
 
   if(!document.getElementById('formation') && currentSection.id == "formations"){
@@ -495,6 +532,7 @@ function changeDetails(event, elem, hist) {
   if(mentions_detail.classList.contains('show')){
     hide(mentions_detail)
   }
+  hide(allezA)
   show(projets_detail)
   hide(projets)
   show(nav_detail)
@@ -527,36 +565,61 @@ function changeDetails(event, elem, hist) {
   window.setTimeout(function(){
     projets_detail.style.opacity = 1;
     current_projets_detail = adresse;
-    if(route[1].indexOf(current_projets_detail) < route[1].length-1){
-      btn_suivant_detail.value = route[1][route[1].indexOf(current_projets_detail)+1]
-    }else{
-      btn_suivant_detail.value = route[1][0]
-    }
-    if(route[1].indexOf(current_projets_detail) > 0){
-      btn_precedent_detail.value = route[1][route[1].indexOf(current_projets_detail)-1]
-    }else{
-      btn_precedent_detail.value = route[1][route[1].length-1]
-    }
+    btn_quit_detail.value = "projets"
+    btn_suivant_detail.title = "projet suivant"
+    btn_precedent_detail.title = "projet précendent"
+    valueBtnNavDetail(1,current_projets_detail,route)
   },50);
 
 }
 
-btn_precedent_detail.addEventListener("click", changeDetails);
-btn_suivant_detail.addEventListener("click", changeDetails);
+btn_precedent_detail.addEventListener("click", suivantprecedent);
+btn_suivant_detail.addEventListener("click", suivantprecedent);
 btn_quit_detail.addEventListener("click", quitDetails);
 btn_quit.addEventListener("click", quitWindow);
 clem_web.addEventListener("click", openWindow);
 
-function quitDetails(){
-  changeSection.apply(null,[null,projets,true])
+// bouton nav details
+function suivantprecedent(event) {
+  if (event.target.type == "submit") {
+    adresse = event.target.value
+  }else{
+    adresse = event.target.parentNode.value
+  }
+  
+  if(btn_quit_detail.value == "projets"){
+    changeDetails.apply(null,[null,adresse,true])
+  }else{
+    img_detail.src = "asset/hobbies/"+adresse;
+    fichier = adresse.split('/')[1]
+    dossier = adresse.split('/')[0]
+    valueBtnNavDetail(dossier,fichier,photo)
+  }
+}
+function quitDetails(event){
+  if (event.target.type == "submit") {
+    adresse = event.target.value
+  }else{
+    adresse = event.target.parentNode.value
+  }
+  console.log(adresse)
+  if(adresse == "projets"){
+    changeSection.apply(null,[null,document.getElementById(adresse),true])
+    show(allezA)
+  }else{
+    hide(hobbies_detail)
+    hide(nav_detail)
+    hobbies.style.filter = "blur(0px)"
+  }
+  
 }
 
 //  Bureau / Web
 function quitWindow(){
+  hide(allezA)
   if(window.location.href.split('#').length > 2){
     locations = window.location.href.split('#')[1] + "/" +  window.location.href.split('#')[2];
     hide(document.getElementById(window.location.href.split('#')[2]))
-    hide(nav_detail)
   }else if(window.location.href.split('#').length > 1){
     locations = window.location.href.split('#')[1] ;
   }
@@ -564,11 +627,13 @@ function quitWindow(){
   hide(nav_general)
   hide(currentSection)
   hide(mentions_detail)
+  hide(hobbies_detail)
+  hide(nav_detail)
   hide(footer)
   show(bureau)
   show(bureau_detail)
   show(document.getElementById('particles-js'))
-  main_site.classList.remove('bg_purple')
+  main_site.classList.remove('bg_primary')
 if(!document.getElementById('calculette')){
   chargeBureauApp('calculette')
   chargeBureauApp('meteo')
@@ -580,12 +645,13 @@ if(!document.getElementById('calculette')){
 function openWindow() {
   show(nav_search, 'translateX(50px)')
   show(nav_general, 'translateX(50px)')
+  show(allezA)
   show(currentSection)
   goToRoute(locations, false)
   show(footer)
   hide(bureau)
   hide(bureau_detail)
-  main_site.classList.add('bg_purple')
+  main_site.classList.add('bg_primary')
   setTimeout(function(){ 
     nav_search.style.transform = 'translateX(0px)';
     nav_general.style.transform = 'translateX(0px)';
@@ -685,3 +751,60 @@ close_mentions.addEventListener("click", function(event) {
 mentions.addEventListener("click", function(event) {
   show(mentions_detail)
 });
+
+logo_home.addEventListener("click", function(event) {
+  goToRoute("home", true)
+});
+
+// aller à la page
+btn_allez_a = document.querySelectorAll('.card4')
+btn_allez_a.forEach(element => {
+  element.addEventListener("click", function(event) {
+    goToRoute(element.innerHTML, true)
+  });
+});
+
+// agrandir images hobbies
+btn_agrandir = document.querySelectorAll('.agrandir')
+btn_agrandir.forEach(element => {
+    element.addEventListener('click', function() {
+      source = element.parentNode.children[1].src.split('hobbies')[1]
+      btn_suivant_detail.title = "photo suivante"
+      btn_suivant_detail.value = "photo suivante"
+      btn_precedent_detail.title = "photo précendente"
+
+      dossier = source.split('/')[1]
+      fichier = source.split('/')[2].split('.')[0]+"_big.jpg"
+      valueBtnNavDetail(dossier,fichier,photo)
+      
+      if(!document.getElementById("img_detail")){
+        img = document.createElement("img");
+        img.src = "asset/hobbies"+source.split('.')[0]+"_big.jpg";
+        img.id = "img_detail"
+        hobbies_detail.appendChild(img);
+      }else{
+        img_detail.src = "asset/hobbies"+source.split('.')[0]+"_big.jpg";
+      }
+      setTimeout(() => {
+        show(hobbies_detail)
+        show(nav_detail)
+        btn_quit_detail.value = "hobbies"
+        hobbies.style.filter = "blur(4px)"
+      }, 100);
+      
+    })
+});
+
+// changement valuer des bouton nav detail
+function valueBtnNavDetail(dossier,fichier,parent) {
+  if(parent[dossier].indexOf(fichier) < parent[dossier].length-1){
+    btn_suivant_detail.value = ((parent == photo) ? dossier +"/" : "") + parent[dossier][parent[dossier].indexOf(fichier)+1]
+  }else{
+    btn_suivant_detail.value = ((parent == photo) ? dossier +"/" : "") + parent[dossier][0]
+  }
+  if(parent[dossier].indexOf(fichier) > 0){
+    btn_precedent_detail.value = ((parent == photo) ? dossier +"/" : "") +parent[dossier][parent[dossier].indexOf(fichier)-1]
+  }else{
+    btn_precedent_detail.value = ((parent == photo) ? dossier +"/" : "") +parent[dossier][parent[dossier].length-1]
+  }
+}

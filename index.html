@@ -14,7 +14,8 @@
     <meta name="twitter:card" content="summary_large_image">
 
     <meta name="description" content="Portfolio de Clément Canale, développeur web Fullstack [ Javascript | PHP ]">
-    <link rel="shortcut icon" type="image/png" href="asset/favicon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="asset/favicon.png">
+    <link rel="apple-touch-icon" href="asset/favicon.png">
     <title>Clem-Web</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
@@ -25,13 +26,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400&display=swap" rel="stylesheet">
 </head>
-<body id="site" class="bg_purple">
+<body id="site" class="bg_primary">
     
     <header>
         <!-- Logo Search Historique -->
-        <div id="nav_search" class="bg_purpleDark showGrid grid">
+        <div id="nav_search" class="bg_secondary showGrid grid">
             <!-- Logo -->
-            <img width="50" src="asset/favicon.png" class="w_20" alt="logo clem-web">
+            <img id="logo_home" width="50" src="asset/favicon.png" class="w_20" alt="logo clem-web">
             <!-- Search -->
             <form>
                 <input id="search" list="list_historique" type="search" placeholder="Aller à la section ..."  tabindex="3">
@@ -58,17 +59,17 @@
             <ul id="lst_historique" class="hide shadow_purple"></ul>
         </div>
         <!-- Navigations Onglets -->
-        <nav id="nav_general" class="bg_purpleDark">
+        <nav id="nav_general" class="bg_secondary">
             <ul>
-                <li id="nav-home" class="nav_generals bg_purple" tabindex="1">Home</li>
-                <li id="nav-projets" class="nav_generals bg_purple not_current" tabindex="1">Projets</li>
-                <li id="nav-formations" class="nav_generals bg_purple not_current" tabindex="1">Formations</li>
-                <li id="nav-hobbies" class="nav_generals bg_purple not_current" tabindex="1">Hobbies</li>
-                <li id="nav-contact" class="nav_generals bg_purple not_current" tabindex="1">Contact</li>
+                <li id="nav-home" class="nav_generals bg_primary" tabindex="1">Home</li>
+                <li id="nav-projets" class="nav_generals bg_primary not_current" tabindex="1">Projets</li>
+                <li id="nav-formations" class="nav_generals bg_primary not_current" tabindex="1">Formations</li>
+                <li id="nav-hobbies" class="nav_generals bg_primary not_current" tabindex="1">Hobbies</li>
+                <li id="nav-contact" class="nav_generals bg_primary not_current" tabindex="1">Contact</li>
             </ul>
         </nav>
     </header>
-    <main id="main_site" class="bg_purple">
+    <main id="main_site" class="bg_primary">
         <div id="particles-js" class="contents"></div>
         <!-- Home -->
         <section id="home" class="inline_flex hide flex">
@@ -78,7 +79,7 @@
 
             </div>
             <!-- Présentation -->
-            <div class="presentation flex_home home_index">
+            <div class="presentation flex_home home_index bg_primary_degrader">
                 <h1 id="h1">Canale Clément <br> <strong>Développeur Web Fullstack</strong></h1>
                 <p class="inline_flex intro"> 
                     <span>J'aime transformer des <b>idées en réalité</b> avec Javascript et PHP,&nbsp;</span> 
@@ -87,8 +88,8 @@
                 </p>
             </div>
             <!-- Contact Home -->
-            <div id="contact_home" class="flex_home bg_purple home_index">
-                <h2 id="titre_contact_home" class="center bg_purple">Contact</h2>
+            <div id="contact_home" class="flex_home bg_primary home_index">
+                <h2 id="titre_contact_home" class="center bg_primary">Contact</h2>
                 <!-- Linkedin -->
                 <div class="lien_contact" tabindex="1">
                     <div class="icone_left bg_black borderL">
@@ -112,13 +113,13 @@
                 </div>
             </div>
             <!-- Tools -->
-            <div id="tool" class="fex_home home_index bg_purple">
+            <div id="tool" class="fex_home home_index bg_primary_degrader">
                 <!-- Boutons -->
                 <div class="btn_tools">
-                    <button class="btn_tool bg_purple" value="p1"  tabindex="1">En bref</button>
-                    <button class="btn_tool not_current bg_purple" value="p2"  tabindex="1">Languages</button>
-                    <button class="btn_tool not_current bg_purple" value="p3"  tabindex="1">Framework</button>
-                    <button class="btn_tool not_current bg_purple" value="p4"  tabindex="1">Outils</button>
+                    <button class="btn_tool bg_primary" value="p1"  tabindex="1">En bref</button>
+                    <button class="btn_tool not_current bg_primary" value="p2"  tabindex="1">Languages</button>
+                    <button class="btn_tool not_current bg_primary" value="p3"  tabindex="1">Framework</button>
+                    <button class="btn_tool not_current bg_primary" value="p4"  tabindex="1">Outils</button>
                 </div>
                 <!-- Fenetres -->
                 <div class="div_tools">
@@ -265,14 +266,14 @@
         </section>
 
         <!-- Projets -->
-        <section id="projets" class="bg_purple hide">
+        <section id="projets" class="bg_primary hide">
             <div class="flex_projet">
 
                 <!-- Portfolio -->
-                <div class="inline_flex p_projet shadow_purple bg_purple card">
+                <div class="inline_flex p_projet shadow_purple bg_primary_secondary card">
                     <!-- titre -->
                     <div class="content_card">
-                        <h3 class="bg_purple titre_projet"><img loading="lazy" class="logo" src="asset/favicon.png" alt="logo de Clement Canale">Portfolio</h3>
+                        <h3 class="bg_primary titre_projet"><img loading="lazy" class="logo" src="asset/favicon.png" alt="logo de Clement Canale">Portfolio</h3>
                         <img loading="lazy" class="img_pLaceHorlder" src="asset/projets/portfolio.png" alt="Présentation de Clem-Web">
                         <p>
                             
@@ -286,10 +287,10 @@
                 </div>
 
                 <!-- Fedhubs -->
-                <div class="inline_flex p_projet shadow_purple bg_purple card">
+                <div class="inline_flex p_projet shadow_purple bg_primary_secondary card">
                     <!-- titre -->
                     <div class="content_card">
-                        <h3 class="bg_purple titre_projet"><img class="logo" loading="lazy" src="asset/projets/fed.png" alt="logo de Fedhubs">Fedhubs</h3>
+                        <h3 class="bg_primary titre_projet"><img class="logo" loading="lazy" src="asset/projets/fed.png" alt="logo de Fedhubs">Fedhubs</h3>
                         <img class="img_pLaceHorlder" loading="lazy" src="asset/projets/fedhubs.png" alt="Présentation de Fedhubs">
                         <p>
                             L'application pour retrouver <b>les bars et restaurants</b> qui ont une <b>démarche écoresponsable</b>, organisant des événements sociaux culturels.
@@ -302,10 +303,10 @@
                 </div>
 
                 <!-- Dev In -->
-                <div class="inline_flex p_projet shadow_purple bg_purple card">
+                <div class="inline_flex p_projet shadow_purple bg_primary_secondary card">
                     <!-- Titre -->
                     <div class="content_card">
-                        <h3 class="titre_projet bg_purple"><img class="logo" loading="lazy" src="asset/projets/logo_devin.png" alt="logo de Dev In">Dev In</h3>
+                        <h3 class="titre_projet bg_primary"><img class="logo" loading="lazy" src="asset/projets/logo_devin.png" alt="logo de Dev In">Dev In</h3>
                         <img class="img_pLaceHorlder" loading="lazy" src="asset/projets/placement_Dev_In.png" alt="logo de Dev In">
                         <p>
                             Dev In est un <b>site d'information et d'échange</b> pour les développeurs web et présenté pour le <b>passage du titre</b> de développeur web FullStack. 
@@ -318,10 +319,10 @@
                 </div>
 
                 <!-- API Images -->
-                <div class="inline_flex p_projet shadow_purple bg_purple card">
+                <div class="inline_flex p_projet shadow_purple bg_primary_secondary card">
                     <!-- Titre -->
                     <div class="content_card">
-                        <h3 class="titre_projet bg_purple"><img class="logo" loading="lazy" src="asset/projets/logo_photo.png" alt="logo d'API Images">API Images</h3>
+                        <h3 class="titre_projet bg_primary"><img class="logo" loading="lazy" src="asset/projets/logo_photo.png" alt="logo d'API Images">API Images</h3>
                         <img class="img_pLaceHorlder" loading="lazy" src="asset/projets/apiimage.png" alt="Présentation d'API Images">
                         <p>Site conçu avec le <b>framework Symfony</b> sous forme d'<b>API</b>.
                             L'idée est de permettre d'ajouter des images temporaires pendant le développement d'un site.
@@ -334,10 +335,10 @@
                 </div>
 
                 <!-- Jarez Solidarité -->
-                <div class="inline_flex p_projet shadow_purple bg_purple card">
+                <div class="inline_flex p_projet shadow_purple bg_primary_secondary card">
                     <!-- Titre -->
                     <div class="content_card">
-                        <h3 class="titre_projet bg_purple"><img class="logo" loading="lazy" src="asset/projets/logo_jarezsolidarites.png" alt="logo de Jarez Solidaritées">Jarez Solidarité</h3>
+                        <h3 class="titre_projet bg_primary"><img class="logo" loading="lazy" src="asset/projets/logo_jarezsolidarites.png" alt="logo de Jarez Solidaritées">Jarez Solidarité</h3>
                         <img class="img_pLaceHorlder" loading="lazy" src="asset/projets/jarez.png" alt="logo de Jarez Solidaritées">
                         <p>
                             Durant le stage de fin de formation Multimedia j'ai réalisé le <b>site vitrine</b> de l'association Jarez Solidarité.
@@ -350,10 +351,10 @@
                 </div>
 
                 <!-- You Save The World -->
-                <div class="inline_flex p_projet shadow_purple bg_purple card">
+                <div class="inline_flex p_projet shadow_purple bg_primary_secondary card">
                     <!-- Titre -->
                     <div class="content_card ">
-                        <h3 class="titre_projet bg_purple"><img loading="lazy" class="logo" src="asset/projets/logo_saveworld.png" alt="logo de Save World">Save World</h3>
+                        <h3 class="titre_projet bg_primary"><img loading="lazy" class="logo" src="asset/projets/logo_saveworld.png" alt="logo de Save World">Save World</h3>
                         <img class="img_pLaceHorlder" loading="lazy" src="asset/projets/saveWorld.png" alt="logo de Save World">
                         <p>Save the world est un <b>jeu vidéo d'arcade</b> en 2D coder après 6 mois de formation à la <b>programmation en Lua</b> avec Gamecodeur.</p>
                     </div>
@@ -368,21 +369,20 @@
         </section>
 
         <!-- Formation -->
-        <div id="formations" class="bg_purple hide">
+        <div id="formations" class="bg_primary hide">
             <div  id="formation_detail" class="timeline mt_5">
             </div>
         </div>
         
         <!-- Hobbies -->
-        <section id="hobbies" class="bg_purple hide">
+        <section id="hobbies" class="bg_primary hide">
             <!-- Cuisine -->
-            <div class="inline_flex p_hobbies bg_blackAlpha mt_0">
-                
+            <div class="inline_flex p_hobbies bg_secondary mt_0">
+                <!-- titre -->
                 <div class="photo_hobbie">
                     <h3 class="titre_hobbies">Cuisine</h3>
                     <img width="50" class="img_hobbies" loading="lazy" src="asset/hobbies/cuisine/IMG_0016.jpg" alt="plats de cuisine">
                 </div>
-
                 <div class="swip shadow_purple">
                     <p>Après 10 années d'expérience dans le métier, la cuisine reste toujours une passion.</p>
                     <!-- Slider main container -->
@@ -391,21 +391,189 @@
                         <div class="swiper-wrapper">
                             <!-- Slides -->
                             <div class="swiper-slide">
+                                <svg class="agrandir" width="20px"viewBox="0 0 600 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
+                                    <g transform="matrix(0.000914117,-1.18466,1.18466,0.000914117,1.33687,49.8734)">
+                                        <g transform="matrix(1.66981,4.35559e-17,4.36821e-17,0.888424,-27.6951,-0.82172)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45718e-16,-1.66981,0.888424,1.07405e-17,-155.936,68.6888)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45873e-16,-1.66981,0.888424,1.07292e-17,-464.299,67.7853)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.47788e-16,6.51562e-17,-0.888424,-394.789,196.026)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.48005e-16,6.51562e-17,-0.888424,-394.925,504.952)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,-266.685,435.442)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,42.1806,435.765)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.66981,4.52702e-16,-1.7401e-16,0.888424,-27.33,307.524)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                    </g>
+                                </svg>
                                 <img width="50" src="asset/hobbies/cuisine/IMG_0059.jpg" loading="lazy" class="swipper_img" alt="Saint-jacques avec sa bisque">
                             </div>
                             <div class="swiper-slide">
+                                <svg class="agrandir" width="20px"viewBox="0 0 600 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
+                                    <g transform="matrix(0.000914117,-1.18466,1.18466,0.000914117,1.33687,49.8734)">
+                                        <g transform="matrix(1.66981,4.35559e-17,4.36821e-17,0.888424,-27.6951,-0.82172)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45718e-16,-1.66981,0.888424,1.07405e-17,-155.936,68.6888)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45873e-16,-1.66981,0.888424,1.07292e-17,-464.299,67.7853)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.47788e-16,6.51562e-17,-0.888424,-394.789,196.026)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.48005e-16,6.51562e-17,-0.888424,-394.925,504.952)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,-266.685,435.442)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,42.1806,435.765)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.66981,4.52702e-16,-1.7401e-16,0.888424,-27.33,307.524)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                    </g>
+                                </svg>
                                 <img width="50" src="asset/hobbies/cuisine/IMG_0393.jpg" loading="lazy" class="swipper_img" alt="Gateau chocolat-passion">
                             </div>
                             <div class="swiper-slide">
-                                <img width="50" src="asset/hobbies/cuisine/IMG_1246.JPG" loading="lazy" class="swipper_img" alt="Gateau chocolat fuits-rouges">
+                                <svg class="agrandir" width="20px"viewBox="0 0 600 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
+                                    <g transform="matrix(0.000914117,-1.18466,1.18466,0.000914117,1.33687,49.8734)">
+                                        <g transform="matrix(1.66981,4.35559e-17,4.36821e-17,0.888424,-27.6951,-0.82172)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45718e-16,-1.66981,0.888424,1.07405e-17,-155.936,68.6888)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45873e-16,-1.66981,0.888424,1.07292e-17,-464.299,67.7853)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.47788e-16,6.51562e-17,-0.888424,-394.789,196.026)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.48005e-16,6.51562e-17,-0.888424,-394.925,504.952)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,-266.685,435.442)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,42.1806,435.765)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.66981,4.52702e-16,-1.7401e-16,0.888424,-27.33,307.524)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                    </g>
+                                </svg>
+                                <img width="50" src="asset/hobbies/cuisine/IMG_1246.jpg" loading="lazy" class="swipper_img" alt="Gateau chocolat fuits-rouges">
                             </div>
                             <div class="swiper-slide">
+                                <svg class="agrandir" width="20px"viewBox="0 0 600 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
+                                    <g transform="matrix(0.000914117,-1.18466,1.18466,0.000914117,1.33687,49.8734)">
+                                        <g transform="matrix(1.66981,4.35559e-17,4.36821e-17,0.888424,-27.6951,-0.82172)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45718e-16,-1.66981,0.888424,1.07405e-17,-155.936,68.6888)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45873e-16,-1.66981,0.888424,1.07292e-17,-464.299,67.7853)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.47788e-16,6.51562e-17,-0.888424,-394.789,196.026)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.48005e-16,6.51562e-17,-0.888424,-394.925,504.952)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,-266.685,435.442)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,42.1806,435.765)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.66981,4.52702e-16,-1.7401e-16,0.888424,-27.33,307.524)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                    </g>
+                                </svg>
                                 <img width="50" src="asset/hobbies/cuisine/IMG_1447.jpg" loading="lazy" class="swipper_img" alt="Donuts chocolat et caramel">
                             </div>
                             <div class="swiper-slide">
+                                <svg class="agrandir" width="20px"viewBox="0 0 600 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
+                                    <g transform="matrix(0.000914117,-1.18466,1.18466,0.000914117,1.33687,49.8734)">
+                                        <g transform="matrix(1.66981,4.35559e-17,4.36821e-17,0.888424,-27.6951,-0.82172)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45718e-16,-1.66981,0.888424,1.07405e-17,-155.936,68.6888)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45873e-16,-1.66981,0.888424,1.07292e-17,-464.299,67.7853)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.47788e-16,6.51562e-17,-0.888424,-394.789,196.026)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.48005e-16,6.51562e-17,-0.888424,-394.925,504.952)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,-266.685,435.442)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,42.1806,435.765)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.66981,4.52702e-16,-1.7401e-16,0.888424,-27.33,307.524)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                    </g>
+                                </svg>
                                 <img width="50" src="asset/hobbies/cuisine/IMG_2480.jpg" loading="lazy" class="swipper_img" alt="Gateau Snickers">
                             </div>
                             <div class="swiper-slide">
+                                <svg class="agrandir" width="20px"viewBox="0 0 600 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
+                                    <g transform="matrix(0.000914117,-1.18466,1.18466,0.000914117,1.33687,49.8734)">
+                                        <g transform="matrix(1.66981,4.35559e-17,4.36821e-17,0.888424,-27.6951,-0.82172)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45718e-16,-1.66981,0.888424,1.07405e-17,-155.936,68.6888)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45873e-16,-1.66981,0.888424,1.07292e-17,-464.299,67.7853)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.47788e-16,6.51562e-17,-0.888424,-394.789,196.026)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.48005e-16,6.51562e-17,-0.888424,-394.925,504.952)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,-266.685,435.442)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,42.1806,435.765)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.66981,4.52702e-16,-1.7401e-16,0.888424,-27.33,307.524)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                    </g>
+                                </svg>
                                 <img width="50" src="asset/hobbies/cuisine/IMG_0016.jpg" loading="lazy" class="swipper_img" alt="Foies gras saveur d'automne">
                             </div>
                         </div>
@@ -414,11 +582,10 @@
                         <div class="swiper-scrollbar"></div>
                     </div>
                 </div>
-                
             </div>
         
             <!-- Photographie -->
-            <div class="inline_flex p_hobbies bg_blackAlpha">
+            <div class="inline_flex p_hobbies bg_secondary">
                 
                 <div class="photo_hobbie">
                     <h3 class="titre_hobbies">Photographie</h3>
@@ -432,36 +599,344 @@
                         <div class="swiper-wrapper">
                             <!-- Slides -->
                             <div class="swiper-slide">
-                                <img src="asset/hobbies/photographie/IMG_0550.JPG" loading="lazy" class="swipper_img" alt="ancienne université de Grenoble">
+                                <svg class="agrandir" width="20px"viewBox="0 0 600 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
+                                    <g transform="matrix(0.000914117,-1.18466,1.18466,0.000914117,1.33687,49.8734)">
+                                        <g transform="matrix(1.66981,4.35559e-17,4.36821e-17,0.888424,-27.6951,-0.82172)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45718e-16,-1.66981,0.888424,1.07405e-17,-155.936,68.6888)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45873e-16,-1.66981,0.888424,1.07292e-17,-464.299,67.7853)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.47788e-16,6.51562e-17,-0.888424,-394.789,196.026)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.48005e-16,6.51562e-17,-0.888424,-394.925,504.952)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,-266.685,435.442)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,42.1806,435.765)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.66981,4.52702e-16,-1.7401e-16,0.888424,-27.33,307.524)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                    </g>
+                                </svg>
+                                <img src="asset/hobbies/photographie/IMG_0550.jpg" loading="lazy" class="swipper_img" alt="ancienne université de Grenoble">
                             </div>
                             <div class="swiper-slide">
-                                <img width="50" src="asset/hobbies/photographie/003.JPG" loading="lazy" class="swipper_img" alt="arbre sous néons vert">
+                                <svg class="agrandir" width="20px"viewBox="0 0 600 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
+                                    <g transform="matrix(0.000914117,-1.18466,1.18466,0.000914117,1.33687,49.8734)" fill="#000000">
+                                        <g transform="matrix(1.66981,4.35559e-17,4.36821e-17,0.888424,-27.6951,-0.82172)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45718e-16,-1.66981,0.888424,1.07405e-17,-155.936,68.6888)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45873e-16,-1.66981,0.888424,1.07292e-17,-464.299,67.7853)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.47788e-16,6.51562e-17,-0.888424,-394.789,196.026)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.48005e-16,6.51562e-17,-0.888424,-394.925,504.952)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,-266.685,435.442)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,42.1806,435.765)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.66981,4.52702e-16,-1.7401e-16,0.888424,-27.33,307.524)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                    </g>
+                                </svg>
+                                <img width="50" src="asset/hobbies/photographie/003.jpg" loading="lazy" class="swipper_img" alt="arbre sous néons vert">
                             </div>
                             <div class="swiper-slide">
+                                <svg class="agrandir" width="20px"viewBox="0 0 600 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
+                                    <g transform="matrix(0.000914117,-1.18466,1.18466,0.000914117,1.33687,49.8734)">
+                                        <g transform="matrix(1.66981,4.35559e-17,4.36821e-17,0.888424,-27.6951,-0.82172)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45718e-16,-1.66981,0.888424,1.07405e-17,-155.936,68.6888)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45873e-16,-1.66981,0.888424,1.07292e-17,-464.299,67.7853)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.47788e-16,6.51562e-17,-0.888424,-394.789,196.026)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.48005e-16,6.51562e-17,-0.888424,-394.925,504.952)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,-266.685,435.442)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,42.1806,435.765)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.66981,4.52702e-16,-1.7401e-16,0.888424,-27.33,307.524)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                    </g>
+                                </svg>
                                 <img width="50" src="asset/hobbies/photographie/IMG_0743.jpg" loading="lazy" class="swipper_img" alt="écurieul à London Park">
                             </div>
                             <div class="swiper-slide">
-                                <img width="50" src="asset/hobbies/photographie/IMG_0941.jpeg" loading="lazy" class="swipper_img" alt="immeuble à Lisbonne">
+                                <svg class="agrandir" width="20px"viewBox="0 0 600 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
+                                    <g transform="matrix(0.000914117,-1.18466,1.18466,0.000914117,1.33687,49.8734)">
+                                        <g transform="matrix(1.66981,4.35559e-17,4.36821e-17,0.888424,-27.6951,-0.82172)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45718e-16,-1.66981,0.888424,1.07405e-17,-155.936,68.6888)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45873e-16,-1.66981,0.888424,1.07292e-17,-464.299,67.7853)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.47788e-16,6.51562e-17,-0.888424,-394.789,196.026)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.48005e-16,6.51562e-17,-0.888424,-394.925,504.952)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,-266.685,435.442)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,42.1806,435.765)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.66981,4.52702e-16,-1.7401e-16,0.888424,-27.33,307.524)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                    </g>
+                                </svg>
+                                <img width="50" src="asset/hobbies/photographie/IMG_0941.jpg" loading="lazy" class="swipper_img" alt="immeuble à Lisbonne">
                             </div>
                             <div class="swiper-slide">
+                                <svg class="agrandir" width="20px"viewBox="0 0 600 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
+                                    <g transform="matrix(0.000914117,-1.18466,1.18466,0.000914117,1.33687,49.8734)">
+                                        <g transform="matrix(1.66981,4.35559e-17,4.36821e-17,0.888424,-27.6951,-0.82172)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45718e-16,-1.66981,0.888424,1.07405e-17,-155.936,68.6888)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45873e-16,-1.66981,0.888424,1.07292e-17,-464.299,67.7853)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.47788e-16,6.51562e-17,-0.888424,-394.789,196.026)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.48005e-16,6.51562e-17,-0.888424,-394.925,504.952)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,-266.685,435.442)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,42.1806,435.765)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.66981,4.52702e-16,-1.7401e-16,0.888424,-27.33,307.524)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                    </g>
+                                </svg>
                                 <img width="50" src="asset/hobbies/photographie/IMG_0021.jpg" loading="lazy" class="swipper_img" alt="arbre dans la brume">
                             </div>
                             <div class="swiper-slide">
-                                <img width="50" src="asset/hobbies/photographie/IMG_0568.JPG" loading="lazy" class="swipper_img" alt="ancienne université de Grenoble">
+                                <svg class="agrandir" width="20px"viewBox="0 0 600 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
+                                    <g transform="matrix(0.000914117,-1.18466,1.18466,0.000914117,1.33687,49.8734)">
+                                        <g transform="matrix(1.66981,4.35559e-17,4.36821e-17,0.888424,-27.6951,-0.82172)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45718e-16,-1.66981,0.888424,1.07405e-17,-155.936,68.6888)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45873e-16,-1.66981,0.888424,1.07292e-17,-464.299,67.7853)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.47788e-16,6.51562e-17,-0.888424,-394.789,196.026)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.48005e-16,6.51562e-17,-0.888424,-394.925,504.952)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,-266.685,435.442)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,42.1806,435.765)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.66981,4.52702e-16,-1.7401e-16,0.888424,-27.33,307.524)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                    </g>
+                                </svg>
+                                <img width="50" src="asset/hobbies/photographie/IMG_0568.jpg" loading="lazy" class="swipper_img" alt="ancienne université de Grenoble">
                             </div>
                             <div class="swiper-slide">
-                                <img width="50" src="asset/hobbies/photographie/IMG_0975.jpeg" loading="lazy" class="swipper_img" alt="cote de Casquay">
+                                <svg class="agrandir" width="20px"viewBox="0 0 600 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
+                                    <g transform="matrix(0.000914117,-1.18466,1.18466,0.000914117,1.33687,49.8734)">
+                                        <g transform="matrix(1.66981,4.35559e-17,4.36821e-17,0.888424,-27.6951,-0.82172)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45718e-16,-1.66981,0.888424,1.07405e-17,-155.936,68.6888)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45873e-16,-1.66981,0.888424,1.07292e-17,-464.299,67.7853)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.47788e-16,6.51562e-17,-0.888424,-394.789,196.026)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.48005e-16,6.51562e-17,-0.888424,-394.925,504.952)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,-266.685,435.442)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,42.1806,435.765)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.66981,4.52702e-16,-1.7401e-16,0.888424,-27.33,307.524)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                    </g>
+                                </svg>
+                                <img width="50" src="asset/hobbies/photographie/IMG_0975.jpg" loading="lazy" class="swipper_img" alt="cote de Casquay">
                             </div>
                             <div class="swiper-slide">
+                                <svg class="agrandir" width="20px"viewBox="0 0 600 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
+                                    <g transform="matrix(0.000914117,-1.18466,1.18466,0.000914117,1.33687,49.8734)">
+                                        <g transform="matrix(1.66981,4.35559e-17,4.36821e-17,0.888424,-27.6951,-0.82172)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45718e-16,-1.66981,0.888424,1.07405e-17,-155.936,68.6888)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45873e-16,-1.66981,0.888424,1.07292e-17,-464.299,67.7853)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.47788e-16,6.51562e-17,-0.888424,-394.789,196.026)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.48005e-16,6.51562e-17,-0.888424,-394.925,504.952)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,-266.685,435.442)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,42.1806,435.765)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.66981,4.52702e-16,-1.7401e-16,0.888424,-27.33,307.524)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                    </g>
+                                </svg>
                                 <img width="50" src="asset/hobbies/photographie/IMG_1123.jpg" loading="lazy" class="swipper_img" alt="mer de nuages en montagne">
                             </div>
                             <div class="swiper-slide">
+                                <svg class="agrandir" width="20px"viewBox="0 0 600 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
+                                    <g transform="matrix(0.000914117,-1.18466,1.18466,0.000914117,1.33687,49.8734)">
+                                        <g transform="matrix(1.66981,4.35559e-17,4.36821e-17,0.888424,-27.6951,-0.82172)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45718e-16,-1.66981,0.888424,1.07405e-17,-155.936,68.6888)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45873e-16,-1.66981,0.888424,1.07292e-17,-464.299,67.7853)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.47788e-16,6.51562e-17,-0.888424,-394.789,196.026)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.48005e-16,6.51562e-17,-0.888424,-394.925,504.952)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,-266.685,435.442)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,42.1806,435.765)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.66981,4.52702e-16,-1.7401e-16,0.888424,-27.33,307.524)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                    </g>
+                                </svg>
                                 <img width="50" src="asset/hobbies/photographie/IMG_1388.jpg" loading="lazy" class="swipper_img" alt="acote de bretagne à Quiberon">
                             </div>
                             <div class="swiper-slide">
-                                <img width="50" src="asset/hobbies/photographie/001.JPG" loading="lazy" class="swipper_img" alt="bois mort dans un lac à Plitwitch">
+                                <svg class="agrandir" width="20px"viewBox="0 0 600 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
+                                    <g transform="matrix(0.000914117,-1.18466,1.18466,0.000914117,1.33687,49.8734)">
+                                        <g transform="matrix(1.66981,4.35559e-17,4.36821e-17,0.888424,-27.6951,-0.82172)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45718e-16,-1.66981,0.888424,1.07405e-17,-155.936,68.6888)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45873e-16,-1.66981,0.888424,1.07292e-17,-464.299,67.7853)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.47788e-16,6.51562e-17,-0.888424,-394.789,196.026)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.48005e-16,6.51562e-17,-0.888424,-394.925,504.952)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,-266.685,435.442)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,42.1806,435.765)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.66981,4.52702e-16,-1.7401e-16,0.888424,-27.33,307.524)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                    </g>
+                                </svg>
+                                <img width="50" src="asset/hobbies/photographie/001.jpg" loading="lazy" class="swipper_img" alt="bois mort dans un lac à Plitwitch">
                             </div>
                             <div class="swiper-slide">
+                                <svg class="agrandir" width="20px"viewBox="0 0 600 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
+                                    <g transform="matrix(0.000914117,-1.18466,1.18466,0.000914117,1.33687,49.8734)">
+                                        <g transform="matrix(1.66981,4.35559e-17,4.36821e-17,0.888424,-27.6951,-0.82172)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45718e-16,-1.66981,0.888424,1.07405e-17,-155.936,68.6888)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45873e-16,-1.66981,0.888424,1.07292e-17,-464.299,67.7853)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.47788e-16,6.51562e-17,-0.888424,-394.789,196.026)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.48005e-16,6.51562e-17,-0.888424,-394.925,504.952)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,-266.685,435.442)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,42.1806,435.765)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.66981,4.52702e-16,-1.7401e-16,0.888424,-27.33,307.524)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                    </g>
+                                </svg>
                                 <img width="50" src="asset/hobbies/photographie/IMG_1212.jpg" loading="lazy" class="swipper_img" alt="fleurs de cerisiers">
                             </div>
                         </div>
@@ -473,11 +948,11 @@
             </div>
         
             <!-- Metier du bois -->
-            <div class="inline_flex p_hobbies bg_blackAlpha">
+            <div class="inline_flex p_hobbies bg_secondary">
         
                 <div class="photo_hobbie">
                     <h3 class="titre_hobbies">Metier du bois</h3>
-                    <img width="50" class="img_hobbies" loading="lazy" src="asset/hobbies/bois/572.JPG" alt="plats de cuisine">
+                    <img width="50" class="img_hobbies" loading="lazy" src="asset/hobbies/bois/572.jpg" alt="plats de cuisine">
                 </div>
                 <div class="swip shadow_purple">
                     <p>Par curiosité, j'ai créé plusieurs meubles et objets en bois.</p>
@@ -487,22 +962,190 @@
                         <div class="swiper-wrapper">
                             <!-- Slides -->
                             <div class="swiper-slide">
+                                <svg class="agrandir" width="20px"viewBox="0 0 600 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
+                                    <g transform="matrix(0.000914117,-1.18466,1.18466,0.000914117,1.33687,49.8734)">
+                                        <g transform="matrix(1.66981,4.35559e-17,4.36821e-17,0.888424,-27.6951,-0.82172)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45718e-16,-1.66981,0.888424,1.07405e-17,-155.936,68.6888)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45873e-16,-1.66981,0.888424,1.07292e-17,-464.299,67.7853)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.47788e-16,6.51562e-17,-0.888424,-394.789,196.026)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.48005e-16,6.51562e-17,-0.888424,-394.925,504.952)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,-266.685,435.442)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,42.1806,435.765)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.66981,4.52702e-16,-1.7401e-16,0.888424,-27.33,307.524)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                    </g>
+                                </svg>
                                 <img width="50" src="asset/hobbies/bois/Photo-0004k.jpg" loading="lazy" class="swipper_img" alt="table basse en chataigné">
                             </div>
                             <div class="swiper-slide">
+                                <svg class="agrandir" width="20px"viewBox="0 0 600 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
+                                    <g transform="matrix(0.000914117,-1.18466,1.18466,0.000914117,1.33687,49.8734)">
+                                        <g transform="matrix(1.66981,4.35559e-17,4.36821e-17,0.888424,-27.6951,-0.82172)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45718e-16,-1.66981,0.888424,1.07405e-17,-155.936,68.6888)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45873e-16,-1.66981,0.888424,1.07292e-17,-464.299,67.7853)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.47788e-16,6.51562e-17,-0.888424,-394.789,196.026)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.48005e-16,6.51562e-17,-0.888424,-394.925,504.952)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,-266.685,435.442)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,42.1806,435.765)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.66981,4.52702e-16,-1.7401e-16,0.888424,-27.33,307.524)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                    </g>
+                                </svg>
                                 <img width="50" src="asset/hobbies/bois/IMG_0332.jpg" loading="lazy" class="swipper_img" alt="table en chêne d'ancien fût">
                             </div>
                             <div class="swiper-slide">
+                                <svg class="agrandir" width="20px"viewBox="0 0 600 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
+                                    <g transform="matrix(0.000914117,-1.18466,1.18466,0.000914117,1.33687,49.8734)">
+                                        <g transform="matrix(1.66981,4.35559e-17,4.36821e-17,0.888424,-27.6951,-0.82172)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45718e-16,-1.66981,0.888424,1.07405e-17,-155.936,68.6888)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45873e-16,-1.66981,0.888424,1.07292e-17,-464.299,67.7853)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.47788e-16,6.51562e-17,-0.888424,-394.789,196.026)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.48005e-16,6.51562e-17,-0.888424,-394.925,504.952)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,-266.685,435.442)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,42.1806,435.765)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.66981,4.52702e-16,-1.7401e-16,0.888424,-27.33,307.524)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                    </g>
+                                </svg>
                                 <img width="50" src="asset/hobbies/bois/IMG_1232.jpg" loading="lazy" class="swipper_img" alt="mise à niveau de la table d'armoni d'une guitare">
                             </div>
                             <div class="swiper-slide">
+                                <svg class="agrandir" width="20px"viewBox="0 0 600 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
+                                    <g transform="matrix(0.000914117,-1.18466,1.18466,0.000914117,1.33687,49.8734)">
+                                        <g transform="matrix(1.66981,4.35559e-17,4.36821e-17,0.888424,-27.6951,-0.82172)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45718e-16,-1.66981,0.888424,1.07405e-17,-155.936,68.6888)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45873e-16,-1.66981,0.888424,1.07292e-17,-464.299,67.7853)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.47788e-16,6.51562e-17,-0.888424,-394.789,196.026)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.48005e-16,6.51562e-17,-0.888424,-394.925,504.952)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,-266.685,435.442)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,42.1806,435.765)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.66981,4.52702e-16,-1.7401e-16,0.888424,-27.33,307.524)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                    </g>
+                                </svg>
                                 <img width="50" src="asset/hobbies/bois/IMG_1900.jpg" loading="lazy" class="swipper_img" alt="amenagement d'un forgon en van">
                             </div>
                             <div class="swiper-slide">
+                                <svg class="agrandir" width="20px"viewBox="0 0 600 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
+                                    <g transform="matrix(0.000914117,-1.18466,1.18466,0.000914117,1.33687,49.8734)">
+                                        <g transform="matrix(1.66981,4.35559e-17,4.36821e-17,0.888424,-27.6951,-0.82172)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45718e-16,-1.66981,0.888424,1.07405e-17,-155.936,68.6888)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45873e-16,-1.66981,0.888424,1.07292e-17,-464.299,67.7853)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.47788e-16,6.51562e-17,-0.888424,-394.789,196.026)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.48005e-16,6.51562e-17,-0.888424,-394.925,504.952)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,-266.685,435.442)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,42.1806,435.765)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.66981,4.52702e-16,-1.7401e-16,0.888424,-27.33,307.524)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                    </g>
+                                </svg>
                                 <img width="50" src="asset/hobbies/bois/IMG_0108.jpg" loading="lazy" class="swipper_img" alt="réfection d'un fauteuil">
                             </div>
                             <div class="swiper-slide">
-                                <img width="50" src="asset/hobbies/bois/572.JPG" loading="lazy" class="swipper_img" alt="guitare en chêne">
+                                <svg class="agrandir" width="20px"viewBox="0 0 600 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
+                                    <g transform="matrix(0.000914117,-1.18466,1.18466,0.000914117,1.33687,49.8734)">
+                                        <g transform="matrix(1.66981,4.35559e-17,4.36821e-17,0.888424,-27.6951,-0.82172)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45718e-16,-1.66981,0.888424,1.07405e-17,-155.936,68.6888)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.45873e-16,-1.66981,0.888424,1.07292e-17,-464.299,67.7853)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.47788e-16,6.51562e-17,-0.888424,-394.789,196.026)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-1.66981,-2.48005e-16,6.51562e-17,-0.888424,-394.925,504.952)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,-266.685,435.442)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(-3.50137e-16,1.66981,-0.888424,-1.19583e-16,42.1806,435.765)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                        <g transform="matrix(1.66981,4.52702e-16,-1.7401e-16,0.888424,-27.33,307.524)">
+                                            <rect x="-0.834" y="0.132" width="42.181" height="220.954"/>
+                                        </g>
+                                    </g>
+                                </svg>
+                                <img width="50" src="asset/hobbies/bois/572.jpg" loading="lazy" class="swipper_img" alt="guitare en chêne">
                             </div>
                         </div>
                         <div class="swiper-button-next"></div>
@@ -511,7 +1154,7 @@
                     </div>
                 </div>
             </div>
-        
+
             <!-- Musique
             <div class="inline_flex p_hobbies bg_blackAlpha">
         
@@ -530,24 +1173,24 @@
         <!-- Contact -->
         <section id="contact" class="flex hide">
             <div class="inline_flex m_auto">
-                <div class="p_contact_fin presentation t_center">
+                <div class="p_contact_fin presentation t_center bg_primary_degrader">
                     <h2> N'hésitez pas à me contacter,</h2>
                     <p> je suis à votre disposition pour plus d'informations.</p>
                 </div>
                 <div class="inline_flex p_projet shadow_purple mt_50 card_70">
                     <!-- titre -->
-                    <div class="content_card bg_purple mt_5 ml_5">
-                        <h3 class="bg_purple titre_projet l45"><img loading="lazy" class="logo" src="asset/logo/10127.png" alt="logo mail">Contact</h3>
+                    <div class="content_card bg_primary mt_5 ml_5">
+                        <h3 class="bg_primary titre_projet l45"><img loading="lazy" class="logo" src="asset/logo/10127.png" alt="logo mail">Contact</h3>
                         <!-- <img class="img_pLaceHorlder" src="asset/logo/10127.png" alt="logo mail"> -->
                     </div>
                     <!-- Form -->
                     <form id="contact-form">
-                        <div class="p_10 bg_purple ml_5">
+                        <div class="p_10 bg_primary ml_5">
                             <input type="email" name="email" id="email" placeholder="Votre adresse mail" tabindex="1">
                             <textarea class="contact_fin" name="message" id="contact_fin" cols="50" rows="10" placeholder="Votre message" tabindex="1"></textarea>
                         </div>
-                        <div class="g-recaptcha bg_purple ml_5 p_10" data-sitekey="6LeTJPUkAAAAAOA4zLb2DisspJ8FGZvpCui84bye"></div>
-                        <div class="bg_purple p_50 ml_5">
+                        <div class="g-recaptcha bg_primary ml_5 p_10" data-sitekey="6LeTJPUkAAAAAOA4zLb2DisspJ8FGZvpCui84bye"></div>
+                        <div class="bg_primary p_50 ml_5">
                             <button type="button" id="envoyer_mail" class="button mt_0" tabindex="1">ENVOYER</button>
                         </div>
                     </form>
@@ -572,11 +1215,24 @@
             </div>
         </section>
 
+        <!-- Allez à la section -->
+        <div id="allezA" class="grid4 showGrid grid bg_secondary">
+            <div id="card_home" class="card4">Home</div>
+            <div id="card_projets" class="card4">Projets</div>
+            <div id="card_formations" class="card4">Formations</div>
+            <div id="card_hobbies" class="card4">Hobbies</div>
+            <div id="card_contact" class="card4">Contact</div>
+        </div>
+
         <!-- Alert -->
         <div id="alert" class="hide"></div>
 
-        <!-- Projets détails -->
+        <!-- Projets détail -->
         <div id="projets_detail"></div>
+        <!-- Hobbies détail -->
+        <div id="hobbies_detail" class="hide flex"></div>
+
+        <!-- nav détail -->
         <nav id="nav_detail" class="hide flex">
             <button id="btn_precedent_detail" title="projet précendent" class="btn"><img loading="lazy" src="asset/svg/precedent.svg" alt="précedent"></button>
             <button id="btn_quit_detail" title="quitter" class="btn"><img loading="lazy" src="asset/svg/quit.svg" alt="quitter"></button>
@@ -605,15 +1261,15 @@
             </div>
         </div>
         <div id="bureau_detail" class="hide flex">
-            <div id="bureau_titre" class="m_a inline_flex presentation">
+            <div id="bureau_titre" class="m_a inline_flex presentation bg_primary_degrader">
                 <h2 class="m_a">Retrouvez les <b>créations</b> de l'univers <b class="no-break">Clem-web</b></h2>
             </div>
         </div>
 
         <!-- Mentions légal -->
         <div id="mentions_detail" class="hide">
-            <div class="texte legale p_0">
-                <div class="titre_mention bg_purple">
+            <div class="texte legale p_0 bg_secondary">
+                <div class="titre_mention bg_secondary">
                     <div>
                         <img class="logo_calcul" src="asset/logo/legal.png" alt="logo metions legales">
                     </div>
@@ -657,7 +1313,7 @@
                     <h3>Librairies JS</h3>
                     <p>
                         <a href="https://swiperjs.com/" target="_blank" rel="noopener noreferrer">Swiper</a> pour les caroussels <br>
-                        <a href="https://particles.js.org/" target="_blank" rel="noopener noreferrer">Particle.js</a>, une bibliothèque JavaScript légère pour créer des particules
+                        <a href="https://vincentgarreau.com/particles.js/#default" target="_blank" rel="noopener noreferrer">Particle.js</a>, une bibliothèque JavaScript légère pour créer des particules
                     </p>
                     <h3>Logo SVG</h3>
                     <p>
@@ -672,14 +1328,11 @@
         </div>
     </main>
 
-    <footer id="footer" class="bg_purpleDark">
+    <footer id="footer" class="bg_secondary">
         <button id="mentions" class="btn_lien" value="mentions_detail">mentions légales</button>
         <!-- <span> | </span>
         <button id="crédits" class="btn_lien" value="credits">crédits</button> -->
         <span id="icone_footer">
-            <a target="_blank" title="Accéder à linkedin" href="https://www.linkedin.com/in/clement-canale-314126186/">
-                <svg width="13px" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            </a>
             <a target="_blank" title="Accéder à linkedin" href="https://www.linkedin.com/in/clement-canale-314126186/">
                 <svg width="13px" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             </a>
