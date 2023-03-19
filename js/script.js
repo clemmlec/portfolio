@@ -162,15 +162,35 @@ function changeSection(event, elem, hist) {
 
   if(oldSection == currentSection){
     hist = false
+    if(currentSection.id == "projets"){
+      show(bg_svg)
+    }
   }else{
     show(document.getElementById('card_'+oldSection.id))
     hide(oldSection,'translate(+200px)');
+    hide(bg_svg)
     show(document.getElementById('particles-js'))
-    if (currentSection.classList.contains('bg_primary')) {
+    if (currentSection.classList.contains('bg_none')) {
+      show(bg_svg)
       setTimeout(() => {
         hide(document.getElementById('particles-js'))
       }, 900);
+      if(currentSection.id == "projets"){
+        bg_svg.classList.add('grand_carre')
+        bg_svg.classList.remove('mini_carre')
+        bg_svg.classList.remove('moyen_carre')
+      }else if(currentSection.id == "hobbies"){
+        bg_svg.classList.add('mini_carre')
+        bg_svg.classList.remove('grand_carre')
+        bg_svg.classList.remove('moyen_carre')
+      }
+      else if(currentSection.id == "formations"){
+        bg_svg.classList.add('moyen_carre')
+        bg_svg.classList.remove('mini_carre')
+        bg_svg.classList.remove('grand_carre')
+      }
     }
+    
   }
  
   hide(document.getElementById('card_'+currentSection.id))
@@ -190,7 +210,8 @@ function changeSection(event, elem, hist) {
   saveScroll = window.scrollY;
 
   window.setTimeout(function(){
-    window.scrollBy( { top : -window.scrollY+historiqueScroll })
+    main_site.scrollTop =0
+    // window.scrollBy( { top : -window.scrollY+historiqueScroll })
   },10);
   
   oldNav = currentNav;
@@ -532,6 +553,7 @@ function changeDetails(event, elem, hist) {
   if(mentions_detail.classList.contains('show')){
     hide(mentions_detail)
   }
+  hide(bg_svg)
   hide(allezA)
   show(projets_detail)
   hide(projets)
@@ -545,7 +567,7 @@ function changeDetails(event, elem, hist) {
 
   saveScroll = window.scrollY;
   window.setTimeout(function(){
-    window.scrollBy( { top : -window.scrollY })
+    projets_detail.scrollTop =0
   },10);
 
   // chargement xhttp ou show()
@@ -623,6 +645,7 @@ function quitWindow(){
   }else if(window.location.href.split('#').length > 1){
     locations = window.location.href.split('#')[1] ;
   }
+  hide(bg_svg)
   hide(nav_search)
   hide(nav_general)
   hide(currentSection)
@@ -643,6 +666,8 @@ if(!document.getElementById('calculette')){
 
 // Web / bureau
 function openWindow() {
+  if(currentSection.id != "home" && currentSection.id != "contact" )
+  show(bg_svg)
   show(nav_search, 'translateX(50px)')
   show(nav_general, 'translateX(50px)')
   show(allezA)
@@ -808,3 +833,16 @@ function valueBtnNavDetail(dossier,fichier,parent) {
     btn_precedent_detail.value = ((parent == photo) ? dossier +"/" : "") +parent[dossier][parent[dossier].length-1]
   }
 }
+
+// main_site.addEventListener('scroll', function(e) {
+//   // formations.style.backgroundPositionX = - 2*position +"px"
+//   // bg_svg.style.backgroundSize = (100 - main_site.scrollTop/15) + "%"
+//   // bg_svg.style.transform = " skew("+main_site.scrollTop/150+"deg, "+main_site.scrollTop/315+"deg)";
+//   bg_svg.style.height = (main_site.scrollTop/150+100) +"%"
+  
+// });
+
+// setInterval(() => {
+//   console.log(main_site.scrollTop)
+  
+// }, 20);

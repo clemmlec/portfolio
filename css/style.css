@@ -1,12 +1,14 @@
 :root {
     --main-bg-color: #202124;
     --secondary-bg-color: #36363a;
+    --secondary-bg-color-alpha: #36363ae5;
     --mainAlpha-bg-color: #202124e9;
     --tertiary-bg-color: #242323;
     --main-color: white;
     --green-color: #08af0d;
     --green-color-visited: #46a249;
     --green-color-deg: #0707079e;
+    --green-deg-2:#0707079e;
     --green-color-alpha: #2f4b30;
     --red-color-alpha: #4d2c2c;
     --muted-color:#DADAE7;
@@ -24,7 +26,7 @@
     --box-shadow-btn-color: inset var(--green-color) 3px 3px 3px,  inset -3px -3px 3px var(--green-color);
     --box-shadow-btn-hover: inset var(--green-color) 3px 3px 2px,  inset -3px -3px 2px var(--green-color);
     --box-shadow-btn-focus: inset var(--green-color) 3px 3px 8px,  inset -3px -3px 8px var(--green-color);
-    
+    --svg-diagonal:  url("../asset/svg/diagonalDark.svg")
 }
 @media (prefers-color-scheme: light) {
     :root {
@@ -32,6 +34,7 @@
         --box-shadow-color:  rgba(255, 249, 249, 0.684);
         --main-bg-color: #e3e3e5;
         --secondary-bg-color:#d2d1d1;
+        --secondary-bg-color-alpha: #d2d1d1f3;
         --mainAlpha-bg-color: #f2f2f3f0;
         --tertiary-bg-color: #ededed;
         --black--alpha: #ffffffc2;
@@ -39,8 +42,10 @@
         --green-color: #3c3fde;
         --green-color-alpha: #3c3fde7c;
         --green-color-deg: #3c3fde1b;
+        --green-deg-2:#c6c6eaed;
         --green-color-visited: #1e2085;
         --muted-color:rgb(54, 54, 54);
+        --svg-diagonal:  url("../asset/svg/diagonal.svg")
     }
 }
 .circle{
@@ -82,9 +87,42 @@ body{
     font-family: 'Inconsolata', monospace;
     font-size: 16px;
     color: var(--main-color);
+    
 }
 main{
-    padding-top: 87px;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    overflow-y: auto;
+}
+#bg_svg{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-attachment: fixed;
+}
+.mini_carre{
+    background:  var(--svg-diagonal);
+    background-size: 1%;
+}
+.grand_carre{
+    background: linear-gradient(to left top , var(--green-color-deg) 20%, var(--main-bg-color) 80%), var(--svg-diagonal);
+    background-position: center;
+    background-repeat: repeat-y;
+    background-position-y: 80px;
+}
+.moyen_carre{
+    background: var(--svg-diagonal);
+    background-position: center;
+    background-repeat: repeat;
+    background-position-y: 80px;
+    background-size: 2%;
 }
 nav > ul {
     all: unset;
@@ -143,7 +181,7 @@ footer{
 /* Particules */
 #particles-js{
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
 }
 #alert{
     position: fixed;
@@ -201,9 +239,10 @@ footer > button:hover{
     color: var(--green-color);
 }
 #bureau{
-    position: absolute;
+    position: fixed;
     top: 10px;
     width: 100vw;
+    z-index: 10;
     justify-content: center;
 }
 #bureau_detail{
@@ -425,7 +464,7 @@ footer > button:hover{
     transition: .5s ease background-color;
 }
 .bg_primary_secondary{
-    background: linear-gradient(to left top ,  var(--green-color-deg) 20%, var(--main-bg-color) 60%);
+    background: linear-gradient(to left top ,  var(--green-deg-2) 20%, var(--main-bg-color) 60%);
     transition: .5s ease background-color;
 }
 .bg_gray{
@@ -453,6 +492,9 @@ footer > button:hover{
 }
 .bg_secondary{
     background-color: var(--secondary-bg-color) !important;
+}
+.bg_secondary_alpha{
+    background-color: var(--secondary-bg-color-alpha) !important;
 }
 .bg_jarez{
     background-color: #01000e;
@@ -554,7 +596,7 @@ footer > button:hover{
     background-color: #b1b0c066;
 }
 .m_10 > .lien_contact{
-    padding-right: 70px;
+    padding-right: 60px;
 }
 #contact_home >.lien_contact{
     width: 40%;
@@ -751,6 +793,7 @@ footer > button:hover{
     clip-path: polygon(100% 100%, 0% 100%, 0 0, 100% 53%);
     background-color:var(--main-bg-color);
 }
+
 .ml_5 > .titre_projet{
     top: -46px;
 }
@@ -770,7 +813,7 @@ footer > button:hover{
     overflow-y: scroll;
     box-shadow: var(--box-shadow-section);
     box-shadow: -5px -5px 9px var(--box-shadow-color), 5px 5px 9px var(--box-shadow-color-2);
-    min-height: 600px;
+    min-height: max-content;
     word-break: break-word;
 }
 .legale{
@@ -779,11 +822,15 @@ footer > button:hover{
 }
 #projets_detail{
     position: absolute;
-    top: 87px;
+    top: 5px;
     margin: auto;
     width: 100%;
     overflow-y: scroll;
-    max-height: fit-content;
+    bottom: 20px;
+    background: linear-gradient(to right bottom , var(--main-bg-color) 20%, var(--green-color-deg) 80%),var(--svg-diagonal);
+    /* background: url(/diagonal.svg); */
+    background-position: center;
+
 }
 .shadow_purple{
     box-shadow: var(--box-shadow-section);
@@ -926,6 +973,8 @@ footer > button:hover{
     max-width: 85vw;
     width: 100%;
     margin: 0 auto;
+    padding-top: 30px;
+    margin-top: 0 !important;
 }
 /* The actual timeline (the vertical ruler) */
 .timeline::after {
@@ -933,7 +982,7 @@ footer > button:hover{
     position: absolute;
     width: 6px;
     background-color: var(--main-color);
-    top: -100px;
+    top: -5px;
     bottom: 0px;
     left: 50%;
     margin-left: -3px;
@@ -1100,6 +1149,11 @@ footer > button:hover{
     z-index: 3;
     justify-content: center;
 }
+/* #hobbies{
+    background:  var(--svg-diagonal);
+    background-size: 1%;
+    background-attachment: fixed;
+} */
 #hobbies_detail > img{
     max-width: 100%;
     object-fit: contain;
@@ -1147,13 +1201,19 @@ footer > button:hover{
     width: 10vw;
     justify-self: center;
     cursor: pointer;
-    background: linear-gradient(to right bottom ,  var(--green-color-deg) 20%, var(--main-bg-color) 60%);
+    background: linear-gradient(to right bottom ,  var(--green-color-deg) 20%, var(--main-bg-color) 60%),var(--svg-diagonal);
+    /* background: url(/diagonal.svg); */
+    background-position: center;
+    background-repeat: no-repeat;
     transition: .5s ease box-shadow;
+
 }
 .card4:hover{
     box-shadow: var(--box-shadow-section);
     color: var(--green-color) !important;
-    background: linear-gradient(to left top ,  var(--green-color-deg) 20%, var(--main-bg-color) 60%);
+    background: linear-gradient(to left top ,  var(--green-color-deg) 20%, var(--main-bg-color) 60%), var(--svg-diagonal);
+    background-position: center;
+    background-repeat: no-repeat;
     transition: .5s ease box-shadow;
 }
 .photo_hobbie{
@@ -1359,7 +1419,7 @@ footer > button:hover{
         grid-template-columns: 12% 88%;
     }
     .texte{
-        max-height: 70vh;
+        max-height: 800px;
     }
 
 }
@@ -1376,9 +1436,21 @@ footer > button:hover{
 
 }
 @media all and (max-width: 861px) {
+    main{
+        top: 73px;
+    }
     .card4{
         padding: 30px;
         font-size: 15px;
+    }
+    .grand_carre{
+        background-position-y: 73px;
+    }
+    .mini_carre{
+        background-size: 2%;
+    }
+    .moyen_carre{
+        background-size: 3%;
     }
     #calculette{
        margin-top: 90px;
@@ -1437,9 +1509,7 @@ footer > button:hover{
     .presentation{
         width: 80vw;
     }
-    main{
-        padding-top: 77px;
-    }
+
     .heptagone{
         margin: auto;
     }
