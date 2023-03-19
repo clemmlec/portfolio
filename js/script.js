@@ -80,11 +80,12 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 }else{ mobile = false}
 
 route = [
-  ["home",
-  "projets",
-  "formations",
-  "hobbies",
-  "contact"],
+  [
+    "home",
+    "projets",
+    "formations",
+    "hobbies",
+    "contact"],
   [
     "portfolio",
     "fedhubs",
@@ -169,7 +170,7 @@ function changeSection(event, elem, hist) {
     show(document.getElementById('card_'+oldSection.id))
     hide(oldSection,'translate(+200px)');
     hide(bg_svg)
-    show(document.getElementById('particles-js'))
+    
     if (currentSection.classList.contains('bg_none')) {
       show(bg_svg)
       setTimeout(() => {
@@ -179,16 +180,39 @@ function changeSection(event, elem, hist) {
         bg_svg.classList.add('grand_carre')
         bg_svg.classList.remove('mini_carre')
         bg_svg.classList.remove('moyen_carre')
-      }else if(currentSection.id == "hobbies"){
+        // bg_svg.classList.remove('micro_carre')
+        // bg_svg.classList.remove('giga_carre')
+      }
+      else if(currentSection.id == "hobbies"){
         bg_svg.classList.add('mini_carre')
         bg_svg.classList.remove('grand_carre')
         bg_svg.classList.remove('moyen_carre')
+        // bg_svg.classList.remove('micro_carre')
+        // bg_svg.classList.remove('giga_carre')
       }
       else if(currentSection.id == "formations"){
         bg_svg.classList.add('moyen_carre')
         bg_svg.classList.remove('mini_carre')
         bg_svg.classList.remove('grand_carre')
+        // bg_svg.classList.remove('giga_carre')
+        // bg_svg.classList.remove('micro_carre')
       }
+      // else if(currentSection.id == "contact"){
+      //   bg_svg.classList.add('micro_carre')
+      //   bg_svg.classList.remove('moyen_carre')
+      //   bg_svg.classList.remove('mini_carre')
+      //   bg_svg.classList.remove('grand_carre')
+      //   bg_svg.classList.remove('giga_carre')
+      // }
+      // else if(currentSection.id == "contact"){
+      //   bg_svg.classList.add('giga_carre')
+      //   bg_svg.classList.remove('micro_carre')
+      //   bg_svg.classList.remove('moyen_carre')
+      //   bg_svg.classList.remove('mini_carre')
+      //   bg_svg.classList.remove('grand_carre')
+      // }
+    }else{
+      show(document.getElementById('particles-js'))
     }
     
   }
@@ -652,6 +676,8 @@ function quitWindow(){
   hide(mentions_detail)
   hide(hobbies_detail)
   hide(nav_detail)
+  hide(projets_detail)
+  main_site.style.top = 0
   hide(footer)
   show(bureau)
   show(bureau_detail)
@@ -676,6 +702,7 @@ function openWindow() {
   show(footer)
   hide(bureau)
   hide(bureau_detail)
+  main_site.removeAttribute('style') 
   main_site.classList.add('bg_primary')
   setTimeout(function(){ 
     nav_search.style.transform = 'translateX(0px)';

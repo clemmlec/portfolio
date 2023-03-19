@@ -117,6 +117,17 @@ main{
     background-repeat: repeat-y;
     background-position-y: 80px;
 }
+/* .micro_carre{
+    background:  var(--svg-diagonal);
+    background-size: 0.5%;
+}
+.giga_carre{
+    background: linear-gradient(to left top , var(--green-color-deg) 20%, var(--main-bg-color) 80%), var(--svg-diagonal);
+    background-position: center;
+    background-repeat: repeat-y;
+    background-position-y: 80px;
+    background-size: 150%;
+} */
 .moyen_carre{
     background: var(--svg-diagonal);
     background-position: center;
@@ -248,6 +259,9 @@ footer > button:hover{
 #bureau_detail{
     margin: auto;
     height: 80vh;
+    position: relative;
+    z-index: 11;
+    top: 120px;
 }
 #home{
     min-height: 80vh;
@@ -1245,7 +1259,7 @@ footer > button:hover{
 #calculette{
     margin: auto;
     left: 50%;
-    top: 90px;
+    top: 40px;
     transform: translate(-50%, 0%); 
     /* margin-top: 50px; */
     height: 60svh;
@@ -1365,7 +1379,7 @@ footer > button:hover{
     transform: translate(-50%, 0%); 
     z-index: 2;
     width: 80vw;
-    top: 90px;
+    top: 40px;
     background-color: var(--main-bg-color);
     padding: 20px;
     border-radius: 5px;
@@ -1452,9 +1466,12 @@ footer > button:hover{
     .moyen_carre{
         background-size: 3%;
     }
-    #calculette{
-       margin-top: 90px;
+    /* .giga_carre{
+        background-size: 3%;
     }
+    .micro_carre{
+        background-size: 1.5%;
+    } */
     #mentions_detail{
         top: 42px;
         width: 100vw;
