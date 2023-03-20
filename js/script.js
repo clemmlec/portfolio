@@ -226,7 +226,7 @@ function changeSection(event, elem, hist) {
   }
 
   if(widowLoad){
-  show(currentSection)
+  show(currentSection,'translateX(50px)')
   }else{
   show(currentSection,'translateX(50px)')
   }
@@ -314,6 +314,7 @@ goToRoute(locations, true)
 
 window.onpopstate = function(event) {
   locations = window.location.href.split('#')[1]+(window.location.href.split('#')[2]?'/'+window.location.href.split('#')[2]:'');
+  
   // Le changement provient de l'historique
   if (event.state !== null) {
     goToRoute(locations,false)
@@ -338,7 +339,6 @@ window.onpopstate = function(event) {
     
     widowLoad = true;
     goToRoute(locations,true)
-
   }
 };
 
