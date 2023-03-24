@@ -26,7 +26,8 @@
     --box-shadow-btn-color: inset var(--green-color) 3px 3px 3px,  inset -3px -3px 3px var(--green-color);
     --box-shadow-btn-hover: inset var(--green-color) 3px 3px 2px,  inset -3px -3px 2px var(--green-color);
     --box-shadow-btn-focus: inset var(--green-color) 3px 3px 8px,  inset -3px -3px 8px var(--green-color);
-    --svg-diagonal:  url("../asset/svg/diagonalDark.svg")
+    --svg-diagonal:  url("../asset/svg/diagonalDark.svg");
+    --svg-agrandir: url("../asset/svg/agrandirDark.svg");
 }
 @media (prefers-color-scheme: light) {
     :root {
@@ -45,9 +46,24 @@
         --green-deg-2:#c6c6eaed;
         --green-color-visited: #1e2085;
         --muted-color:rgb(54, 54, 54);
-        --svg-diagonal:  url("../asset/svg/diagonal.svg")
+        --svg-diagonal:  url("../asset/svg/diagonal.svg");
+        --svg-agrandir: url("../asset/svg/agrandir.svg");
     }
 }
+  /* inconsolata-regular - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Inconsolata';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../asset/font/inconsolata-v31-latin-regular.eot'); /* IE9 Compat Modes */
+    src: url('../asset/font/inconsolata-v31-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../asset/font/inconsolata-v31-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../asset/font/inconsolata-v31-latin-regular.woff') format('woff'), /* Modern Browsers */
+         url('../asset/font/inconsolata-v31-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../asset/font/inconsolata-v31-latin-regular.svg#Inconsolata') format('svg'); /* Legacy iOS */
+  }
+
 .circle{
     display: flex;
     justify-content: center;
@@ -87,7 +103,7 @@ body{
     font-family: 'Inconsolata', monospace;
     font-size: 16px;
     color: var(--main-color);
-    
+    overflow-x: hidden;
 }
 main{
     position: fixed;
@@ -96,6 +112,7 @@ main{
     right: 0;
     bottom: 20px;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 #bg_svg{
     position: fixed;
@@ -344,7 +361,7 @@ footer > button:hover{
     justify-content: center;
 }
 .projets_details{
-    padding-top: 40px !important;
+    padding-top: 57px !important;
 }
 .button{
     display: grid;
@@ -580,6 +597,7 @@ footer > button:hover{
     margin: 0;
     box-shadow:  var(--box-shadow-onglets-2);
     padding-top: 5px;
+    padding-bottom: 5px;
 }
 #contact_home::before{
     position: absolute;
@@ -619,7 +637,7 @@ footer > button:hover{
     top: 0;
     left: 0;
     position: absolute;
-    height: 38px;
+    height: 100%;
     width: 38px;
 }
 .icone_left > img, .icone_left > svg{
@@ -740,6 +758,9 @@ footer > button:hover{
     position: relative;
     z-index: 2;
 }
+.h_40{
+    height: 40px;
+}
 .icone_bureau > svg, .icone_bureau > img{
     position: relative;
     z-index: 3;
@@ -764,8 +785,23 @@ footer > button:hover{
     width: 60px;
     height: 60px;
     border-radius: 50px;
-    background-color:var(--secondary-bg-color);
     box-shadow: var(--box-shadow-section);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.meteo::before{
+    background-image: url(../asset/bureau/meteo.png);
+    background-size: 120%;
+}
+.clem::before{
+    background-image: url(../asset/favicon.png);
+    background-color:  #1d1d1b;
+    background-size: 90%;
+}
+.calculette::before{
+    background-image: url(../asset/bureau/calculette.png);
+    background-color:  white;
+    background-size: 100%;
 }
 .flex_projet{
     display: flex;
@@ -779,7 +815,7 @@ footer > button:hover{
 .titre_projet{
     position: relative;
     box-shadow: var(--box-shadow-onglets);
-    top: -40px;
+    top: -42px;
     min-width: 40%;
     left: -40px;
     width: fit-content;
@@ -799,11 +835,6 @@ footer > button:hover{
     height: 5px;
     width: 5px;
     content: "";
-    clip-path: polygon(100% 100%, 0 100%, 1% 0%, 7% 28%, 13% 43%, 23% 58%, 39% 70%, 59% 79%, 100% 87%);
-    clip-path: polygon(100% 100%, 0% 100%, 0% 0%, 100% 79%);
-    clip-path: polygon(100% 100%, 0% 100%, 0 0, 100% 71%);
-    clip-path: polygon(100% 100%, 0% 100%, 0 70%, 100% 71%);
-    clip-path: polygon(100% 100%, 0% 100%, 0 0, 100% 71%);
     clip-path: polygon(100% 100%, 0% 100%, 0 0, 100% 53%);
     background-color:var(--main-bg-color);
 }
@@ -913,6 +944,7 @@ footer > button:hover{
     margin: auto;
     width: fit-content;
     padding: 50px;
+    max-width: 500px;
 }
 .t_center{
     text-align: center;
@@ -996,7 +1028,7 @@ footer > button:hover{
     position: absolute;
     width: 6px;
     background-color: var(--main-color);
-    top: -5px;
+    top: -20px;
     bottom: 0px;
     left: 50%;
     margin-left: -3px;
@@ -1099,7 +1131,7 @@ footer > button:hover{
 .durer{
     background-color: unset;
     color: #757575;
-    font-size: 16px;
+    font-size: 16px !important;
     top: 50px !important;
 }
 /* The actual content */
@@ -1153,7 +1185,7 @@ footer > button:hover{
 }
 #hobbies_detail{
     position: fixed;
-    top: 138px;
+    top: 140px;
     bottom: 30px;
     left: 10px;
     right: 10px;
@@ -1176,11 +1208,17 @@ footer > button:hover{
     position: absolute;
     top: 5px;
     right: 5px;
+    height: 20px !important;
+    width: 20px !important;
     fill: var(--green-color);
     cursor: pointer;
+    border-radius: 0 !important;
+    background-image: var(--svg-agrandir);
 }
 .agrandir:hover{
-    width: 25px;
+    width: 30px !important;
+    height: 30px !important;
+    background-size: 100%;
 }
 .titre_hobbies{
     position: relative;
@@ -1237,7 +1275,7 @@ footer > button:hover{
     position: relative;
     z-index: 4;
 }
-.swip > p{
+.swip > h3{
     margin: 0;
     padding: 16px;
     margin-bottom: 1px;
@@ -1258,6 +1296,7 @@ footer > button:hover{
 }
 #calculette{
     margin: auto;
+    touch-action: manipulation;
     left: 50%;
     top: 40px;
     transform: translate(-50%, 0%); 
@@ -1447,6 +1486,9 @@ footer > button:hover{
     .presentation{
         margin: 20px auto;
     }
+    .swip > h3{
+        font-size: 0.9em;
+    }
 
 }
 @media all and (max-width: 861px) {
@@ -1455,7 +1497,7 @@ footer > button:hover{
     }
     .card4{
         padding: 30px;
-        font-size: 15px;
+        font-size: 13px;
     }
     .grand_carre{
         background-position-y: 73px;
@@ -1466,12 +1508,6 @@ footer > button:hover{
     .moyen_carre{
         background-size: 3%;
     }
-    /* .giga_carre{
-        background-size: 3%;
-    }
-    .micro_carre{
-        background-size: 1.5%;
-    } */
     #mentions_detail{
         top: 42px;
         width: 100vw;
@@ -1492,7 +1528,7 @@ footer > button:hover{
     }
     .gridR2 > .lien_contact{
         margin-top: 10px !important;
-        width: max-content;
+        width: 150px;
     }
     .photo_hobbie{
         max-height: 300px;
@@ -1636,21 +1672,37 @@ footer > button:hover{
 }
 
 @media all and (max-width: 601px) {
+    #bureau_detail {
+        height: 70vh;
+      }
     .card4{
         padding: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
         width: max-content;
+    }
+    #calculette > #input {
+        font-size: 3em;
+        height: 43px;
     }
     #contact_home{
         width: 90vw;
         margin-top: 20px;
         margin-bottom: 20px;
     }
+    /* nav ul li {
+        font-size: 14px;
+    } */
     #home .flex_home:nth-child(3) { order: 4; }
     #home .flex_home:nth-child(4) { order: 3; }
+    
 }
-
-@media (prefers-color-scheme: dark) {
-    /* Styles pour le mode sombre */
-   
-}
+/* @media all and (max-device-width: 601px) {
+    .dateLeft, .dateRight{
+        font-size: 28px;
+    }
+    .btn_tool{
+        font-size: 13px;
+    }
+} */
 
