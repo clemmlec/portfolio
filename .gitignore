@@ -1,3 +1,8 @@
 /php/mail.php
 /php/meteo.php
 /php/captcha.php
+/ttmc/
+
+*.DS_Store
+playerSave.php
+scoreSave.php
