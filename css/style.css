@@ -815,7 +815,7 @@ footer > button:hover{
 .titre_projet{
     position: relative;
     box-shadow: var(--box-shadow-onglets);
-    top: -42px;
+    top: -40px;
     min-width: 40%;
     left: -40px;
     width: fit-content;
@@ -905,7 +905,7 @@ footer > button:hover{
     height: max-content;
 }
 .t_card{
-    top: -47px !important;
+    top: -45px !important;
     left: -45px !important;
 }
 .p_card{
