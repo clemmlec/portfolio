@@ -200,7 +200,7 @@ route = [
     "hobbies",
     "contact"],
   [
-    // "landing",
+    "landing",
     "comptabilite",
     "portfolio",
     "fedhubs",
